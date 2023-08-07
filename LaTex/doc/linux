@@ -1,0 +1,32 @@
+- Hinzufügen des Packages zum LaTeX Pfad
+- Registrieren
+
+-> Hinzufügen des Packages
+  -> z.B. unter
+  /usr/local/share/texmf/
+     oder
+  ~/texmf/
+
+-> Registrieren anhand
+  mktexlsr
+
+
+- Package emerald.sty (Schriftart in Entwurfsmodus)
+
+-> Lade die Datei in einem temporären Ordner runter 
+  wget http://mirror.ctan.org/fonts/emerald.zip
+-> unrar
+  unrar emerald.zip
+-> Inhalte in emerald/ zum LaTeX-Pfad kopieren.
+  rsync -auv emerald/ /usr/local/share/texmf/
+-> Registrieren anhand
+  mktexlsr
+
+- Map font
+-> sucht nach .map z.B. liegt emerald.map unter
+  /usr/local/share/texmf/fonts/map/<syntax>/emerald.map
+   <syntax> ist hier dvips
+-> Manage font map anhand
+  updmap --enable Map=emerald.map
+-> Registrieren anhand
+  mktexlsr

@@ -1,0 +1,91 @@
+\documentclass[]{FZGdasa}
+\usepackage{comment}
+
+%Options > Configure TeXstudio > Build > Default Bibliography Tool
+% SET IT TO biber!!! not bibtex
+
+% {Klassen} entspr. *.cls Dateien:
+% FZGdasa > arbeitet mit \chapter als höchste Ebene
+%
+% [Optionen]:
+% entwurf      > Erstelldatum, Anmerkungen usw. sichtbar
+% notoc        > kein Inhaltsverzeichnis
+% nokeys       > keine labels anzeigen im entwurf-Modus
+% notodolist   > keine Auflistung der mit \Note \sNote \Explain \Reminder \sReminder gekennzeichneten Stellen
+% noxurl       > kein Zeilenumbruch in URL an alphanumerischen Zeichen, aber Skalierung des Zeichenabstands in URL in Literaturverzeichnis
+% english
+
+% Schlüsselwörter:
+\Arbeit{Semesterarbeit}
+\Nummer{1888}
+\ThemaDeutsch{Erweiterte Konfidenzbetrachtung des Schädigungszustands von	Maschinenelementen mittels Methoden des Maschinellen Lernens}
+\ThemaEnglisch{Advanced Confidence Analysis of the State of Damage of Machine Elements Utilizing Machine Learning}
+%\ErlangungGrad{B.Sc./M.Sc. (entfällt bei Semesterarbeit)}
+\AutorAnrede{Herr}
+\Autorname{Jan Nalivaika, B.Sc.}
+\AutorMatrNr{03694590}
+\Betreuername{Daniel Vietze, M.Sc.}
+\Themenstellername[Prof. Dr.-Ing.]{Karsten Stahl}
+\ThemenstellerZusatz{Lehrstuhl für Maschinenelemente}
+\Beginn{19.04.2023}
+\Ende{19.09.2023}
+\Ort{Garching bei München}
+\Aufgabepfad{aufgabenstellung.tex}
+
+% Verfügbare Kommandos:
+%\siehe[1]{s.~#1}
+%{\chapref}[1]{\textbf{\chaptername~\ref{#1}}}
+%{\schapref}[1]{\siehe{\chapref{#1}}}
+%{\secref}[1]{\textbf{Abschnitt~\ref{#1}}}
+%{\ssecref}[1]{\siehe{\secref{#1}}}
+%{\eqref}[1]{\textbf{Formel~(\ref{#1})}}
+%{\seqref}[1]{\siehe{\eqref{#1}}}
+%{\figref}[1]{\textbf{\figurename~\ref{#1}}}
+%{\sfigref}[1]{\siehe{\figref{#1}}}
+%{\tabref}[1]{\textbf{\tablename~\ref{#1}}}
+%{\stabref}[1]{\siehe{\tabref{#1}}}
+%{\datref}[1]{\textbf{Dateifenster~\ref{#1}}}
+%{\sdatref}[1]{\siehe{\datef{#1}}}
+
+%\addbibresource{litbib.bib}
+
+\begin{document}
+
+
+\input{kap1.tex}
+\input{kap2.tex}
+\input{kap3.tex}
+\input{kap4.tex}
+\input{kap5.tex}
+
+%...
+
+%==== Literaturverzeichnis ====
+\clearpage
+\chapter*{\bibname}
+\markboth{\bibname}{}
+\insertbib
+\listoffigures
+\listoftables
+% In der Bib sollte für Normen und Richtlinien als Type MANUAL und Webseite als ONLINE eingegeben
+
+
+
+%\phantomsection\label{sec:literaturverzeichnis}
+%\bibliography{litbib}
+%\addcontentsline{toc}{section}{\bibname}
+\clearpage
+
+%=========================================================
+%==== Anhang ====
+
+% Var1: ueber \Anhang
+%\Anhang
+%\input{anhang.tex}
+
+% Var2: ueber \appendix; !!! usepackage{appendix} % verwenden !!!
+%\appendix
+%\phantomsection
+%\addcontentsline{toc}{section}{Anhang}
+
+\end{document}

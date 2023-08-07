@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'projekt.blg'
+[108] biber-MSWIN64:340> INFO - === 
+[145] Biber.pm:419> INFO - Reading 'projekt.bcf'
+[305] Biber.pm:979> INFO - Found 128 citekeys in bib section 0
+[321] Biber.pm:4419> INFO - Processing section 0
+[333] Biber.pm:4610> INFO - Looking for bibtex file 'litbib.bib' for section 0
+[393] bibtex.pm:1713> INFO - LaTeX decoding ...
+[618] bibtex.pm:1519> INFO - Found BibTeX data source 'litbib.bib'
+[1407] UCollate.pm:68> INFO - Overriding locale 'de' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1407] UCollate.pm:68> INFO - Overriding locale 'de' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1407] Biber.pm:4239> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'de'
+[1408] Biber.pm:4245> INFO - No sort tailoring available for locale 'de'
+[1648] bbl.pm:660> INFO - Writing 'projekt.bbl' with encoding 'UTF-8'
+[1733] bbl.pm:763> INFO - Output to projekt.bbl

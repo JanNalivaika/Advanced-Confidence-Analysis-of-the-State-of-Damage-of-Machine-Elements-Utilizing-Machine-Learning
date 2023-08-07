@@ -1,0 +1,428 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{FZGdef}[2018/04/26 LaTeX2e fuer FZG]
+
+\newif\if@entwurf\@entwurffalse
+\DeclareOption{entwurf}{\@entwurftrue}
+\newif\if@notodolist\@notodolistfalse
+\DeclareOption{notodolist}{\@notodolisttrue}
+\newif\if@nokeys\@nokeysfalse
+\DeclareOption{nokeys}{\@nokeystrue}
+\newif\if@sortbib\@sortbibfalse
+\DeclareOption{sortbib}{\@sortbibtrue}
+\newif\if@english\@englishfalse
+\DeclareOption{english}{\@englishtrue}
+\newif\if@diss\@dissfalse
+\DeclareOption{diss}{\@disstrue}
+\newif\if@noxurl\@noxurlfalse
+\DeclareOption{noxurl}{\@noxurltrue}
+\DeclareOption*{\PackageWarningNoLine{FZGdef}{Option \CurrentOption\space ist nicht definiert}}
+\ExecuteOptions{english}
+\ProcessOptions\relax
+
+
+\RequirePackage{color}
+\RequirePackage{colortbl}
+\RequirePackage[shadow,colorinlistoftodos]{todonotes}
+\RequirePackage{emerald}
+\RequirePackage{setspace}
+\RequirePackage{FZGhyphen}
+
+\RequirePackage{array}
+\RequirePackage{units}
+\RequirePackage{icomma}
+\RequirePackage{tabularx}
+\RequirePackage{multicol}
+\RequirePackage{multirow}
+\RequirePackage{eurosym}
+%verbessertes Beschriften mir div. Optionen
+\RequirePackage{caption}
+\RequirePackage{afterpage}
+%zusaetzlihce Symbole und Schriften (ams: american mathematical soc)
+%\RequirePackage{amssymb}
+%\RequirePackage[fleqn]{amsmath}
+%\RequirePackage{amstext}
+%\RequirePackage{amsfonts}
+
+\RequirePackage{rotating}
+%including graphics files, rotating parts of a page, and scaling parts of a page
+\RequirePackage{graphicx}
+% Umgebung fuer lange Tabelle (mit einstellbarer Linienstaerke)
+\RequirePackage{tabu}
+%
+% Möglichkeit zur Nutzung der ursprünglichen Definition der Umgebung tabularx mit \restoretx (\begingroup\restoretx\begin{tabularx}{...}{...}...\end{tabularx}\endgroup) hinzugefügt, da das Paket ltablex die Umgebung modifiziert.
+% Todo: Eventuell neue Umgebung hierzu definieren
+% https://tex.stackexchange.com/questions/115177/nested-tabularx-doesnt-work-with-ltablex
+\let\tx@\TX@endtabularx
+\def\restoretx{\let\TX@endtabularx\tx@}
+%
+\RequirePackage{ltablex}    % modifiziert longtable, sodass tabularx wie longtable verwendet werden kann
+\RequirePackage{csquotes}
+
+\if@sortbib
+   \RequirePackage[ backend=biber,
+                    %style=din,
+                    style=FZGcompdin,
+                    giveninits=true,
+                    sortlocale=de,
+                    sortcites=true,
+                    maxalphanames=1,
+					maxbibnames=100,
+                    %labelnumber=true,
+                    %sorting=nty,
+                    defernumbers=true
+                    %bibencoding=latin1
+                   ]{biblatex}
+									
+	\addbibresource{litbib.bib}
+	
+	\DeclareNameAlias{default}{family-given}
+\fi
+
+\if@entwurf
+  \RequirePackage{datetime}
+  \if@nokeys
+  %
+  \else
+    \RequirePackage[color]{showkeys}
+  
+    \definecolor{refkey}{RGB}{ 236,  3,139}
+    \definecolor{labelkey}{RGB}{ 236,  3,139}
+  \fi
+%  \definecolor{labelkey}{RGB}{ 20,135,  0}
+  \renewcommand{\dateseparator}{.}
+  \ddmmyyyydate
+  \settimeformat{hhmmsstime}
+  
+  \newcommand*\CompiledTime{\today{ }\currenttime}
+  
+\fi
+
+%\DeclareLabelalphaTemplate{
+%   \labelelement{
+%     \field[uppercase,final]{shorthand}
+%     \field[uppercase]{label}
+%     \field[uppercase,strwidth=3,strside=left,ifnames=1]{labelname}
+%     \field[uppercase,strwidth=1,strside=left]{labelname}
+%   }
+%   \labelelement{
+%     \field[strwidth=2,strside=right]{year}
+%   }
+%}
+
+% Schriftart von \url{...} gleich wie Schriftart von Text
+\urlstyle{same}
+
+\if@noxurl
+\else
+    % Zeilenumbruch in \url{...} auch an alphanumerischen Zeichen (zum Vermeiden von Overfull \hbox)
+    \RequirePackage{xurl}
+
+    % Keine Skalierung des Zeichenabstands in \url{...} in Literaturverzeichnis (https://tex.stackexchange.com/questions/290792/stretched-character-spacing-with-url-citation/291857#291857)
+    \appto\biburlsetup{\Urlmuskip=0mu\relax}
+\fi
+
+%==================================================================
+% Definition Schriftarten
+%==================================================================
+\renewcommand{\familydefault}{phv}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+
+%==================================================================
+% Definition Farben
+%==================================================================
+\definecolor{fzgblau}{RGB}{  0, 101, 189}
+\definecolor{tumblau}{RGB}{  0, 101, 189}
+\definecolor{tumgrau}{RGB}{218, 215, 203}
+
+% Diagramme (TUM-Stammfarbpalette)
+\definecolor{tumdiag1}{RGB}{  0,  51,  89}
+\definecolor{tumdiag2}{RGB}{100, 160, 200}
+\definecolor{tumdiag3}{RGB}{227, 114,  34}
+\definecolor{tumdiag4}{RGB}{162, 173,   0}
+% Erweiterte Diagrammfarbpalette
+\definecolor{tumdiag5}{RGB}{156,  13,  22}
+\definecolor{tumdiag6}{RGB}{105,   8,  90}
+\definecolor{tumdiag7}{RGB}{103, 154,  29}
+\definecolor{tumdiag8}{RGB}{249, 186,   0}
+
+\definecolor{PostItGelb}{RGB}{255, 255, 165}
+\definecolor{PostItGelb2}{RGB}{250, 250, 144}
+\definecolor{PostItGreen}{RGB}{185, 255,  80}
+\definecolor{PostItOrange}{RGB}{255, 185,  34}
+
+\definecolor{vimbraun}{RGB}{128,64,64}
+\definecolor{vimgreen}{RGB}{46,139,87}
+\definecolor{vimblue}{RGB}{0,0,255}
+%\definecolor{vimpink}{RGB}{255,143,255}
+\definecolor{vimpink}{RGB}{255,0,255}
+\definecolor{vimviolet}{RGB}{160,90,205}
+\definecolor{vimgrey}{RGB}{101,123,131}
+
+\if@entwurf
+  \definecolor{LinkColor}{RGB}{100, 100, 100}
+\else
+  \definecolor{LinkColor}{RGB}{  0,   0,   0}
+\fi
+
+%==================================================================
+% Definition Code Syntax
+%==================================================================
+\newcommand{\vimcomment}[1]{\textcolor{vimgrey}{\texttt{\# #1}}}
+\newcommand{\vimkeyword}[1]{\textcolor{vimblue}{\texttt{#1}}}
+\newcommand{\vimstring}[1]{\textcolor{vimpink}{\texttt{#1}}}
+
+%==================================================================
+% Definition Message
+%==================================================================
+\newcommand*\ErrMsg[1]{\textcolor{red}{#1}}
+
+%==================================================================
+% Definition Blankpage
+%==================================================================
+% Kommt mit \afterpage{\blankpage} in der vorherigen Seite
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    %\addtocounter{page}{-1}%
+    \newpage}
+		
+%==================================================================
+% Definition Schriftgroessen
+%==================================================================
+% \fsXXseries hat gleiche Verwendung wie z.B. \bfseries, das heißt,
+% Text nach dem Befehl wird angepasst
+% \fsXX hat gleiche Verwendung wie z.B. \textbf, das Text als
+% Argument eingegeben wird.
+\newcommand{\fsXIIseries} {\fontsize{12}{14.2}\selectfont }
+\newcommand{\fsXIIIseries}{\fontsize{13}{15.6}\selectfont }
+\newcommand{\fsXIVseries} {\fontsize{14}{16.8}\selectfont }
+\newcommand{\fsXVseries}  {\fontsize{15}{18}\selectfont }
+\newcommand{\fsXVIseries} {\fontsize{16}{19.2}\selectfont}
+
+\newcommand{\fsXII}[1] {{\fsXIIseries #1}}
+\newcommand{\fsXIII}[1]{{\fsXIIIseries #1}}
+\newcommand{\fsXIV}[1] {{\fsXIVseries #1}}
+\newcommand{\fsXV}[1]  {{\fsXVseries #1}}
+\newcommand{\fsXVI}[1] {{\fsXVIseries #1}}
+%==================================================================
+% Definition FzGeIl
+%==================================================================
+\newcommand{\FzGeIl}{\textrm{F\raisebox{0.0ex}{\hspace*{-0.08em}\footnotesize Z}\hspace*{-0.08em}G\raisebox{-0.5ex}{\hspace*{-0.08em}E}\hspace*{-0.08em}I\raisebox{-0.2ex}{L}}}
+\newcommand{\FzGl}{\textrm{F\raisebox{0.0ex}{\hspace*{-0.08em}\footnotesize Z}\hspace*{-0.08em}G\raisebox{-0.5ex}{\hspace*{-0.08em}L}}}
+
+%==================================================================
+% Definition Makebib
+%misc = online
+%==================================================================
+\if@sortbib
+   \if@english
+        \newcommand{\titleNormen}{Standards}  
+        \newcommand{\titleJournals}{Papers, Books, Dissertations, Thesises}  
+        \newcommand{\titleURLS}{Webpages}  
+   \else
+        \newcommand{\titleNormen}{Normen, Richtlinien und Patente}  
+        \newcommand{\titleJournals}{Zeitschriftenaufs{\"a}tze, B{\"u}cher, Dissertationen, Studienarbeiten}  
+        \newcommand{\titleURLS}{Internetseiten}  
+   \fi
+\newcommand{\insertbib}{
+	  \printbibliography[type=manual,title={\titleNormen},heading=subbibliography]
+		\printbibliography[nottype=manual,keyword={\titleNormen},heading=none]
+		
+		\printbibliography[nottype=manual,nottype=misc,notkeyword={norm,web},title={\titleJournals},heading=subbibliography]
+    
+		\printbibliography[type=misc,title={\titleURLS},heading=subbibliography]
+		\printbibliography[nottype={manual,misc},keyword={web},heading=none]
+		\if@diss
+		\section*{Betreute und für diese Arbeit relevante Studienarbeiten}
+		
+		Folgende Studienarbeiten, deren Bearbeitung, Auswertung, Interpretation und Darstellung von Ergebnissen unter wesentlicher wissenschaftlicher Anleitung des Autors dieser Dissertation entstanden sind, wurden im Rahmen der vorliegenden Arbeit am Lehrstuhl für Maschinenelemente, Forschungsstelle für Zahnräder und Getriebesysteme angefertigt. Ergebnisse flossen zum Teil in die Arbeit ein.
+		
+		\textcolor{red}{Dieser Textblock kann in FZGdef.sty angepasst werden. Die hier aufgeführten Studienarbeiten müssen das bibtex keyword "'Eigen\_SADA'" enthalten}
+		
+		\printbibliography[nottype=manual,nottype=online,keyword={Eigen_SADA},heading=none]
+		
+		\section*{Sonstige Dokumente}
+		
+		Diese Arbeit basiert auf den Ergebnissen der Forschungsvorhaben der Forschungsvereinigung Antriebstechnik FVA XXX sowie FVA XXX. Die Inhalte der Abschlussberichte zu den Forschungsvorhaben werden in dieser Dissertation verwendet. Zudem sind folgende Arbeiten in den Jahren 20XX bis 20XX, die vom Autor selbst oder unter Beteiligung von Mitarbeitern des Lehrstuhls für Maschinenelemente, Forschungsstelle für Zahnräder und Getriebesysteme erstellt wurden, zum Teil mit in diese Arbeit eingeflossen.
+		
+		\textcolor{red}{Dieser Textblock kann in FZGdef.sty angepasst werden. Die hier aufgeführten Abschlussberichte müssen das bibtex keyword "'Eigen\_Vorhaben'" enthalten}
+		
+		\printbibliography[nottype=manual,nottype=online,keyword={Eigen_Vorhaben},heading=none]
+		
+		\fi
+	}
+\fi
+%==================================================================
+% Definition Notizen
+%==================================================================
+\if@entwurf
+  \newcounter{iNote}
+  \newcounter{iExplain}
+  \newcounter{iReminder}
+  
+  \newcommand{\Note}[2][]{\stepcounter{iNote}\todo[inline,color=PostItGelb,caption={Notiz \theiNote{ }#1}]{%
+    \begin{spacing}{1}\tiny\ECFAugie #2\end{spacing}}}
+  \newcommand{\sNote}[2][]{\stepcounter{iNote}\todo[noline,color=PostItGelb,caption={Notiz \theiNote{ }#1}]{%
+    \begin{spacing}{1}
+      \begin{tabular}{p{1.5cm}}\tiny\ECFAugie #2
+      \end{tabular}
+    \end{spacing}}}
+  \newcommand{\Explain}[2][]{\stepcounter{iExplain}\todo[line,color=PostItGreen,caption={Erläuterung \theiExplain{ }#1}]{%
+    \begin{spacing}{1}
+      \begin{tabular}{p{1.5cm}}\tiny\ECFAugie #2
+      \end{tabular}
+    \end{spacing}}}
+  \newcommand{\Reminder}[2][]{\stepcounter{iReminder}\todo[inline,color=PostItOrange,caption={Erinnerung \theiReminder{ }#1}]{%
+    \begin{spacing}{1}\tiny\ECFAugie #2\end{spacing}}}
+  \newcommand{\sReminder}[2][]{\stepcounter{iReminder}\todo[fancyline,color=PostItOrange,caption={Erinnerung \theiReminder{ }#1}]{%
+    \begin{spacing}{1}
+      \begin{tabular}{p{1.5cm}}\tiny\ECFAugie #2
+      \end{tabular}
+    \end{spacing}}}
+  
+%  \AtEndDocument{\listoftodos[Notizenverzeichnis]\todototoc}
+  \if@notodolist
+  \else
+  \AtEndDocument{\listoftodos[Notizenverzeichnis]}
+  \fi
+\else
+  \newcommand{\Note}[2][]{}
+  \newcommand{\sNote}[2][]{}
+  \newcommand{\Explain}[2][]{}
+  \newcommand{\Reminder}[2][]{}
+  \newcommand{\sReminder}[2][]{}
+\fi
+%==================================================================
+% Definition Verweise
+%==================================================================
+\newcommand*\siehe[1]{s.~#1}
+
+\newcommand{\chapref}[1]{\textbf{\chaptername~\ref{#1}}}
+\newcommand{\schapref}[1]{\siehe{\chapref{#1}}}
+
+\newcommand{\secname}{\if@english Section\else Abschnitt\fi} 
+\newcommand{\secref}[1]{\textbf{\secname~\ref{#1}}}
+\newcommand{\ssecref}[1]{\siehe{\secref{#1}}}
+
+\newcommand{\eqname}{\if@english Equation\else Formel\fi}
+\renewcommand{\eqref}[1]{\textbf{\eqname~(\ref{#1})}}
+\newcommand{\seqref}[1]{\siehe{\eqref{#1}}}
+
+\newcommand{\figref}[1]{\textbf{\figurename~\ref{#1}}}
+\newcommand{\sfigref}[1]{\siehe{\figref{#1}}}
+
+\newcommand{\tabref}[1]{\textbf{\tablename~\ref{#1}}}
+\newcommand{\stabref}[1]{\siehe{\tabref{#1}}}
+
+\newcommand{\datname}{\if@english Listing\else Dateifenster\fi} 
+\newcommand{\datref}[1]{\textbf{\datname~\ref{#1}}}
+\newcommand{\sdatref}[1]{\siehe{\datef{#1}}}
+%==================================================================
+% Definition Umgebungen
+%==================================================================
+% Anmerkung
+%------------------------------------------------------------------
+\newenvironment{Anmerkung}{
+  \begin{center}
+        \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+        \hline \\
+        \textbf{Anmerkung} &
+        }{
+        \\[5mm]
+    \hline
+    \end{tabular}
+\end{center}}
+%------------------------------------------------------------------
+% Gleichungsparameter
+%------------------------------------------------------------------
+\newenvironment{Gleichungsparameter}{
+%      \vspace*{-3.5ex}
+%\begin{center}
+   \footnotesize \begin{tabular}{p{0.07\textwidth}p{0.06\textwidth}p{0.288\textwidth}|p{0.07\textwidth}p{0.06\textwidth}p{0.288\textwidth}}% Todo: Automatische Spaltenbreite (tabularx)
+      \hline 
+      \\[-1.5ex]
+      }{
+      \\[-1.5ex]
+      \hline
+\end{tabular}}
+\newenvironment{Gleichungsparameterlong}{
+%      \vspace*{-3.5ex}
+%\begin{center}
+   \footnotesize \begin{tabular}{p{0.1\textwidth}p{0.06\textwidth}p{0.27\textwidth}|p{0.1\textwidth}p{0.06\textwidth}p{0.27\textwidth}}
+      \hline 
+      \\[-1.5ex]
+      }{
+      \\[-1.5ex]
+      \hline
+\end{tabular}}
+
+% Gleichungsparaeintrag
+\newcommand{\Gleichungparaeintrag}[6]{
+$#1$ & #2 & #3 & $#4$ & #5 & #6 \\ 
+ }%
+\newcommand{\Gleichungparaeintrageinfach}[3]{
+$#1$ & #2 & #3 & & & \\
+ }%
+\newcommand{\Gleichungsparaeintrag}[6]{
+$#1$ & #2 & #3 & $#4$ & #5 & #6 \\ 
+ }%
+\newcommand{\Gleichungsparaeintrageinfach}[3]{
+$#1$ & #2 & #3 & & & \\
+ }%
+ 
+% Dateifenster
+\definecolor{dateifenster}{RGB}{200,200,200}
+\newcommand*{\LineDatTab}{1.5pt}
+%
+% Neue Floatumgebung definieren (aktuell nur für Beschriftung der Dateifenster mit captionof)
+\RequirePackage{newfloat}
+\DeclareFloatingEnvironment[%
+	fileext=dateifenster,%
+	listname=\datname,%
+	name=\datname,%
+	within=none%
+]{dateifensterfloat}
+%
+% Neue Umgebung für Dateifenster definieren
+% Todo: Sprung mit \ref aktuell nicht an Oberkante des Dateifensters
+% Todo: Gegebenenfalls vertikale Abstände noch anpassen (vergleiche figure)
+% Todo: Aktuell feste Breite des Dateifensters (volle Textbreite), gegebenenfalls Vorgabe der Breite als Argument
+% Todo: parbox=false experimentelle Einstellung, aber notwendig, damit bei Verwendung der Einstellung breakable innerhalb trivlist keine Leerzeile vor dem Dateifenster
+% Todo: Gegebenenfalls \renewcommand*{\baselinestretch}{1} entfernen
+\RequirePackage{tcolorbox}
+\tcbuselibrary{breakable, skins}
+\newenvironment{dateifenster}[2]{%
+	\begingroup%
+		% https://tex.stackexchange.com/questions/47204/definitive-guide-to-trivlists
+		% https://tex.stackexchange.com/questions/47057/use-of-trivlist-and-list-in-defining-environments
+		\trivlist\item\relax
+			\newcommand*{\dateifenstercaption}{#1}%
+			\newcommand*{\dateifensterlabel}{#2}%
+			\renewcommand*{\baselinestretch}{1}%
+			\begin{tcolorbox}[%
+					breakable,%
+					enhanced jigsaw,%
+					sharp corners,%
+					boxrule=\LineDatTab,%
+					colback=dateifenster,%
+					colframe=black,%
+					boxsep=0pt,%
+					left=5pt,%
+					right=5pt,%
+					top=2pt,%
+					bottom=2pt,%
+					parbox=false%
+				]%
+				\ttfamily%
+				\ignorespaces%
+}{%
+			\end{tcolorbox}%
+			% Siehe package captionof (inkludiert in package caption)
+			\captionsetup{type=dateifensterfloat}%
+			\caption{\dateifenstercaption}%
+			\label{\dateifensterlabel}%
+		\endtrivlist%
+	\endgroup%
+}
