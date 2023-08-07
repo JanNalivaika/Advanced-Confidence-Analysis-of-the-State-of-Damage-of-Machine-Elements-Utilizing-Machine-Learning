@@ -1435,7 +1435,7 @@
       \verb Deutsch, He 2018 - Using Deep Learning-Based Approach:Attachments/Deutsch, He 2018 - Using Deep Learning-Based Approach.pdf:application/pdf
       \endverb
     \endentry
-    \entry{DIN50100}{misc}{}
+    \entry{DIN50100}{manual}{}
       \name{author}{1}{}{%
         {{hash=013af72241a39234e9385fb8781f2e52}{%
            family={{DIN - Deutsches Institut für Normung}},
@@ -2281,7 +2281,7 @@
       \verb Huang 2020 - Classification of Large-Scale High-Resolution SAR:Attachments/Huang 2020 - Classification of Large-Scale High-Resolution SAR.pdf:application/pdf
       \endverb
     \endentry
-    \entry{ISO1}{book}{}
+    \entry{ISO1}{manual}{}
       \name{author}{1}{}{%
         {{hash=077676d7201aaafd62ccd5f64500a34f}{%
            family={{ISO - INTERNATIONAL STANDARD}},

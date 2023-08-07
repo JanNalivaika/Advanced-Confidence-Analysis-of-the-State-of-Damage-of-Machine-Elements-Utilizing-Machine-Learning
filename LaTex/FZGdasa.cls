@@ -536,7 +536,7 @@ Die Arbeit wurde bisher keiner anderen Prüfungsbehörde vorgelegt.\vspace{4ex}\
 \newcommand{\Danksagung}{\newpage
 	\begin{otherlanguage}{ngerman}%
 		\chapter*{Danksagung}%\vspace{0,5cm}\\
-		An dieser Stelle möchte ich mich bei meinem Betreuer Daniel Vietze, am Lehrstuhl für Maschinenelemente an der Technischen Universität München, bedanken. Ohne seine Bereitschaft und kontinuierlichen Unterstützung während des gesamten Prozesses wäre diese Arbeit nicht entstanden.
+		An dieser Stelle möchte ich mich bei meinem Betreuer Daniel Vietze, vom Lehrstuhl für Maschinenelemente an der Technischen Universität München, bedanken. Ohne seine Bereitschaft und kontinuierlichen Unterstützung während des gesamten Prozesses wäre diese Arbeit nicht entstanden.
 	\end{otherlanguage}%
 \cleardoublepage
 }
@@ -587,7 +587,7 @@ Die Nutzungsrechte an dieser Arbeit gehen an den Lehrstuhl für Maschinenelement
 \titlepage
 \Aufgabenstellung
 \DiplomErklaerung
-%\Danksagung
+\Danksagung
 \tableofcontents
 %
 % Abbildungsverzeichnis % Todo: Eventuell Option hinzufügen

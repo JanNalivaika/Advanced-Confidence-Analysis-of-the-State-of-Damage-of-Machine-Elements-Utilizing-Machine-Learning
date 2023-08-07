@@ -15,55 +15,57 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Constant and variable amplitude loading\relax }}{4}{figure.caption.3}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Load Spectrum from Load Sequence\relax }}{5}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Schematic representation of a S-N curve\relax }}{5}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces S-N as a distribution \blx@tocontentsinit {0}\cite {Klein}\relax }}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Venn-Diagram of the different subsets of AI \blx@tocontentsinit {0}\cite {Alzubaidi}\relax }}{9}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Influence of the number of free parameters in curve-fitting \blx@tocontentsinit {0}\cite {Bishop}\relax }}{12}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Changing resolution and ratio of images for a homogeneous data-set\relax }}{13}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Encoding of an image-matrix as a vector\relax }}{14}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Possible DA techniques for time series \blx@tocontentsinit {0}\cite {Wen}\relax }}{15}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Application of DA to polynomial functions\relax }}{15}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Applying a MinMax-Scaler to a feature vector\relax }}{16}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces A schematic of the training and use of a classifier\relax }}{18}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces A mapping function based on a data-set containing \(x\) and \(y\) values \blx@tocontentsinit {0}\cite {Theodoridis}\relax }}{19}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Finding similarities in shapes and grouping them into classes.\relax }}{20}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces The interaction of an agent with its environment in RL \blx@tocontentsinit {0}\cite {LEX}.\relax }}{21}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Connection of two neurons via synapses \blx@tocontentsinit {0}\cite {Das}\relax }}{21}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces NN with three hidden layers\relax }}{22}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Various activation functions for NNs \blx@tocontentsinit {0}\cite {Activation}\relax }}{22}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Graphical representation of a perceptron \blx@tocontentsinit {0}\cite {Ding}\relax }}{23}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Simple RNN \blx@tocontentsinit {0}\cite {Jain}\relax }}{24}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Unfolded structure of a RNN \blx@tocontentsinit {0}\cite {Guo}.\relax }}{24}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Schematic diagram of a PINN \blx@tocontentsinit {0}\cite {Guo}.\relax }}{25}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Constant and variable amplitude loading\relax }}{4}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Load Spectrum from Load Sequence\relax }}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Schematic representation of a S-N curve\relax }}{5}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces S-N as a distribution \blx@tocontentsinit {0}\cite {Klein}\relax }}{6}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Venn-Diagram of the different subsets of AI \blx@tocontentsinit {0}\cite {Alzubaidi}\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Influence of the number of free parameters in curve-fitting \blx@tocontentsinit {0}\cite {Bishop}\relax }}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Changing resolution and ratio of images for a homogeneous data-set\relax }}{13}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Encoding of an image-matrix as a vector\relax }}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Possible DA techniques for time series \blx@tocontentsinit {0}\cite {Wen}\relax }}{15}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Application of DA to polynomial functions\relax }}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Applying a MinMax-Scaler to a feature vector\relax }}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces A schematic of the training and use of a classifier\relax }}{18}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces A mapping function based on a data-set containing \(x\) and \(y\) values \blx@tocontentsinit {0}\cite {Theodoridis}\relax }}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Finding similarities in shapes and grouping them into classes.\relax }}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces The interaction of an agent with its environment in RL \blx@tocontentsinit {0}\cite {LEX}.\relax }}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Connection of two neurons via synapses \blx@tocontentsinit {0}\cite {Das}\relax }}{21}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces NN with three hidden layers\relax }}{22}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Various activation functions for NNs \blx@tocontentsinit {0}\cite {Activation}\relax }}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Graphical representation of a perceptron \blx@tocontentsinit {0}\cite {Ding}\relax }}{23}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Simple RNN \blx@tocontentsinit {0}\cite {Jain}\relax }}{24}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Unfolded structure of a RNN \blx@tocontentsinit {0}\cite {Guo}.\relax }}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Schematic diagram of a PINN \blx@tocontentsinit {0}\cite {Guo}.\relax }}{25}{figure.caption.26}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Test rig for Single Tooth Bending Fatigue Test (STBF) \blx@tocontentsinit {0}\cite {STBT}\relax }}{28}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Load sequence with failure close to D=1\relax }}{29}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Load sequence with failure at D>>1\relax }}{29}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Load sequence with failure at D<<1\relax }}{30}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Methodology for classifying a load sequence with unknown effect\relax }}{31}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Methodology for predicting a SOH based on load sequences with similar damaging effects\relax }}{32}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Calculation of damage sum D and separation into classes\relax }}{33}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Separation of load sequences based on classes\relax }}{34}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Data Augmentation and Dimensionality Reduction with feedback loops\relax }}{35}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Danger of Dimensionality Reduction by selecting equidistant points\relax }}{36}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Load sequence adaption, training and final classification \relax }}{37}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Load sequence shortening\relax }}{38}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Data-set generation process for the regression data-set\relax }}{39}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Creation of 3 elements with the help of the label function\relax }}{39}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Test rig for Single Tooth Bending Fatigue Test (STBF) \blx@tocontentsinit {0}\cite {STBT}\relax }}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Load sequence with failure close to D=1\relax }}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Load sequence with failure at D>>1\relax }}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Load sequence with failure at D<<1\relax }}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Methodology for classifying a load sequence with unknown effect\relax }}{31}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Methodology for predicting a SOH based on load sequences with similar damaging effects\relax }}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Calculation of damage sum D and separation into classes\relax }}{33}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Separation of load sequences based on classes\relax }}{34}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Data Augmentation and Dimensionality Reduction with feedback loops\relax }}{35}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Danger of Dimensionality Reduction by selecting equidistant points\relax }}{36}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Load sequence adaption, training and final classification \relax }}{37}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Load sequence shortening\relax }}{38}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Data-set generation process for the regression data-set\relax }}{39}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Creation of 3 elements with the help of the label function\relax }}{39}{figure.caption.42}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Recorded parameters in STBF\relax }}{41}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Load sequence without DA\relax }}{43}{figure.caption.46}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Load sequence with additional noise\relax }}{43}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Load sequence with noise and shift\relax }}{44}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Load sequence with partial shift\relax }}{45}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Load sequence with partial cutouts\relax }}{45}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Load sequence with tilt\relax }}{46}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Load sequence after dimensionality reduction\relax }}{47}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Differences in augmented load sequences\relax }}{47}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Augmentation procedure\relax }}{48}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Average performance of prediction the correct class for each classifier\relax }}{51}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Recorded parameters in STBF\relax }}{41}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Load sequence without DA\relax }}{43}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Load sequence with additional noise\relax }}{43}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Load sequence with noise and shift\relax }}{44}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Load sequence with partial shift\relax }}{45}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Load sequence with partial cutouts\relax }}{45}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Load sequence with tilt\relax }}{46}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Load sequence after dimensionality reduction\relax }}{47}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Differences in augmented load sequences\relax }}{47}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Augmentation procedure\relax }}{48}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Average performance of prediction the correct class for each classifier\relax }}{51}{figure.caption.56}%
 \addvspace {10\p@ }

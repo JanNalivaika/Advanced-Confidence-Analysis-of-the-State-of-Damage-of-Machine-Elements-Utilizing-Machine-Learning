@@ -15,6 +15,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem And Goal Formulation}{1}{section.1.2}%
@@ -58,6 +60,6 @@
 \contentsline {subsection}{\numberline {4.2.1}Training of the Classifier}{49}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Training of the Regressor}{50}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Analysis and Discussion of the Results}{50}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{52}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Summary of Results}{52}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Outlook}{52}{section.5.2}%
+\contentsline {chapter}{\numberline {5}Conclusion}{53}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Results}{53}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Outlook}{53}{section.5.2}%

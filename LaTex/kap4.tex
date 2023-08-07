@@ -29,7 +29,7 @@ The calculated damage sum D according to the Miner-rule of the available files a
 
 \begin{table}
 	\begin{center}
-		\begin{tabular}{|| l | l ||}
+		\begin{tabular}{|| r | l ||}
 			\hline
 			\rule{0pt}{2ex}Nr. & Damage sum D\\
 			\hline
@@ -66,7 +66,7 @@ The calculated damage sum D according to the Miner-rule of the available files a
 			\hline
 			\rule{0pt}{2ex}Slope of the S-N fatigue strength curve = k & 6.33048\\ \hline
 			Reference value of fatigue strength = C & 11670367740000000\\	\hline
-			Value of the load at one cycle = L & values form array \\ \hline
+			Value of the load at one cycle = L & values from array \\ \hline
 			Endurance limit & 56.618 kN \\ \hline
 			\hline
 		\end{tabular}
@@ -190,13 +190,13 @@ The goal is to augment the load sequence as much as possible, while at the same 
 When having an unfinished load sequence that needs to be analyzed, chapters \ref{prep_class} and \ref{PrRe} explain that the classifier and regressor are trained specifically for that individual load sequence. This is because the training set is adapted to the current damage sum D of the unfinished load sequence.
 
 For testing purposes, the damage sum D (which would have come from the unfinished load sequence) is manually set to 0.6
-The success of the classifier and regressor is analyzed by splitting the data into a test- and training-set. 
+The success of the classifier and regressor is analyzed by splitting the data into a test-set and training-set. 
 20\% of the data is given to the test-set and 80\% to the training-set.
 
 
 
 \subsection{Training of the Classifier}
-To train the classifier, the augmented  load sequences are loaded into one list of arrays. The label of the array is extracted from the name of the files created in the augmentation step and also stored in a array. 
+To train the classifier, the augmented  load sequences are loaded into one list of arrays. The label of the array is extracted from the name of the files created in the augmentation step and also stored in an array. 
 
 The load sequences are in their full length and need to be shortened to the length where the damage sum D is equal to 0.6 to be comparable to the unfinished load sequence. Note that in this case the unfinished load sequence is corresponding to the sequences in the test-set. 
 
