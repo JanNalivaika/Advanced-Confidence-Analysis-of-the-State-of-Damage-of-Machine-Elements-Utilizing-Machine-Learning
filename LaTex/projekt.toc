@@ -27,11 +27,11 @@
 \contentsline {section}{\numberline {2.1}Introduction to Fatigue Life Analysis}{4}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Load Sequence and Load Spectrum}{4}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}The S-N Curve}{5}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Linear Damage Accumulation Method}{6}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.3}Linear Damage Accumulation Method}{7}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Non-Linear Damage Accumulation Methods}{7}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}Overview of Machine Learning}{9}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}General Introduction to Machine Learning}{9}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Advantages and Problems of Machine Learning}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Advantages and Problems of Machine Learning}{10}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}General Terms in Machine Learning}{11}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Core Functionalities in Machine Learning}{17}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Specialized Machine Learning Approaches}{21}{subsection.2.2.5}%

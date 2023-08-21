@@ -47,51 +47,52 @@ Figure \ref{fig:WO} shows a schematic representation of the S-N curve:
 	\label{fig:WO}
 \end{figure}
 \newpage
-As can be seen in figure \ref{fig:WO}, the curve is made up of two straight lines. The first part, that has a negative slope, is referred to as a fatigue strength range. In that range of loads, the material shows a limited number of cycles before failure occurs \cite{Adasooriya}.
+As can be seen in figure \ref{fig:WO}, the curve is made up of two straight lines. The first part, which has a negative slope, is referred to as a fatigue strength range. In that range of loads, the material shows a limited number of cycles before failure occurs \cite{Adasooriya}.
 
-The horizontal line is marking the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure \cite{Bellows}. It is often denoted as S-N curve plateau.
-It is important to note that the S-N curve is determined by experiments conducted in controlled environments and not on real life machinery in industrial application. Real-world applications may involve additional factors, such as varying load levels, environmental conditions, and surface finishes, which can influence fatigue performance \cite{JanOveHolmen}. 
+The horizontal line marks the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure \cite{Bellows}. It is often denoted as the S-N curve plateau.
+It is important to note that the S-N curve is determined by experiments conducted in controlled environments and not on real-life machinery in industrial applications. Real-world applications may involve additional factors, such as varying load levels, environmental conditions, and surface finishes, which can influence fatigue performance \cite{JanOveHolmen}. 
 
-Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a probability distribution and not a determined line. These distributions arise from the different number of cycles achieved in experiments at the same stress level before failure. Depending on the component and material, is is not necessarily a Gauss-distribution. Figure \ref{fig:WO2} shows a exemplary distribution.
+Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a probability distribution and not a fixed deterministic line. This distribution arises from the different number of cycles achieved in experiments at the same stress level before failure occurred. Depending on the component and material, is not necessarily a Gaussian distribution. 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{IMGs/WO2.png}
 	\caption{S-N as a distribution \cite{Klein}}
 	\label{fig:WO2}
 \end{figure}
-
+\newpage
 \subsection{Linear Damage Accumulation Method}\label{LAD}
-The S-N curve is a crucial component in the application of the Miner rule \cite{MinerOG, Subramanyan}. The Miner rule is a popular linear damage accumulation technique and most commonly used in engineering. It is based on three assumptions. First, that the rate of damage accumulation is constant over each loading cycle of one load level. Second, damage only occurs if the applied stress is higher than the fatigue limit (S-N curve plateau). This assumption is only true for the Miner-original and not for Miner-elementar or Miner-Haibach \cite{Werner}. And third, the component is expected to fail when cumulative damage reaches the unity \cite{Zuo}.
+The S-N curve is a crucial component in the application of the Miner rule \cite{MinerOG, Subramanyan}. The Miner rule is a popular linear damage accumulation technique most commonly used in engineering. It is based on three assumptions. First, that the rate of damage accumulation is constant over each loading cycle of one load level. Second, damage only occurs if the applied stress is higher than the fatigue limit (S-N curve plateau). This assumption is only true for the Miner-original and not for Miner-elementar or Miner-Haibach \cite{Werner}. And third, the component is expected to fail when cumulative damage reaches the unity \cite{Zuo}.
 The Miner rule also assumes that the first load cycle at a certain stress-level is just as damaging as any other at that stress-level. The order of loads is not relevant when calculating the accumulated damage.
 
-Each load-cycle is damaging the machine element, inversely proportionate to the number of maximum loads the component could withstand at that stress-level. For example, if a component is capable of withstanding 1000 loads at a certain stress level. One of those cycles is adding 1/1000 to the accumulated damage of the machine element.
-If another component can withstand 50 cycles at a different stress-level, each of those cycles is adding 1/50 to the accumulated damage.
+Each load-cycle damages the machine element inversely proportionate to the number of maximum loads the component could withstand at that stress-level. For example, if a component is capable of withstanding 1,000 loads at a certain stress level, one of those cycles adds 1/1000 to the accumulated damage of the machine element.
+If another component can withstand 50 cycles at a different stress-level, each of those cycles adds 1/50 to the accumulated damage.
 
-For varying loads, those individual ratios summed up to form the accumulated damage. 
-For example, 25 percent of the fatigue life are used up if a part was repeatedly loaded for 500 cycles at a stress level that would lead to failure in 4,000 cycles and then followed by 2,000 cycles at a stress level that would lead to failure in 16,000 cycles.
+For varying loads, the sum of those individual ratios forms the accumulated damage. 
+For example, 25 percent of the fatigue life is used up if a part is repeatedly loaded for 500 cycles at a stress level that would lead to failure in 4,000 cycles and then followed by 2,000 cycles at a stress level that would lead to failure in 16,000 cycles.
 Equation \ref{acc} is how the accumulated damage-sum D is calculated. At stress-level \(S_1\), \(S_2\) ... \(S_i\), the corresponding numbers of load are \(n_1\), \(n_2\) ... \(n_i\). The number of cycles to failure under each stress level are \(N_1\), \(N_2\) ... \(N_i\).
 
 \begin{equation}\label{acc}
 	D = \sum_{j=1}^{k}\frac{n_i}{N_i}
 \end{equation}
 
-As mentioned before in chapter \ref{sn}, the individual points (\(N_i\)) in the fatigue strength range are determined by applying one load in a cyclic manner, to determine the maximum acceptable cycles. When using this number as a ground truth in the Miner rule, the effects of other loads, happening before or after, are neglected. To solve this, non-linear damage accumulation methods were developed.
+As mentioned before in chapter \ref{sn}, the individual points \(N_i\) in the fatigue strength range are determined by applying one load in a cyclic manner, to determine the maximum acceptable cycles. When using this number as a ground truth in the Miner rule, the effects of other loads, happening before or after, are neglected. To solve this, non-linear damage accumulation methods were developed.
 
 \subsection{Non-Linear Damage Accumulation Methods}
-One of the first non-linear fatigue damage accumulation models was the miner rule expanded by a power law \cite{Zuo}.
-Equation \ref{n1} shows how the damage sum D is calculated. The parameter \(C_i\) is a material parameter corresponding to i-th loading level. 
+One of the first non-linear fatigue damage accumulation models was the expansion of miner rule by a power law \cite{Zuo}.
+Equation \ref{n1} shows how the damage sum D is calculated. The parameter \(C_i\) is a material parameter corresponding to the i-th loading level. 
 
 \begin{equation}\label{n1}
 	D = \sum_{j=1}^{k}\left [\frac{n_i}{N_i}\right ]^{{C_i}}
 \end{equation}
 
 The disadvantage of this method is that the parameter \(C_i\) must be calculated for different loading
-conditions  \cite{Zuo}.
+conditions and thus tedious to acquire \cite{Zuo}.
 
-Another approach, used in \cite{Rege}, proposes to use iso-damage-curves as a basis, to calculate the cumulative fatigue damage.
-Many more approaches can be found in \cite{Zhu1,Gao,Lv,Chen}
+Another approach, used in \cite{Rege}, proposes to use iso-damage-curves as a basis to calculate the cumulative fatigue damage.\newline
+Many more approaches can be found in \cite{Zhu1,Gao,Lv,Chen}.
 
-The common disadvantage of non-linear models is that they are dependent on very individual and specific parameters, limited to certain materials or loading histories with a fixed trend regarding the amplitudes. Due to those limitations and cumbersome usage they are not widely adopted in the engineering field \cite{Vietze}. 
+The common disadvantage of non-linear models is that they are dependent on very individual and specific parameters, limited to certain materials or loading histories, with a fixed trend regarding the loading amplitudes. Due to those limitations and cumbersome usage, they are not widely adopted in the engineering field \cite{Vietze}. 
 
 
 \newpage
@@ -99,36 +100,36 @@ The common disadvantage of non-linear models is that they are dependent on very 
 In contrast to rigid algorithms, ML is a method that can solve a given problem without being explicitly told how to solve it \cite{Sutton,Janiesch}. The following chapter discusses the advantages, general functionality, and core principles of ML.
 
 \subsection{General Introduction to Machine Learning}\label{General Introduction to Machine Learning}
-ML is a subsection of general AI \cite{Helm}. The same as deep learning (DL) is a subsection of ML \cite{LeCun}.
-AI is the general principle and method that can mimic human behavior and decision-making \cite{Janiesch}, while ML are methods that can learn from data and discover regularity and patterns that are not obvious to a human \cite{Theodoridis}. Based on the discovered knowledge, the trained model can be used to make predictions for new inputs in the future.
-DL is a subset of ML that refers to methods that utilize a special form of a neural network (NN). The "depth" in DL in this context, refers to the amount of stacked layers of neurons (see chapter \ref{NN chapter}) \cite{Carleo}. 
+ML is a subsection of the field of general AI \cite{Helm}. The same as deep learning (DL) is a subsection of ML \cite{LeCun}.
+AI encompasses the general principles and methods that can mimic human behavior and decision-making \cite{Janiesch}. ML, on the other hand, incorporates all methods that can learn from data and discover regularity and patterns that are not obvious to a human~\cite{Theodoridis}. Based on the discovered knowledge, the trained model can be used to make predictions for new inputs in the future.
+DL is a subset of ML that refers to methods that utilize a special approach called a Neural Network (NN). The "depth" in DL in this context refers to the amount of stacked layers of neurons (see chapter \ref{NN chapter}) \cite{Carleo}. 
 DL is more capable than shallow ML and shows improved learning capabilities, but it also comes with its own specific challenges \cite{Janiesch, LeCun}.
 
 Figure \ref{fig:AIMLDL} shows how DL and ML are subsets of AI. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{IMGs/AIMLDL.png}
+	\includegraphics[width=0.7\linewidth]{IMGs/AIMLDL.png}
 	\caption{Venn-Diagram of the different subsets of AI \cite{Alzubaidi}}
 	\label{fig:AIMLDL}
 \end{figure}
-
+\newpage
 \subsection{Advantages and Problems of Machine Learning}\label{Advantages and Problems of Machine Learning}
-The most important advantage of ML is the ability to learn from data and discover the underlying, non-obvious patterns \cite{Wuest}. With that knowledge, it is also possible to predict the output for a specific input. A ML-model, deployed to a self-driving car, could for example, predict how a pedestrian is going to cross a street and calculate, if the car should perform an emergency brake to avoid a collision. One further advantage of ML is its wide applicability \cite{Thommandru}. Not only computer science or the automotive industry, but also banking, healthcare, and many more fields, can all find applications where ML can help improve a process.
+The most important \textbf{advantage} of ML is the ability to learn from data and discover the underlying, non-obvious patterns \cite{Wuest}. With that knowledge, it is also possible to predict the output for a specific input. A ML model deployed to a self-driving car could, for example, predict how a pedestrian is going to cross a street and calculate if the car should perform an emergency brake to avoid a collision. One further advantage of ML is its wide applicability \cite{Thommandru}. Not only computer science or the automotive industry, but also banking, healthcare, and many more fields, can all find applications where ML can help improve a process.
 
-These algorithms are also very efficient and profit greatly from more available data \cite{Janiesch}. Not only is it possible to learn from a lot of data, but also process a lot of data \cite{Wuest}. One example is the analysis of sensor data, for example LiDAR sensors. Those sensors produce a lot of data that might need to be analyzed as fast a possible, in some cases even in real-time. For self-driving cars, fast analysis of this data is crucial for avoiding accidents. ML is capable of solving this problem reliably \cite{Lyu}. 
+These algorithms are also very efficient and profit greatly from more available data \cite{Janiesch}. Not only is it possible to learn from a lot of data, but also to process a lot of data \cite{Wuest}. One example is the analysis of sensor data, for example, from LiDAR sensors. Those sensors produce a lot of data that might need to be analyzed as quickly as possible, in some cases even in real-time. For self-driving cars, fast analysis of this data is crucial for avoiding accidents. ML is capable of solving this problem reliably \cite{Lyu}. 
 
 The era of "Big Data" plays right into the hands of ML. More data results in better performance of the ML approaches \cite{Wuest}. Also, the methods can be specially adapted to be robust. Outliers, noise, and missing values in the data do not skew the results in a significant way \cite{Theodoridis}. When comparing ML to DL, ML can tend to produce better results in cases where the training data is limited and also allows for a better interpretation of the outputs of the model \cite{Janiesch}.
 
-The disadvantages of ML are closely related to the advantages. For example, the data-set that is used for training, needs to be a certain minimal size, so the model is able to learn the underlying patterns. But not only the size is important but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
+The \textbf{disadvantages} of ML are closely related to the advantages. For example, the data-set that is used for training needs to be a certain minimum size so the model is able to learn the underlying patterns. But not only the size is important, but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
 
-One of the biggest problems of ML is generalization \cite{Bishop}. Finding and learning patterns is just the first step, but making a correct prediction is the most valuable part. Depending on the free parameters of ML-models, they have the capability to memorize the whole presented training-set and perform very poorly on data that is not part of the training-set \cite{Zhangpiml}. This case is called "over-fitting" \cite{Jabbar}. In such cases, the model does no learn the underlying structure of that data, but just the correct associations from one input to one output. 
+One of the biggest problems of ML is generalization \cite{Bishop}. Finding and learning patterns is just the first step, but making a correct prediction is the most valuable part. Depending on the free parameters of ML models, they have the capability to memorize the whole presented training-set and perform very poorly on data that is not part of the training-set \cite{Zhangpiml}. This case is called "over-fitting" \cite{Jabbar}. In such cases, the model does not learn the underlying structure of that data, but just the correct associations from one input to one output. 
 
-The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML-method could interpret the noise of the data as a pattern, and perform very bad when applied in real-world applications.
+The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern, and perform very poorly when applied in real-world applications.\newline
 
 Especially for high dimensional data and complex problems, a very large dateset is a must. This can be difficult to obtain, especially in the area of natural sciences or industry \cite{Wuest}. Sensors can provide very corrupt data and some experiments can take a lot of time and money to perform. And if that data is acquired, it still requires a significant amount of manual work to bring it into a form where ML-methods can work with it. To train a model, for example, to classify multiple bacteria cells, it first takes time to grow the bacteria, but then also to label all the pictures. For example, the MNIST data-set for number recognition contains 70,000 elements, that were all manually labeled \cite{Pavlo}. So depending on the area or application, it is impossible to obtain such a data-set that has the necessary size and quality. 
 
-Further, models can be very susceptible to hyperparameters \cite{Janiesch}. Hyperparameters are fixed values that describe the characteristics of a model. Those values are set manually and require extensive knowledge about the implemented model, the problem at hand, and the available data-set \cite{Luo}. The optimal parameters can be found with an extensive brute force approach or specialized algorithms, but require too much time to be feasible in a industry-application \cite{Claesen}. 
+Further, models can be very susceptible to hyperparameters \cite{Janiesch}. Hyperparameters are fixed values that describe the characteristics of a model. Those values are set manually and require extensive knowledge about the implemented model, the problem at hand, and the available data-set \cite{Luo}. The optimal parameters can be found with an extensive brute force approach or specialized algorithms, but require too much time to be feasible in an industry-application \cite{Claesen}. 
 
 Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its disadvantages, the abilities and unique advantages of ML make it a very interesting addition to industry applications \cite{Bertolini}. Especially as more and more capable methods are developed. The main goal when implementing ML, is to work around the disadvantages, to achieve the desired results.
 
@@ -238,14 +239,14 @@ Figure \ref{fig:DA2} shows how a polynomial can be varied to increase the data-s
 
 \subsubsection*{Data Pre-Processing}
 When working with given data-set, is is helpful to the ML-method that all feature vectors are in the same range across all samples.
-The aim is, that greater numeric feature values are not dominating the smaller numeric features values and each one can have a equal contribution to the output. This improves the performance of ML-methods significantly \cite{Singh}. The process of changing the data is referred to as pre-processing. In the following a few selected data pre-processing methods are discussed in detail.
+The aim is, that greater numeric feature values are not dominating the smaller numeric features values and each one can have an equal contribution to the output. This improves the performance of ML-methods significantly \cite{Singh}. The process of changing the data is referred to as pre-processing. In the following a few selected data pre-processing methods are discussed in detail.
 
 The first, and one of the most important pre-processing steps is the removal of outliers \cite{Yang}. Outliers can be values that do not fit the range of expected values or have no entries (missing data). In some circumstances these data points are easy to filter out as they can be compared to the real-word processes where that data was recorded. For example, a temperature recording from a melting furnace is expected to be in the range of 600 to 1000 degrees Celsius. Close to zero values can be easily removed as these values are not physically possible. Removing outliers reduced the variance of the training set and is responsible for a significant performance boost \cite{Li}.
 
 Normalization (also called Min-max scaling or Min-Max Normalization,) is a process of projecting the data into a specific interval. This interval is most commonly set between -1 and 1 \cite{Peshawa}. This method of scaling produced good results only if no outliers are present in the data-set. The outliers could skew the scaling, such that the non-outlier values are projected onto a very small range of the interval and are very difficult to distinguished from another. The task of normalization is frequent in feature engineering. When all of the numerical features in the feature vector fall within approximately the same range, models often train more quickly (and make better predictions) \cite{Jayalakshmi}.
 
 The standardization approach is remapping the features by subtracting the mean and dividing by the variance. This is approach is used if data is made up of multiple sources and the elements are not on the same scale. The data is standardized to prevent characteristics with wide ranges from impacting the output compared to the other values. Data is standardized to make it center on a certain value (0 is chosen most often) with a variance of 1 \cite{Raju}.
-One example for standardization is when a future vector contains the pay and the years of employment of an employee. As the pay is numerically much larger that the years of employment, it is necessary to standardize all the elements across all feature vectors.  
+One example for standardization is when a future vector contains the pay and the years of employment of an employee. As the pay is numerically much larger that the years of employment, it is necessary to standardize all the elements across all feature vectors. 
 
 Futher possible pre-processing options include MaxAbs-scaling, Robust Scaler-scaling, and Quantile Transformer \cite{Ahsan}.
 Figure \ref{fig:MM} shows how elements of a feature vector are projected in the range [-1;1] with the help of a MinMax-scaler. After the projection, numbers four and five are distinguishable any more. 
@@ -412,7 +413,7 @@ The biggest disadvantage of DNNs, and DL in general, is that even more data is n
 \subsubsection*{Recurrent Neural Networks}
 Recurrent Neural Networks (RNNs) are specialized NNs that are designed to be applied to problems involving time-series data, like sensor data or ordered data like sentences \cite{Jain}. After each input, the neurons in a RNN are sending feedback signals to following and some previous nodes. By doing that, a cycle is formed \cite{Grossberg}. By having this feedback-loop to previous nodes, the output is dependent on the new input and the output from the previous input. This specialized architecture can pay attention to the sequence of the input data \cite{Jain}.
 
-The rest of the functionality is almost the same as in a conventional NN. Figure \ref{fig:rnn} shows a simple RNN. The output of the first  layer is sent back to the nodes C1 and C2. In this case they are called the context units. With this structure, the RNN can "remember" the input from the previous input. These closed-loop cycles are the "memory" of the RNN \cite{Salehinejad}.
+The rest of the functionality is almost the same as in a conventional NN. Figure \ref{fig:rnn} shows a simple RNN. The output of the first layer is sent back to the nodes C1 and C2. In this case they are called the context units. With this structure, the RNN can "remember" the input from the previous input. These closed-loop cycles are the "memory" of the RNN \cite{Salehinejad}.
 
 \begin{figure}[H]
 	\centering
@@ -475,7 +476,7 @@ The possibilities of ML are extending to many areas of application \cite{Deiana}
 	\end{center}
 	\vspace{-4mm}
 \end{table}
-When comparing the implemented ML-approaches, Supervised Learning clearly dominates each category. When looking at the total field, each ML-approach (Supervised, Unsupervised and RL) experienced a significant growth increase over the last 20 years \cite{Bertolini}. This is an indicating factor that ML will play a important role in the future for engineering sciences.
+When comparing the implemented ML-approaches, Supervised Learning clearly dominates each category. When looking at the total field, each ML-approach (Supervised, Unsupervised and RL) experienced a significant growth increase over the last 20 years \cite{Bertolini}. This is an indicating factor that ML will play an important role in the future for engineering sciences.
 
 Condition Monitoring and Predictive Maintenance (which are both in the domain "Maintenance Management") are closely related to the explained problem in chapter \ref{prob}.
 Condition monitoring is the continuous analysis of parameters that correlate to the machines operation and maintenance \cite{Rao}. Predictive Maintenance is a preventive maintenance program. Instead of scheduling maintenance activities after a failure has occurred, predictive maintenance uses condition monitoring to run the machines as long as possible (close to failure) to eliminate unnecessary downtime through premature stopping or unexpected delays through unforeseen failures \cite{Mobley}.
