@@ -3,12 +3,12 @@
 The following chapter gives a brief introduction to the topic of fatigue analysis in mechanical engineering. Further, the topic of ML with its core functionalities is presented. Finally, it is analyzed how ML is applied in industry, especially in fatigue analysis of machine elements.
 
 \section{Introduction to Fatigue Life Analysis}
-The goal of fatigue analysis is the dimensioning of machine elements in such a way, that they are able to withstand the expected loads over an expected time period \cite{Haibach}. The strength of a machine element depends on the used material as well as the geometry \cite{Wittel}.
+The goal of fatigue analysis is the dimensioning of machine elements in such a way that they are able to withstand the expected loads over an expected time period \cite{Haibach}. The strength of a machine element depends on the used material as well as the geometry \cite{Wittel}.
 
 \subsection{Load Sequence and Load Spectrum}
-The stresses resulting from repeated loading of a mechanical component can be plotted over time. This loading over time is referred to as load–time history. When omitting the time component and only keeping the order it is reffed to as the loading sequence \cite{HEULER}. In this thesis, the load–time history and loading sequence are treated as equal. In cases where the amplitude of the load in the loading sequence is not constant for each load cycle, the process is referred to as variable amplitude loading \cite{Facchinetti}.
+The stresses resulting from repeated loading of a mechanical component can be plotted over time. This loading over time is referred to as load–time history. When omitting the time component and only keeping the order, it is referred to as the loading sequence \cite{HEULER}. In this thesis, the load–time history and loading sequence are treated as equal. In cases where the amplitude of the load in the loading sequence is not constant for each load cycle, the process is referred to as variable amplitude loading \cite{Facchinetti}.
 Figure \ref{fig:VAL} shows a repeated loading with a constant and variable amplitude.
-The resulting stresses are reaching a constant or varying level depending on the load-pattern. Depending on the area of application, the \(y\)-axes can also show a moment applied to a component like a driveshaft. 
+The resulting stresses are reaching a constant or varying level, depending on the load pattern. Depending on the area of application, the \(y\)-axes can also show a moment applied to a component like a driveshaft.
 
 \begin{figure}[H]
 	\centering
@@ -18,21 +18,23 @@ The resulting stresses are reaching a constant or varying level depending on the
 \end{figure}
  
 The Load Spectrum deals with the occurrence of load cycles with different amplitudes within a load sequence \cite{Facchinetti}. To get a load spectrum from a load sequence, the time and order component are omitted. A load spectrum shows the number of occurrences of a certain load amplitude in a load sequence.
-By eliminating the order and time component of a sequence, the same load spectrum may arise from multiple different sequences. Depending on the desired detail in the load spectrum, the load levels of a sequence can also be rounded. Depending on the area of application, the rounding can be done to the next integer or the next 10,000. The rounding will increase the occurrences at a certain load level as more occurrences are projected in each category. 
+By eliminating the order and time component of a sequence, the same load spectrum may arise from multiple different sequences. Depending on the desired detail in the load spectrum, the load levels of a sequence can also be rounded. Depending on the area of application, the rounding can be done to the next integer or the next 10,000.
+
+The rounding will increase the occurrences at a certain load level as more occurrences are projected in each category. 
 Figure \ref{fig:LS} shows a schematic load spectrum calculated from an exemplary load sequence.
-  
+
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{IMGs/Spectrum.png}
+	\includegraphics[width=0.95\linewidth]{IMGs/Spectrum.png}
 	\caption{Load Spectrum from Load Sequence}
 	\label{fig:LS}
 \end{figure}
 
 \subsection{The S-N Curve}\label{sn}
-The S-N curve (also referred to as the Wöhler curve), plays a very important part in fatigue analysis. It is applied in all aspects of engineering \cite{Burhan,Pungo}. 
+The S-N curve (also referred to as the Wöhler-curve) plays a very important role in fatigue analysis. It is applied in all aspects of engineering \cite{Burhan,Pungo}. 
 The graphical representation gives clear insights into the maximum number of load cycles a material is capable of withstanding before a fatigue break is expected.
-The applied load (S) is placed on the \(y\)-axes and the number of cycles (N) on the \(x\)-axes. The curve shows the number of cycles to fatigue failure, and is individual for every material and for every different component.
+The applied load (S) is placed on the \(y\)-axes and the number of cycles (N) on the \(x\)-axes. The curve shows the number of cycles to fatigue failure and is individual for every material and for every different component.
 The S-N curve can also be determined for elements like welded joints or whole structures \cite{Baptista, Dong}.
 Both axes are on a logarithmic scale to achieve a straight line passing from the upper left to the lower right of the graph \cite{Little}.
 
@@ -40,11 +42,11 @@ Figure \ref{fig:WO} shows a schematic representation of the S-N curve:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{IMGs/WO.png}
+	\includegraphics[width=0.7\linewidth]{IMGs/WO.png}
 	\caption{Schematic representation of a S-N curve}
 	\label{fig:WO}
 \end{figure}
-
+\newpage
 As can be seen in figure \ref{fig:WO}, the curve is made up of two straight lines. The first part, that has a negative slope, is referred to as a fatigue strength range. In that range of loads, the material shows a limited number of cycles before failure occurs \cite{Adasooriya}.
 
 The horizontal line is marking the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure \cite{Bellows}. It is often denoted as S-N curve plateau.
