@@ -127,11 +127,11 @@ One of the biggest problems of ML is generalization \cite{Bishop}. Finding and l
 
 The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern, and perform very poorly when applied in real-world applications.\newline
 
-Especially for high dimensional data and complex problems, a very large dateset is a must. This can be difficult to obtain, especially in the area of natural sciences or industry \cite{Wuest}. Sensors can provide very corrupt data and some experiments can take a lot of time and money to perform. And if that data is acquired, it still requires a significant amount of manual work to bring it into a form where ML-methods can work with it. To train a model, for example, to classify multiple bacteria cells, it first takes time to grow the bacteria, but then also to label all the pictures. For example, the MNIST data-set for number recognition contains 70,000 elements, that were all manually labeled \cite{Pavlo}. So depending on the area or application, it is impossible to obtain such a data-set that has the necessary size and quality. 
+Especially for high-dimensional data and complex problems, a very large dateset is a must. This can be difficult to obtain, especially in the area of natural sciences or industry \cite{Wuest}. Sensors can provide very corrupt data, and some experiments can take a lot of time and money to perform. And if that data is acquired, it still requires a significant amount of manual work to bring it into a form where ML methods can work with it. To train a model, for example, to classify multiple bacteria cells, it first takes time to grow the bacteria, but then also to label all the pictures. For example, the MNIST data-set for number recognition contains 70,000 elements, that were all manually labeled \cite{Pavlo}. So depending on the area or application, it is impossible to obtain a data-set that has the necessary size and quality. 
 
-Further, models can be very susceptible to hyperparameters \cite{Janiesch}. Hyperparameters are fixed values that describe the characteristics of a model. Those values are set manually and require extensive knowledge about the implemented model, the problem at hand, and the available data-set \cite{Luo}. The optimal parameters can be found with an extensive brute force approach or specialized algorithms, but require too much time to be feasible in an industry-application \cite{Claesen}. 
+Further, models can be very susceptible to hyperparameters \cite{Janiesch}. Hyperparameters are fixed values that describe the characteristics of a model. Those values are set manually and require extensive knowledge about the implemented model, the problem at hand, and the available data-set \cite{Luo}. The optimal parameters can be found with an extensive brute force approach or specialized algorithms, but they require too much time to be feasible in an industry-application~\cite{Claesen}. 
 
-Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its disadvantages, the abilities and unique advantages of ML make it a very interesting addition to industry applications \cite{Bertolini}. Especially as more and more capable methods are developed. The main goal when implementing ML, is to work around the disadvantages, to achieve the desired results.
+Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its disadvantages, the abilities and unique advantages of ML make it a very interesting addition to industry applications~\cite{Bertolini}. Especially as more and more capable methods are developed. The main goal when implementing ML is to work around the disadvantages to achieve the desired results.
 
 
 \begin{table}
@@ -142,7 +142,7 @@ Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its
 		 Advantages of ML & Disadvantages of ML \\
 		\hline
 				\rule{0pt}{2ex} 
-		$\bullet$ can learn from of data & $\bullet$ requires large datasets \\
+		$\bullet$ can learn from data & $\bullet$ requires large datasets \\
 		$\bullet$ can make predictions based on learned patterns & $\bullet$ data is tedious to acquire\\	
 		$\bullet$ versatile in applicability & $\bullet$ is sensitive to hyperparameters\\
 		$\bullet$ can process a lot of data efficiently & $\bullet$ can be sensitive to training-set\\
@@ -154,16 +154,16 @@ Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its
 \end{center}
 \vspace{-4mm}
 \end{table}
-
+\newpage
 \subsection{General Terms in Machine Learning}
-In the following, some of the general terms in ML are explained. As the field of ML is very large and continuously growing, this section focuses only on the core elements. Understanding these terms and principles helps to get a better understanding of the ML-methods and how they can be applied in industry. For a more in-depth look, more information can be found in extensive literature \cite{Theodoridis, Bishop, google}.
+In the following, some of the general terms in ML are explained. As the field of ML is very large and continuously growing, this section focuses only on the core elements. Understanding these terms and principles helps to get a better understanding of the ML methods and how they can be applied in industry. For a more in-depth look, more information can be found in extensive literature \cite{Theodoridis, Bishop, google}.
 
 \subsubsection*{Training and Testing}\label{TT}
-To train and test the models ability to generalize, the data is split up into a training-set and a test-set. The training-set is used to determine the optimal parameters of the model \cite{Bishop}. The process of finding the optimal parameters is referred to as training or learning. It is important to keep both sets separate and only use them for their respective purposes. The training-set must not contain elements of the test-set and vice versa. Otherwise, if the expected error is computed on the training-set, the ability of the model to generalize is not correctly assessed \cite{Xiaogang}.
+To train and test the model's ability to generalize, the data is split up into a training-set and a test-set. The training-set is used to determine the optimal parameters of the model \cite{Bishop}. The process of finding the optimal parameters is referred to as training or learning. It is important to keep both sets separate and only use them for their respective purposes. The training-set must not contain elements of the test-set and vice versa. Otherwise, if the expected error is computed on the training-set, the ability of the model to generalize is not correctly assessed \cite{Xiaogang}.
 
-One easy way to understand the search of the optimal parameters during training is with the example of curve-fitting of a polynomial function (see \cite{Bishop} for a more in depth look). \newline
+One easy way to understand the search for optimal parameters during training is with the example of curve-fitting of a polynomial function (see \cite{Bishop} for a more in-depth look). \newline
 Function \ref{fun1} is a polynomial of degree \(M\) with free parameters \(w_i\) that can be adapted to fit the data as accurately as possible.
-The error-function, defined in equation \ref{err1}, also called loss-function, measures the accuracy of the polynomial. The parameters are changed in such a way to reduce the error. If the polynomial is flexible enough, the error is reduced to zero. In the case of ten free parameters and ten data-points (\(x_n\),\(t_n\)) the polynomial is passing through every data-point exactly. The error in that case is zero. 
+The error function, defined in equation \ref{err1}, also called loss function, measures the accuracy of the polynomial. The parameters are changed in such a way to reduce the error. If the polynomial is flexible enough, the error is reduced to zero. In the case of ten free parameters and ten data points (\(x_n\),\(t_n\)) the polynomial passes through every data point exactly. The error in that case is zero. 
 \begin{equation}\label{fun1}
 	y(x,w) = \sum_{j=0}^{M}w_ij^j= w_0+w_1*x^1+w_2*x^2+...+w_M*x^M
 \end{equation}
@@ -171,7 +171,7 @@ The error-function, defined in equation \ref{err1}, also called loss-function, m
 	E(w) = \frac{1}{2}\sum_{n=0}^{N}\{y(x_n,w)-t_n\}^2
 \end{equation}
 
-Figure \ref{fig:poly} shows how the polynomial changes based on the number of free parameters. When the polynomial, displayed in red, reaches degree nine, the error is zero. In this case however, it is not following the true data generation function shown in green and performs very bad on new unseen data-points (see "over-fitting" in chapter \ref{Advantages and Problems of Machine Learning}).
+Figure \ref{fig:poly} shows how the polynomial changes based on the number of free parameters. When the polynomial, displayed in red, reaches degree nine, the error is zero. In this case, however, it is not following the true data generation function shown in green and performs very poorly on new unseen data points (see "over-fitting" in chapter \ref{Advantages and Problems of Machine Learning}).
 %from \cite{Bishop}
 \begin{figure}[H]
 	\centering
@@ -181,13 +181,14 @@ Figure \ref{fig:poly} shows how the polynomial changes based on the number of fr
 \end{figure}
 
 \subsubsection*{Features and Feature Selection}
-Every model needs an input and a corresponding output. As computers work on a digital principle, physical values have to be transformed into a digital format. For example, sensor data from analog pressure valves or analog current meters has to be transformed into digital values. "Industrie 4.0" did a lot of work to replace standalone analog sensors with sensors having a digital output or wireless connection, so that this translation step is no longer a hurdle (see chapter \ref{intro}). The post-processing of those signals can be done on a central computer or dedicated edge devices \cite{Lu}.
+Every model needs an input and a corresponding output. As computers work on a digital principle, physical values have to be transformed into a digital format. For example, sensor data from analog pressure valves or analog current meters has to be transformed into digital values.\newline "Industrie 4.0" did a lot of work to replace standalone analog sensors with sensors having a digital output or wireless connection, so that this translation step is no longer a hurdle. The post-processing of those signals can be done on a central computer or dedicated edge devices on the shop floor \cite{Lu}.
 
-But not all data is accepted by a ML-model right away, even if it is in digital form. These methods need an input that is specifically shaped for each specific model.
-When the goal is to apply a ML-model for image classification, the image needs to be transformed into a format that is accepted by the implemented model. Images can have different height to width ratios (e.g. 16:9 or 4:3) and different resolution (e.g. 1920x1080 pixel or 64x64 pixel). All the images need to be transformed into a uniform shape with the same resolution \cite{Park}.
+But not all data is accepted by a ML model right away, even if it is in digital form. These methods need an input that is specifically shaped for each specific model.
+When the goal is to apply a ML model for image classification, the image needs to be transformed into a format that is accepted by the implemented model. Images can have different height-to-width ratios (e.g.,~16:9 or 4:3) and different resolutions (e.g.,~1920x1080 pixel or 64x64 pixel). All the images need to be transformed into a uniform shape with the same resolution \cite{Park}.
 
-For example, if an image data-set contains mostly images with a 1:1 ratio, wider images need to be contracted or cut off to fit the pattern so that all images are the same. The resolution must also be adapted so that all images have the same amount of pixels.
-Figure \ref{fig:pixel} shows how images of a different size and resolution are adapted to a fixed resolution and ratio. In the upper image, the overhanging parts on the sides are removed and no resolution scaling is necessary. In the lower image, parts on the top and bottom are removed. Additionally, the resolution was down-scaled from 125x125 pixel to 100x100 pixel. 
+For example, if an image data-set contains mostly images with a 1:1 ratio, wider images need to be contracted or cut off to fit the pattern so that all images are the same. The resolution must also be adjusted so that all images have the same number of pixels.
+\newpage
+Figure \ref{fig:pixel} shows how images of different sizes and resolutions are adapted to a fixed resolution and ratio. In the upper image, the overhanging parts on the sides are removed, and no resolution scaling is necessary. In the lower image, parts on the top and bottom are removed. Additionally, the resolution was downscaled from 125x125 pixel to 100x100 pixel. 
 
 \begin{figure}[H]
 	\centering
@@ -196,13 +197,13 @@ Figure \ref{fig:pixel} shows how images of a different size and resolution are a
 	\label{fig:pixel}
 \end{figure}
 
-The ratio and resolution depends on the implemented method and can be chosen freely. 
-The current standard for images (MNIST), that are used in bench-marking of various algorithms, is a squared format with a 28x28 pixel resolution \cite{Baldominos}.
-For optimal classification, a higher resolution proves advantageous, but can require longer training times and more complex models \cite{Kannojia,Huang}.
+The ratio and resolution depend on the implemented method and can be chosen freely. 
+The current standard for images (MNIST) that are used in bench-marking of various algorithms is a squared format with a 28x28 pixel resolution \cite{Baldominos}.\newline
+For optimal classification, a higher resolution proves advantageous but can require longer training times and more complex~models~\cite{Kannojia,Huang}.
 
-After the input elements are standardized, they can be transformed into a vector format or matrix format. The process of constructing such designed input from a raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but it is running the risk of omitting valuable data in the process \cite{Janiesch}.
+After the input elements are standardized, they can be transformed into a vector or matrix format. The process of constructing such designed input from raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but this process is running the risk of omitting valuable data in the process \cite{Janiesch}.
 
-Figure \ref{fig:encoding} shows how a matrix, representing an image for example, can be encoded as a vector. As long the encoding method is constant for for all input elements, the order is irrelevant. In htat case the elements can also be stacked not row-by-row bus also column-by-column.
+Figure \ref{fig:encoding} shows how a matrix, representing an image, for example, can be encoded as a vector. As long as the encoding method is constant for all input elements, the order is irrelevant. In that case, the elements can also be stacked not only row-by-row but also column-by-column.
 
 \begin{figure}[H]
 	\centering
@@ -213,18 +214,18 @@ Figure \ref{fig:encoding} shows how a matrix, representing an image for example,
 
  
 \subsubsection*{Data augmentation}\label{DAUG}
-As mentioned in chapter \ref{Advantages and Problems of Machine Learning}, a large data-set improves the success of ML approaches. Instead of inflating a data-sets with noisy or corrupt samples, and relying on the algorithms ability to handle such data, a different approach is possible. The process of enlarging a given data-set is called Data Augmentation (DA). The goal is to bypass the problem of small datasets and increase their size and quality \cite{Shorten}. By doing so, over-fitting can be prevented. DA is mostly used on images, but can also be transferred to all other types of data. Possible DA approaches are, for example, geometric transformations like cropping, flipping, scaling and rotating \cite{Taylor}. Further possibilities are changing the contrast, brightness, white-balance and tint of the image \cite{Mikolajczyk}. These individual adjustments can also be combined to produce a plethora of data.
+As mentioned in chapter \ref{Advantages and Problems of Machine Learning}, a large data-set improves the success of ML approaches. Instead of inflating a data-sets with noisy or corrupt samples and relying on the algorithm's ability to handle such data, a different approach is possible. The process of enlarging a given data-set is called Data Augmentation (DA). The goal is to bypass the problem of small datasets and increase their size and quality \cite{Shorten}. By doing so, over-fitting can be prevented. DA is mostly used on images, but can also be transferred to all other types of data. Possible DA approaches are, for example, geometric transformations like cropping, flipping, scaling, and rotating \cite{Taylor}. Further possibilities are changing the contrast, brightness, white-balance, tint of the image, as well as local pixel manipulations \cite{Mikolajczyk}. These individual adjustments can also be combined to produce a plethora of data.
 
-Further approaches are possible when working with data in a time-series format \cite{Bandara, Wen}. One definition of time-series, is data that has a time component, like recorded sensor data, and thus can be plotted over time \cite{Hamilton}. Another definition is that the data has an orderly element and does not necessary have a time component \cite{Iwana}. For example, words in sentences. In such cases, cropping might distort the data too much to be representative of the original element.
+Further approaches are possible when working with data in a time-series format \cite{Bandara, Wen}. One definition of time-series, is data that has a time component, like recorded sensor data, and thus can be plotted over time \cite{Hamilton}. Another definition is that the data has an orderly element and not necessarily a time component \cite{Iwana}. An example of a series without a time component are words in sentences. In such cases, cropping might distort the data too much to be representative of the original element.
 
-One of the most straight-forward approaches is to overlay the data with Gaussian noise or any other noise pattern. Another option is inserting or emitting repeating values of the data, which makes the time-series longer or shorter \cite{Wen}.
+One of the most straightforward approaches when working with signal data is to overlay the data with Gaussian noise or any other noise pattern. Another option is inserting or emitting repeating values of the data, which makes the time-series longer or shorter \cite{Wen}.
 
-Figure \ref{fig:DA} shows further possible DA techniques. The different methods can be divided in basic and advanced approaches \cite{Wen}.
+Figure \ref{fig:DA} shows further possible DA techniques. The different methods can be divided into basic and advanced approaches \cite{Wen}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{IMGs/DA.png}
-	\caption{Possible DA techniques for time series \cite{Wen}}
+	\caption{Possible DA techniques for time-series data \cite{Wen}}
 	\label{fig:DA}
 \end{figure}
 
@@ -238,10 +239,10 @@ Figure \ref{fig:DA2} shows how a polynomial can be varied to increase the data-s
 \end{figure}
 
 \subsubsection*{Data Pre-Processing}
-When working with given data-set, is is helpful to the ML-method that all feature vectors are in the same range across all samples.
-The aim is, that greater numeric feature values are not dominating the smaller numeric features values and each one can have an equal contribution to the output. This improves the performance of ML-methods significantly \cite{Singh}. The process of changing the data is referred to as pre-processing. In the following a few selected data pre-processing methods are discussed in detail.
+When working with a given data-set, it is helpful to the ML method if all feature vectors are in the same range across all samples.
+The aim is that the greater numeric feature values are not dominating the smaller numeric feature values and each one can have an equal contribution to the output. This improves the performance of ML-methods significantly \cite{Singh}. The process of changing the data is referred to as pre-processing. In the following, a few selected data pre-processing methods are discussed in detail.
 
-The first, and one of the most important pre-processing steps is the removal of outliers \cite{Yang}. Outliers can be values that do not fit the range of expected values or have no entries (missing data). In some circumstances these data points are easy to filter out as they can be compared to the real-word processes where that data was recorded. For example, a temperature recording from a melting furnace is expected to be in the range of 600 to 1000 degrees Celsius. Close to zero values can be easily removed as these values are not physically possible. Removing outliers reduced the variance of the training set and is responsible for a significant performance boost \cite{Li}.
+The first, and one of the most important pre-processing steps is the removal of outliers \cite{Yang}. Outliers can be values that do not fit the range of expected values or have no entries (missing data). In some circumstances, these data points are easy to filter out, as they can be compared to the real-world processes where that data was recorded. For example, a temperature recording from a melting furnace is expected to be in the range of 600 to 1000 degrees Celsius. Negative and close-to-zero values can be easily removed, as these values are not physically possible during operation. Removing outliers reduces the variance of the training set and is responsible for a significant performance boost \cite{Li}.
 
 Normalization (also called Min-max scaling or Min-Max Normalization,) is a process of projecting the data into a specific interval. This interval is most commonly set between -1 and 1 \cite{Peshawa}. This method of scaling produced good results only if no outliers are present in the data-set. The outliers could skew the scaling, such that the non-outlier values are projected onto a very small range of the interval and are very difficult to distinguished from another. The task of normalization is frequent in feature engineering. When all of the numerical features in the feature vector fall within approximately the same range, models often train more quickly (and make better predictions) \cite{Jayalakshmi}.
 
