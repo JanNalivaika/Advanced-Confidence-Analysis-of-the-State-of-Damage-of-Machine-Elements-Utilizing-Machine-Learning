@@ -437,13 +437,13 @@ A subgroup of RNNs are long-short- term memory RNNs (LSTMs). LSTMs are able to l
 LSTM-networks are finding more and more areas of application. For example, in machine health monitoring or load prediction in power stations \cite{Zhao,Muzaffar}. The similarity between those applications is the dependency of the output on recent and past inputs. 
 
 \subsubsection*{Physics Informed Neural Networks}
-Physics-informed Neural Networks (PINNs) are special types of NNs that are capable of following defined boundary conditions like laws of physics \cite{Cai}. One of the most used application domain, are problems involving partial differential equations (PDEs). Instead of using the available data to discover the physics from scratch, prior knowledge can be incorporated through the PDEs \cite{Cuomo}. By utilizing PINNs, a simple NN architecture can be used, that requires less training time, and can achieve equivalent results to large NNs \cite{Misyris}.
+Physics-informed Neural Networks (PINNs) are special types of NNs that are capable of following defined boundary conditions like laws of physics \cite{Cai}. One of the most commonly used application domain, are problems involving partial differential equations (PDEs). Instead of using the available data to discover the physics from scratch, prior knowledge can be incorporated through the PDEs \cite{Cuomo}. By utilizing PINNs, a simple NN architecture can be used that requires less training time, and can achieve equivalent results to large NNs \cite{Misyris}.
 
-Figure \ref{fig:piml} shows the basic functionality of a PINN. The overall goal is to minimize the error function, just as in function fitting (see chapter \ref{TT}). In this case, the error function is made up of the initial- and boundary-conditions as well as the constraints of the PDE \cite{Guo}. The training process is analogue to the standard NN approach. 
+Figure \ref{fig:piml} shows the basic functionality of a PINN. The overall goal is to minimize the error function, just as in function fitting (see chapter \ref{TT}). In this case, the error function is made up of the initial- and boundary-conditions as well as the constraints of the PDE \cite{Guo}. The training process is analogous to the standard NN approach. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{IMGs/piml.png}
-	\caption{Schematic diagram of a PINN \cite{Guo}.}
+	\caption{Schematic diagram of a PINN \cite{Guo}}
 	\label{fig:piml}
 \end{figure}
 
@@ -454,7 +454,7 @@ Figure \ref{fig:piml} shows the basic functionality of a PINN. The overall goal 
 \section{Overview of Machine Learning in Industry Applications}
 In the following, the application of ML in engineering and industrial applications is discussed.
 \subsection{General Application of Machine Learning in Industry}
-The possibilities of ML are extending to many areas of application \cite{Deiana}. The analysis of recent publications in \cite{Bertolini}, concluded four main categories of ML for industrial applications. Table \ref{MLIND} gives to each category an example.
+The possibilities of ML are extending to many areas of application \cite{Deiana}. The analysis of recent publications in \cite{Bertolini}, concluded that there are four main categories of ML for industrial applications. Table \ref{MLIND} gives to each category an example.
 
 \begin{table}
 	\begin{center}
@@ -469,38 +469,38 @@ The possibilities of ML are extending to many areas of application \cite{Deiana}
 			Supply Chain Management & Demand planning and forecasting\\
 			\hline
 		\end{tabular}
-		\caption{Main categories of ML for industrial applications \cite{Bertolini}.}
+		\caption{Main categories of ML for industrial applications \cite{Bertolini}}
 		\label{MLIND}
 	\end{center}
 	\vspace{-4mm}
 \end{table}
-When comparing the implemented ML-approaches, Supervised Learning clearly dominates each category. When looking at the total field, each ML-approach (Supervised, Unsupervised and RL) experienced a significant growth increase over the last 20 years \cite{Bertolini}. This is an indicating factor that ML will play an important role in the future for engineering sciences.
+When comparing the implemented ML-approaches, Supervised Learning clearly dominates each category. When looking at the total field, each ML approach (Supervised, Unsupervised and RL) experienced a significant growth increase over the last 20 years \cite{Bertolini}. This is a clear indication that ML will play an important role in the future for engineering sciences.
 
-Condition Monitoring and Predictive Maintenance (which are both in the domain "Maintenance Management") are closely related to the explained problem in chapter \ref{prob}.
-Condition monitoring is the continuous analysis of parameters that correlate to the machines operation and maintenance \cite{Rao}. Predictive Maintenance is a preventive maintenance program. Instead of scheduling maintenance activities after a failure has occurred, predictive maintenance uses condition monitoring to run the machines as long as possible (close to failure) to eliminate unnecessary downtime through premature stopping or unexpected delays through unforeseen failures \cite{Mobley}.
+Condition Monitoring and Predictive Maintenance (which are both in the domain "Maintenance Management") are closely related to the problem explained in chapter \ref{prob}.
+Condition monitoring is the continuous analysis of parameters that correlate to the machine's operation and maintenance \cite{Rao}. Predictive Maintenance is a preventive maintenance program. Instead of scheduling maintenance activities after a failure has occurred, predictive maintenance uses condition monitoring to run the machines as long as possible (close to failure) to eliminate unnecessary downtime through premature stopping or unexpected delays through unforeseen failures \cite{Mobley}.
 
 It is important to note that Predictive Maintenance and Condition Monitoring are also performed with other tools, like statistical analysis and do not solely rely on ML \cite{Carvalho, Divya}. 
 
 
  
 \subsection{Comparison of Machine Learning in Gear Applications}
-The process of calculating heath indicators has gained a lot of interest in engineering in the past years. By correctly assessing a systems' state, accidents and unexpected downtime can be avoided \cite{Wang}. In this section, the application of ML in Condition Monitoring and Predictive Maintenance of gears is analyzed.
+The process of calculating health indicators has gained a lot of interest in engineering in the past years. By correctly assessing a system's state, accidents and unexpected downtime can be avoided \cite{Wang}. In this section, the application of ML in Condition Monitoring and Predictive Maintenance of gears is analyzed.
 
-The basis of heath indicators are signals or values coming from the physical system itself. Vibration, noise, electrical current and thermal images can be used for fault detection or to determine the state-of-damage in gears \cite{Prav,KaraACUSTIC,Medina,Kara}
+The basis of health indicators are signals or values coming from the physical system itself. Vibration, noise, electrical current and thermal images can be used for fault detection or to determine the state-of-damage in gears \cite{Prav,KaraACUSTIC,Medina,Kara}.
 
-By using the vibration signal, it is possible to determine gear damage like tooth cracks and face wear. These kinds of damage can introduce vibrations, that travel to other parts of the system like the gearbox housing. By having an accelerometer on the housing, the vibrations can be detected and analyzed. The proposed method in \cite{Prav} was able to successfully make a distinction between a faulty and a healthy gear. This method however, did not make any prediction regarding the progressing state of health of the gears and only analyzed them in their current state-of-damage. 
+By using the vibration signal, it is possible to determine gear damage like tooth cracks and face wear. These kinds of damage can introduce vibrations that travel to other parts of the system like the gearbox housing. By having an accelerometer on the housing, the vibrations can be detected and analyzed. The proposed method in \cite{Prav} was able to successfully make a distinction between a faulty and a healthy gear. This method, however, did not make any predictions regarding the progressing state of health of the gears and only analyzed them in their current state-of-damage. 
 
-The approach in \cite{Medina} uses a LSTM network to determine the progressing level of pitting. The input signal is classified into nine levels of severity of damage. The pitting damage was created artificially by Electrical Discharging Machining (EDM). The input data is an acoustic recording of 15 seconds. In total 1215 samples are recorded. After prepossessing and encoding, the LSTM could successfully classify each signal into the correct class of pitting damage.
+The approach in \cite{Medina} uses a LSTM network to determine the progressing level of pitting. The input signal is classified into nine levels of severity of damage. The pitting damage was created artificially by Electrical Discharging Machining (EDM). The input data is an acoustic recording of 15 seconds. In total, 1215 samples are recorded. After prepossessing and encoding, the LSTM could successfully classify each signal into the correct class of pitting damage.
 
-The method applied in \cite{RTiwari} also uses vibration signals to perform a classification. In this approach, a Support Vector Machine (SMV) is used to classify healthy and worn gears. The goal is to classified different gears based on their damage. Some gears had chipped or missing teeth. This approach also achieved a high success rate. No attention is given in regards of the change of variation over a long period of time to determine a state-of-damage. 
+The method applied in \cite{RTiwari} also uses vibration signals to perform a classification. In this approach, a Support Vector Machine (SMV) is used to classify healthy and worn gears. The goal is to classify different gears based on their damage. Some gears had chipped or missing teeth. This approach also achieved a high success rate. No attention is given to the change in vibration over a long period of time to determine a state-of-damage. 
 
 
-These approaches are not transferable to the problem described in chapter \ref{prob}. When the datasets for those methods are constructed, the gears were already in the state that is used as a label (healthy, damaged).
+These approaches are not transferable to the problem described in chapter \ref{prob}. When the datasets for those methods are constructed, the gears are already in the state that is used as a label (healthy, damaged).
 
-When trying to transfer this approach to get a better prediction than the Miner rule, the input would be the load-history and the label the true state-of-damage or range of it. But calculating the physically accurate damage sum D is not possible. Thus, these approaches are not capable of solving the problem at hand. 
+When trying to transfer this approach to get a better prediction than the Miner rule, the input would be the load-history and the label would be the true state-of-damage or range of it. But calculating the physically accurate damage sum D is not possible. Thus, these approaches are not capable of solving the problem at hand. 
 
-Over the last decade, significant advancements are also continuously made in the area of predicting the Remaining-Useful-Life (RUL) of machine elements \cite{Deutsch,He,Yan}.
-The biggest problem with those models and approaches, is the assumed constant load that is acting on the components. Due to this assumption, these approaches can not be transferred to machinery where the cyclic loads have a significant variance in amplitude over time.
+Over the last decade, significant advancements have also been continuously made in the area of predicting the Remaining-Useful-Life (RUL) of machine elements \cite{Deutsch,He,Yan}.
+The biggest problem with those models and approaches is the assumed constant load that is acting on the components. Due to this assumption, these approaches can not be transferred to machinery where the cyclic loads have a significant variance in amplitude over time.
 
-In summery, no methods were published that use a-priori knowledge of the Miner rule and the known load sequence to determine a more confident state-of-damage in machine elements.
+In summary, no methods were published that use a-priori knowledge of the Miner rule and the known load sequence to determine a more confident state-of-damage in machine elements.
 
