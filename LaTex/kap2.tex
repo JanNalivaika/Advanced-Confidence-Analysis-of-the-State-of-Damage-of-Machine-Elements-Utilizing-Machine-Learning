@@ -244,13 +244,13 @@ The aim is that the greater numeric feature values are not dominating the smalle
 
 The first, and one of the most important pre-processing steps is the removal of outliers \cite{Yang}. Outliers can be values that do not fit the range of expected values or have no entries (missing data). In some circumstances, these data points are easy to filter out, as they can be compared to the real-world processes where that data was recorded. For example, a temperature recording from a melting furnace is expected to be in the range of 600 to 1000 degrees Celsius. Negative and close-to-zero values can be easily removed, as these values are not physically possible during operation. Removing outliers reduces the variance of the training set and is responsible for a significant performance boost \cite{Li}.
 
-Normalization (also called Min-max scaling or Min-Max Normalization,) is a process of projecting the data into a specific interval. This interval is most commonly set between -1 and 1 \cite{Peshawa}. This method of scaling produced good results only if no outliers are present in the data-set. The outliers could skew the scaling, such that the non-outlier values are projected onto a very small range of the interval and are very difficult to distinguished from another. The task of normalization is frequent in feature engineering. When all of the numerical features in the feature vector fall within approximately the same range, models often train more quickly (and make better predictions) \cite{Jayalakshmi}.
+Normalization (also called Min-Max scaling or Min-Max Normalization,) is the process of projecting the data into a specific interval. This interval is most commonly set between~-1~and~1~\cite{Peshawa}. This method of scaling produces good results only if no outliers are present in the data-set. The outliers could skew the scaling such that the non-outlier values are projected onto a very small range of the interval and are very difficult to be distinguished from one another. The task of normalization is frequent in feature engineering. When all the numerical features in the feature vector fall within approximately the same range, models often train more quickly (and make better predictions) \cite{Jayalakshmi}.
 
-The standardization approach is remapping the features by subtracting the mean and dividing by the variance. This is approach is used if data is made up of multiple sources and the elements are not on the same scale. The data is standardized to prevent characteristics with wide ranges from impacting the output compared to the other values. Data is standardized to make it center on a certain value (0 is chosen most often) with a variance of 1 \cite{Raju}.
-One example for standardization is when a future vector contains the pay and the years of employment of an employee. As the pay is numerically much larger that the years of employment, it is necessary to standardize all the elements across all feature vectors. 
+The standardization approach involves remapping the features by subtracting the mean and dividing by the variance. This approach is used if the data is made up of multiple sources and the elements are not on the same scale. The data is standardized to prevent characteristics with wide ranges from impacting the output compared to the other values. Data is standardized to make it center on a certain value (0 is chosen most often) with a variance of 1 \cite{Raju}.
+One example of standardization is when a future vector contains the pay and the years of employment of an employee. As the pay is numerically much larger than the years of employment, it is necessary to standardize all the elements across all feature vectors. 
 
-Futher possible pre-processing options include MaxAbs-scaling, Robust Scaler-scaling, and Quantile Transformer \cite{Ahsan}.
-Figure \ref{fig:MM} shows how elements of a feature vector are projected in the range [-1;1] with the help of a MinMax-scaler. After the projection, numbers four and five are distinguishable any more. 
+Further possible pre-processing options include MaxAbs-scaling, Robust Scaler-scaling, and Quantile Transformer \cite{Ahsan}.
+Figure \ref{fig:MM} shows how elements of a feature vector are projected in the range [-1;1] with the help of a MinMax-scaler. After the projection, numbers four and five are no longer distinguishable. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{IMGs/MM.png}
@@ -260,15 +260,15 @@ Figure \ref{fig:MM} shows how elements of a feature vector are projected in the 
 
 
 \subsubsection*{Hyperparameter}
-Before a ML-model can be trained, a set of hyperparameters needs to be defined that characterize the model and its behavior.
-Most of the time, they are set manually, relying on the users intuition or taken from literature \cite{Philipp}. 
-For optimal performance, it requires extensive knowledge of the selected algorithm and how different combinations of parameters affect each other. 
+Before a ML model can be trained, a set of hyperparameters needs to be defined that characterize the model and its behavior.
+Most of the time, they are set manually, relying on the user's intuition or taken from literature \cite{Philipp}. 
+For optimal performance, it requires extensive knowledge of the selected algorithm and how different combinations of parameters affect each other.
 Exemplary hyperparameters are: learning rate, loss function, activation function or weights of neurons in NN (see chapter \ref{NN chapter}) \cite{Yang2}.
-As hyperparameters play a very important part in the success of a ML-model, specialized algorithms are in development for optimal hyperparameter selection \cite{Bergstra}.
+As hyperparameters play a very important role in the success of a ML model, specialized algorithms are in development for optimal hyperparameter selection \cite{Bergstra}.
 
 
 \subsubsection*{K-fold Cross Validation}\label{KCV}
-K-fold Cross Validation (KCV), is an approach for error estimation of ML models \cite{Zhang}. By applying KCV, the data-set is split into k subsets. All but one subset are used for training and the remaining one, to measure the models performance after it is trained. For that the error-function is used. The score is saved, and the process is repeated for all k subsets \cite{Yoshua}. In the end, all k subsets were used once to assess the model. The expected value over all k-iterations is the final estimation of the models' performance. By employing this process, the models sensitivity to one particular data-set does not influence the final rating of the models performance \cite{Bishop}.
+K-fold Cross Validation (KCV), is an approach for error estimation of ML models \cite{Zhang}. By applying KCV, the data-set is split into k subsets. All but one subset are used for training and the remaining one is used to measure the model's performance after it is trained. For that, the error-function is used. The score is saved, and the process is repeated for all k subsets \cite{Yoshua}. In the end, all k subsets were used once to assess the model. The expected value over all k-iterations is the final estimation of the models' performance. By employing this process, the model's sensitivity to one particular data-set does not influence the final rating of the model's performance \cite{Bishop}.
 
 
 
@@ -279,18 +279,18 @@ K-fold Cross Validation (KCV), is an approach for error estimation of ML models 
 
 \subsection{Core Functionalities in Machine Learning}
 The core functionalities of ML are Supervised Learning, Unsupervised Learning and Reinforcement Learning (RL) \cite{Theodoridis,Janiesch}. In the following, these three functionalities are discussed in more detail.
-Semisupervised Learning is a mix of Supervised and Unsupervised Learning \cite{Zhu}. Due to its rarity and specialized approach, it is not covered by the scope of this thesis.
+Semisupervised Learning is a mix of Supervised and Unsupervised Learning~\cite{Zhu}. Due to its rarity and specialized approach, it is not covered by the scope of this thesis.
 
 \subsubsection*{Supervised Learning}\label{SUPER}
 Supervised Learning is split up into two parts: \textbf{Classification} and \textbf{Regression} \cite{Janiesch,Theodoridis}.
 
-In the case of \textbf{Classification}, the data, that a model is trained on, has labels (class label) \cite{Carleo}. For example, images that contain either cats or dogs. The image is the data. The label, is a corresponding value of either 1 or 0, which represents the presence of either animal in one specific image (for example 0 for cats and 1 for dogs). The goal is, to predict if a new image contains cats or dogs. The model that is used in the case of Classification is called a classifier \cite{Theodoridis}.
+In the case of \textbf{Classification}, the data element that a model is trained on has a label (class label)~\cite{Carleo}. For example, images that contain either cats or dogs. The image is the data. The label is a corresponding value of either 1 or 0, which represents the presence of either animal in one specific image (for example, 0 for cats and 1 for dogs). The goal is to predict if a new image contains cats or dogs. The model that is used in the case of Classification is called a classifier~\cite{Theodoridis}.
 
-To return a correct label, the classifier has to train on the available trainig-set, and find correlations between the data and labels \cite{Carleo}.
-After each training cycle, the prediction of the classifier can be compared to the true label (ground truth), and thus supervised on its performance.
-
-The classifier must learn the underlying structure (the pattern) of images and has to generalize, as the picture in the test-set are not used in training and thus are unseen \cite{Bishop}. 
-The found patterns allow the classification of the input (image) into discrete and limited variables (type of animal, 0 or 1). \cite{Theodoridis}
+To return the correct label, the classifier has to train on the available trainig-set, and find correlations between the data and labels~\cite{Carleo}.
+After each training cycle, the prediction of the classifier can be compared to the true label (ground truth) and thus supervised on its performance.
+\newpage
+The classifier must learn the underlying structure (the pattern) of images and has to generalize, as the pictures in the test-set are not used in training and thus are unseen \cite{Bishop}. 
+The found patterns allow the classification of the input (image) into discrete and limited variables (type of animal, 0 or 1) \cite{Theodoridis}.
 
 Figure \ref{fig:CATDOG} shows a schematic representation of how a classifier is trained on a data-set containing images of either dogs or cats and how it is used to predict the label of a new image.
 
@@ -303,15 +303,13 @@ Figure \ref{fig:CATDOG} shows a schematic representation of how a classifier is 
 
 
 
-Further examples for classifications are: the prediction of whether a tumor is benign or malignant, or the authorship of a given text \cite{Theodoridis}.
+Further examples of classifications are: the prediction of whether a tumor is benign or malignant or the authorship of a given text \cite{Theodoridis}.
 
 
+The same basic principle is applied to \textbf{regression}. The main difference is that in the case of regression, the output is not a binary class but a continuous variable. In other words, the labels are lying in an interval. In broader terms, it is possible to call it a "curve fitting" method (see chapter \ref{TT}) \cite{Theodoridis}.
 
-
-The same basic principle is applied to \textbf{regression}. The main difference is that in the case of regression, the output is not a binary class, but a continuous variable. In other words, the labels are lying in an interval. In broader terms it is possible to call it a "curve fitting" method (see chapter \ref{TT}) \cite{Theodoridis}.
-
-One application for example, is to predict the position of the sun based on a picture containing shadows. The data in this case is, again just as in the classification, the image. The label on the other hand is now a number that is the solar azimuth angle. The model can fit a function to the available data points, and predict the suns position on a new (unseen) picture.
-An even simple example is shown in figure \ref{fig:SimpleRegression}. A given data-set contains values of points in the \(x\)-\(y\) plane. With a regression model, the mapping function is estimated. Now the estimated function can be used to predict the \(y\)-value for a new \(x\)-value. 
+One application, for example, is to predict the position of the sun based on a picture containing shadows. The data in this case is, just as in the classification, the image. The label, on the other hand, is now a number that is the solar azimuth angle. The model can fit a function to the available data points and predict the sun's position on a new (unseen) picture.
+An even more simple example is shown in figure \ref{fig:SimpleRegression}. A given data-set contains values of points in the \(x\)-\(y\) plane. With a regression model, the mapping function is estimated. Now the estimated function can be used to predict the \(y\)-value for a new \(x\)-value. 
 
 \begin{figure}[H]
 	\centering
@@ -321,12 +319,12 @@ An even simple example is shown in figure \ref{fig:SimpleRegression}. A given da
 \end{figure}
 
 
-Another example for regression, is to predict a stock price in the next few minutes based on the history of the last 30 minutes \cite{Janiesch}.
+Another example of regression is to predict a stock price in the next few minutes based on the history of the last 30 minutes \cite{Janiesch}.
 
 
 
 \subsubsection*{Unsupervised Learning}
-In Unsupervised Learning, the data that is given to a model has no labels. The goal of that method (just like in Supervised Learning) is to also find underlying patterns \cite{Carleo}. But instead of learning a pattern and comparing the output to the ground-truth, the method is designed in such a way, that it discovers a pattern on its own \cite{Murphy}. The focus is not on assigning labels to an input, but on deciding to which class it belongs.
+In Unsupervised Learning, the data that is given to a model has no labels. The goal of that method (just like in Supervised Learning) is to also find underlying patterns \cite{Carleo}. But instead of learning a pattern and comparing the output to the ground-truth, the method is designed in such a way that it discovers a pattern on its own \cite{Murphy}. The focus is not on assigning labels to an input, but on deciding to which class it belongs.
 
 When applying this method to images, the output of the model are groups of pictures, where every group has something in common. Unsupervised Learning is very similar to human learning, as most things are learned without someone explicitly explaining how something works \cite{Murphy}. As mentioned in section \ref{Advantages and Problems of Machine Learning}, large labeled datasets are very difficult to create. Unsupervised Learning does not require a label and is thus widely applicable.
 
@@ -335,20 +333,20 @@ Figure \ref{fig:USL} visualizes how an unsupervised learning approach can divide
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{IMGs/USL.png}
- 	\caption{Finding similarities in shapes and grouping them into classes.}
+ 	\caption{Finding similarities in shapes and grouping them into classes}
  	\label{fig:USL}
 \end{figure}
 
 
 \subsubsection*{Reinforcement Learning}
 
-RL is based on the same principle as the learning process in people or animals. The main objective is to reach a goal, or in other words, to maximize a numerical value. The learning processes is in a loop with observing and decision-making. The so called agent is in an environment that he can observe and perform action in. The action are rewarded or punished with a numerical reward. \cite{LEX}
+RL is based on the same principle as the learning process in people or animals. The main objective is to reach a goal or, in other words, to maximize a numerical value. The learning process is in a loop with observing and decision-making. The so-called agent is in an environment that he can observe and perform action in. The actions are rewarded or punished with a numerical reward. \cite{LEX}
  
-Actions that bring the agent closer to the goal, are rewarded proportionally to their usefulness to achieve the goal. After completion of the task (achieving the goal) a large reward is issued, to signal the agent that the steps taken were successful. As the agent does not know which action lead to high rewards, it has a significant exploration part in the beginning of its training to confirm or update its assumptions regarding the predicted reward for each action in each state. \cite{Sutton}
+Actions that bring the agent closer to the goal are rewarded proportionally to their usefulness in achieving the goal. After completion of the task (achieving the goal) a large reward is issued to signal the agent that the steps taken were successful. As the agent does not know which actions lead to high rewards, it has a significant exploration part in the beginning of its training to confirm or update its assumptions regarding the predicted reward for each action in each state.~\cite{Sutton}
 
-One of the most challenging tasks in RL is to decide which steps in the process were the good and bad ones. This is also called the "Credit Assignment Problem" \cite{Minsky,Bishop}. To solve a task, for example finding a way out of a labyrinth, the agent has first to navigate opposite to the exit direction, to then again get closer to the exit. The three distinguishing parts of RL are: a closed loop system, no clear instructions, and long-term strategy of the agent. \cite{Sutton}
+One of the most challenging tasks in RL is deciding which steps in the process were the good and bad ones. This is also called the "Credit Assignment Problem" \cite{Minsky,Bishop}. To solve a task, for example, finding a way out of a labyrinth, the agent has to first navigate in the opposite direction to the exit, to then again get closer to the exit. The three distinguishing parts of RL are: a closed loop system, no clear instructions, and the long-term strategy of the agent. \cite{Sutton}
 
-Figure \ref{fig:SimpleRL} shows one iteration of the interaction of the agent in the environment. First, the agent receives a state of the environment as a feature vector. Based on that current state and the agents long term strategy, it performs an action and thus changes the environment. After performing the action, the agent is rewarded on its performance based on the defined goal \cite{LEX}.
+Figure \ref{fig:SimpleRL} shows one iteration of the interaction of the agent with the environment. First, the agent receives the state of the environment as a feature vector. Based on that current state and the agent's long-term strategy, it performs an action and thus changes the environment. After performing the action, the agent is rewarded for its performance based on the defined goal~\cite{LEX}.
 
 \begin{figure}[H]
 	\centering
@@ -356,47 +354,45 @@ Figure \ref{fig:SimpleRL} shows one iteration of the interaction of the agent in
 	\caption{The interaction of an agent with its environment in RL \cite{LEX}.}
 	\label{fig:SimpleRL}
 \end{figure}
-RL finds a lot of applications in games and game like scenarios, as the goal and reward is easily defined and the state of environment is easily encoded into a feature vector \cite{Takuma}.
-Due to the limited scope of this thesis and nature of the problem described in chapter \ref{prob}, RL is not further discussed. More information can be found in \cite{Sutton}.
+RL finds a lot of applications in games and game-like scenarios, as the goal and reward are easily defined and the state of the environment is easily encoded into a feature vector \cite{Takuma}.
+Due to the limited scope of this thesis and the nature of the problem described in chapter \ref{prob}, RL is not further discussed. More information can be found in \cite{Sutton}.
  
 
 \subsection{Specialized Machine Learning Approaches}
-In the following, three specialized architectures are presented and analyzed in more detail. 
+In the following, three specialized architectures are presented and analyzed in more detail.
 \subsubsection*{Neural Networks}\label{NN chapter}
 NNs are based on the same principle as the functionality of the human brain \cite{Janiesch}.
 The basic components of a NN in a living organism are neurons and synapses. The synapses are connecting the neurons with each other. Based on the input, a synapse can be activated or inhibited. Based on that observation, McCulloch and Pitts implemented a simple model, called a perceptron, that mimics exactly this behavior \cite{Theodoridis}.
-Figure \ref{fig:2nn} shows how two neurons are connected to each other. This principle is reproduced many times to create a NN out of perceptrons.
+Figure \ref{fig:2nn} shows how two neurons are connected to each other. This principle is reproduced many times to create a large NN out of perceptrons.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{IMGs/2NN.png}
 	\caption{Connection of two neurons via synapses \cite{Das}}
 	\label{fig:2nn}
 \end{figure}
+\newpage
+NN are also referred to as Artificial Neural Networks (ANNs). These models are based on the same principle as the perceptron. In this case, the perceptrons are arranged in layers and referred to as nodes or neurons. The first layer is called an input layer and the last one is the output layer. The layers in between are called hidden layers \cite{JOOST}. 
 
-NN are also referred to as Artificial Neural Networks (ANNs). These models are based on the same principle as the perceptron. In this case, the perceptrons are arranged in layers and referred to as nodes or neurons. The first layer is called an input layer and the last one the output layer. The layers in between are called hidden layers \cite{JOOST}. 
-
-Figure \ref{fig:NN1} shows an exemplary NN with three hidden layers. Each element of the input vector is given to one node at the input layer. This type of NN is also called a Feed-Forward Neural Network. Because the neurons are fully connected, it is also referred to as a fully connected NN \cite{Sainath}. Note that the output does not need to be a single value. It can also be a vector. In that case the output layer would consist out of multiple nodes.
+Figure \ref{fig:NN1} shows an exemplary NN with three hidden layers. Each element of the input vector is given to one node at the input layer. This type of NN is also called a Feed-Forward Neural Network. Because the neurons are fully connected, it is also referred to as a fully connected NN \cite{Sainath}. Note that the output does not need to be a single value. It can also be a vector. In that case, the output layer would consist of multiple nodes.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\linewidth]{IMGs/NN1.png}
+	\includegraphics[width=0.8\linewidth]{IMGs/NN1.png}
 	\caption{NN with three hidden layers}
 	\label{fig:NN1}
 \end{figure}
  
-To model a organic NN more closely and improve the performance, the nodes have an activation function built into them, which can introduce non-linearity \cite{Goyal}. One of the most common activation function is the "rectified linear unit" (ReLU) \cite{Goodfellow}. Figure \ref{fig:AF} shows three common activation functions. The most common activation functions are: ReLU, sigmoid, tanh and softmax \cite{Activation}
+To model an organic NN more closely and improve the performance, the nodes have an activation function built into them, which can introduce non-linearity \cite{Goyal}. One of the most common activation functions is the "rectified linear unit" (ReLU) \cite{Goodfellow}. Figure \ref{fig:AF} shows three common activation functions. The most common activation functions are: ReLU, sigmoid, tanh and softmax \cite{Activation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{IMGs/Active.png}
+	\includegraphics[width=0.8\linewidth]{IMGs/Active.png}
 	\caption{Various activation functions for NNs \cite{Activation}}
 	\label{fig:AF}
 \end{figure}
 
-Figure \ref{fig:PC} shows the basic functionality of a neuron at the first hidden layer. The ouput-elements of the input layer are pre-multiplyed with individual values called weights and summed up to a single value. This value is processed by the activation function and returns the output for that specific neuron for that specific input \cite{BattaMahesh}. The output value is then used as input in the following hidden layers. The adjustments of those weights is done in training through a process called back-propagation \cite{Chauvin}. 
-
-Figure \ref{fig:PC} shows how one neuron is multiplying the input with the corresponding weights and applying an activation function to the sum of those values. The output of the activation function can then be taken as the input on the next layer or as the final output \cite{Ding}.
-It is important to note, that the activation functions can be chosen for each layer individually. Especially in classification, the activation function at the output layer is set as SoftMax wile in the previous layers as ReLU \cite{Asadi}. 
+Figure \ref{fig:PC} shows the basic functionality of a neuron at the first hidden layer. The ouput-elements of the input layer are pre-multiplied with individual values called weights and summed up to a single value. This value is processed by the activation function and returns the output for that specific neuron for that specific input \cite{BattaMahesh}. The output value is then used as input in the following hidden layers \cite{Ding}. The adjustments of those weights is done in training through a process called back-propagation \cite{Chauvin}. 
+It is important to note that the activation functions can be chosen for each layer individually. Especially in classification, the activation function at the output layer is most commonly set as SoftMax while in the previous layers as ReLU \cite{Asadi}. 
 
 \begin{figure}[H]
 	\centering
@@ -404,17 +400,18 @@ It is important to note, that the activation functions can be chosen for each la
 	\caption{Graphical representation of a perceptron \cite{Ding}}
 	\label{fig:PC}
 \end{figure}
-Deep Neural Networks (DNNs) are NNs that contain many hidden layers. The increased amount of parameters and non-linearity helps them to achieve better feature abstraction and learn more complex patterns \cite{JOOST}.
-The biggest disadvantage of DNNs, and DL in general, is that even more data is necessary to optimally tune the free parameters \cite{Thompson}. Further, DL is very computationally expensive and requires significantly more time for training \cite{Fu}. 
+
+Deep Neural Networks (DNNs) are NNs that contain many hidden layers. The increased amount of parameters and non-linearity helps them achieve better feature abstraction and learn more complex patterns \cite{JOOST}.
+The biggest disadvantage of DNNs and DL in general is that even more data is necessary to optimally tune the free parameters \cite{Thompson}. Further, DL is very computationally expensive and requires significantly more time for training \cite{Fu}. 
 
 
 
 
 
 \subsubsection*{Recurrent Neural Networks}
-Recurrent Neural Networks (RNNs) are specialized NNs that are designed to be applied to problems involving time-series data, like sensor data or ordered data like sentences \cite{Jain}. After each input, the neurons in a RNN are sending feedback signals to following and some previous nodes. By doing that, a cycle is formed \cite{Grossberg}. By having this feedback-loop to previous nodes, the output is dependent on the new input and the output from the previous input. This specialized architecture can pay attention to the sequence of the input data \cite{Jain}.
+Recurrent Neural Networks (RNNs) are specialized NNs that are designed to be applied to problems involving time-series data, like sensor data or ordered data like sentences \cite{Jain}. After each input, the neurons in a RNN are sending feedback signals to the following and some previous nodes. By doing that, a cycle is formed \cite{Grossberg}. By having this feedback loop to previous nodes, the output is dependent on the new input and the output from the previous input. This specialized architecture can pay attention to the sequence of the input data \cite{Jain}.
 
-The rest of the functionality is almost the same as in a conventional NN. Figure \ref{fig:rnn} shows a simple RNN. The output of the first layer is sent back to the nodes C1 and C2. In this case they are called the context units. With this structure, the RNN can "remember" the input from the previous input. These closed-loop cycles are the "memory" of the RNN \cite{Salehinejad}.
+The rest of the functionality is almost the same as in a conventional NN. Figure \ref{fig:rnn} shows a simple RNN. The output of the first layer is sent back to the nodes C1 and C2. In this case, they are called context units. With this structure, the RNN can "remember" the input from the previous input. These closed-loop cycles are the "memory" of the RNN \cite{Salehinejad}.
 
 \begin{figure}[H]
 	\centering
@@ -423,9 +420,9 @@ The rest of the functionality is almost the same as in a conventional NN. Figure
 	\label{fig:rnn}
 \end{figure}
 
-By using the memory-structure, RNNs are capable of understanding sequential dependencies. A conventional RNN is capable of remembering up to ten time-steps (inputs) back. By adding more recurrent connections, with the goal of increasing the memory-capacity, the gradient of the response is either exponentially increasing to infirmity or decreasing to 0 \cite{Staudemeyer}. Thus, a standard RNN is limited in its ability to remember a lot of data.
+By using the memory-structure, RNNs are capable of understanding sequential dependencies. A conventional RNN is capable of remembering up to ten time-steps (inputs) back. By adding more recurrent connections with the goal of increasing the memory-capacity, the gradient of the response is either exponentially increasing to infinity or decreasing to 0 \cite{Staudemeyer}. Thus, a standard RNN is limited in its ability to remember a lot of data.
 
-Figure \ref{fig:rnn2} shows how a RNN can be unfolded. The recurrent structure is unfolded in the time-domain and gives a clear understanding how the output of a cell at time \(t_0\) is used as additional input a time \(t_1\).
+Figure \ref{fig:rnn2} shows how a RNN can be unfolded. The recurrent structure is unfolded in the time-domain and gives a clear understanding of how the output of a cell at time \(t_0\) is used as additional input at time \(t_1\).
 
 \begin{figure}[H]
 	\centering
@@ -435,9 +432,9 @@ Figure \ref{fig:rnn2} shows how a RNN can be unfolded. The recurrent structure i
 \end{figure}
 
 
-A subgroup of RNNs are long-short term memory RNNs (LSTMs). LSTMs are able to learn correlation of even longer sequences than conventional RNNs \cite{Salehinejad}. LSTMs are capable of remembering more than 1,000 time-steps \cite{Staudemeyer}.
+A subgroup of RNNs are long-short- term memory RNNs (LSTMs). LSTMs are able to learn correlation of even longer sequences than conventional RNNs \cite{Salehinejad}. LSTMs are capable of remembering more than 1,000 time-steps \cite{Staudemeyer}.
 
-LSTM-networks a finding more and more areas of application. For example, in machine health monitoring or load prediction in power-stations \cite{Zhao,Muzaffar}. The similarity of those applications is the dependency of the output on recent and past inputs. 
+LSTM-networks are finding more and more areas of application. For example, in machine health monitoring or load prediction in power stations \cite{Zhao,Muzaffar}. The similarity between those applications is the dependency of the output on recent and past inputs. 
 
 \subsubsection*{Physics Informed Neural Networks}
 Physics-informed Neural Networks (PINNs) are special types of NNs that are capable of following defined boundary conditions like laws of physics \cite{Cai}. One of the most used application domain, are problems involving partial differential equations (PDEs). Instead of using the available data to discover the physics from scratch, prior knowledge can be incorporated through the PDEs \cite{Cuomo}. By utilizing PINNs, a simple NN architecture can be used, that requires less training time, and can achieve equivalent results to large NNs \cite{Misyris}.
@@ -503,7 +500,7 @@ These approaches are not transferable to the problem described in chapter \ref{p
 When trying to transfer this approach to get a better prediction than the Miner rule, the input would be the load-history and the label the true state-of-damage or range of it. But calculating the physically accurate damage sum D is not possible. Thus, these approaches are not capable of solving the problem at hand. 
 
 Over the last decade, significant advancements are also continuously made in the area of predicting the Remaining-Useful-Life (RUL) of machine elements \cite{Deutsch,He,Yan}.
-The biggest problem with those models and approaches, is the assumed constant load that is acting on the components. Due to this assumption, these approaches can not be transferred to machinery where the cyclic loads have a significant variance in amplitude over time.  
+The biggest problem with those models and approaches, is the assumed constant load that is acting on the components. Due to this assumption, these approaches can not be transferred to machinery where the cyclic loads have a significant variance in amplitude over time.
 
 In summery, no methods were published that use a-priori knowledge of the Miner rule and the known load sequence to determine a more confident state-of-damage in machine elements.
 
