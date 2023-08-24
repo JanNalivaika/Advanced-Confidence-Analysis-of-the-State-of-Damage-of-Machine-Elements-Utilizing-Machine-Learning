@@ -14,8 +14,8 @@ Figure \ref{fig:STBFT} shows an exemplary test rig for STBF tests.
 \newpage
 
 \section{Data Visualization}\label{DV}
-Figures \ref{fig:L1}, \ref{fig:L2} and \ref{fig:L3}  show three different load sequences. The \(x\)-axis denotes the number of the cycle in that sequence, and the \(y\)-axis the applied force. As the force is acting in the negative direction with regards to the defined coordinate system, it is recorded with a negative sign. The clamping force is set to 3kN. The sudden reduction of force in the load history appears when the test rig switches from one load-level to another. 
-Additionally, the vertical lines represent the damage sum D according to Miner at 0.5, 0.8 and 1. Note that failure is expected at a damage sum equal to 1. The tested gear with the load sequence presented in figure \ref{fig:L2} was able to accumulate a damage sum D greater than unity and thus exceeding its expected failure point. The applied load sequence shown \ref{fig:L3} resulted in early failure.
+Figures \ref{fig:L1}, \ref{fig:L2} and \ref{fig:L3} show three different load sequences. The \(x\)-axis denotes the number of the cycle in that sequence, and the \(y\)-axis the applied force. As the force is acting in the negative direction with regard to the defined coordinate system, it is recorded with a negative sign. The clamping force is set to 3 kN. The sudden reduction of force in the load history appears when the test rig switches from one load-level to another. 
+Additionally, the vertical lines represent the damage sum D according to Miner at 0.5, 0.8 and 1. Note that failure is expected at a damage sum equal to 1. The tested gear with the load sequence presented in figure \ref{fig:L2} was able to accumulate a damage sum D greater than unity, and thus exceeding its expected failure point. The applied load sequence shown \ref{fig:L3} resulted in early failure.
 
 \begin{figure}[H]
 	\centering
@@ -38,13 +38,13 @@ Additionally, the vertical lines represent the damage sum D according to Miner a
 	\label{fig:L3}
 \end{figure}
 
-Note that the absolute values are irrelevant and can be changed as long as all load sequences are transformed in the same way. Flipping the sign or dividing by a constant to get the stress per unit area will result in equal performance of the selected method.
+Note that for a ML approach, the absolute values are irrelevant and can be changed as long as all load sequences are transformed in the same way. Flipping the sign or dividing by a constant to get the stress per unit area will result in equal performance of the selected method.
 \newpage
 \section{General Overview of the Proposed Structure}\label{GO}
-The first goal is to use a classifier to determine if a load sequence will result in early (D<1), late (D>1) or on-time failure (D$\approx$1). In other words, if a load sequence is more or less damaging than assumed by the Miner-Rule, based on the order of the loads. Based on that knowledge, it is possible to deduce the confidence in the damage sum D that was calculated with the Miner rule. For example, if the load sequence is classified as part of the less damaging ones, it is fair to assume that the Miner rule gives a conservative estimate of the actual physical damage. 
+The first goal is to use a classifier to determine if a load sequence will result in early (D<1), late~(D>1) or on-time failure (D$\approx$1). In other words, if a load sequence is more or less damaging than assumed by the Miner-Rule, based on the order of the loads. Based on that knowledge, it is possible to deduce the confidence in the damage sum D that was calculated with the Miner rule. For example, if the load sequence is classified as part of the less damaging ones, it is fair to assume that the Miner rule gives a conservative estimate of the actual physical damage. 
 
 After that, a regression is performed to estimate a new defined health indicator called "State of Health" (SOH). 
-Figure \ref{fig:GeneralMethod1} shows the process of classifying a load sequence with unknown effects, based on the available load sequences that are used as training data. 
+Figure \ref{fig:GeneralMethod1} shows the process of classifying a load sequence with unknown effects based on the available load sequences that are used as training data. 
 
 \begin{figure}[H]
 	\centering
@@ -59,7 +59,7 @@ The SOH prediction is based on similarly damaging load sequences, with a linear 
 Figure \ref{fig:GeneralMethod2} shows a schematic diagram of how a SOH prediction is acquired.
 First, a subset of the original datasets is taken where all load sequences have the same damaging effect. That means that they are either more damaging and thus resulting in early failures, or less damaging, allowing them to run past an accumulated damage sum greater than unity.\newline
 
-The end points of those known sequences are mapped to a linear function starting at 0 at the beginning of the sequence and ending at 1 at the end. This function is referred to as the label-function. The label is the value of the label function at the end of a sequence. Now, the load sequences are cut at different endpoints. The label of the shortened sequences is calculated with the label-function. The shortened sequences and their corresponding labels are combined into a data-set. That data-set is used to train a regressor to predict the SOH of a new sequence. The detailed explanation of the involved steps for predicting the SOH follows in chapter \ref{PrRe}.
+The end points of those known sequences are mapped to a linear function starting at 0 at the beginning of the sequence and ending at 1 at the end. This function is referred to as the label-function. Now, the load sequences are cut at different endpoints. The label of the shortened sequences is calculated with the label-function. The label of those snippets is the value of the label-function at the end of a sequence. The shortened sequences and their corresponding labels are combined into a data-set. That data-set is used to train a regressor to predict the SOH of a new sequence. The detailed explanation of the involved steps for predicting the SOH follows in chapter \ref{PrRe}.
 
 Figure \ref{fig:GeneralMethod2} shows a diagram of the proposed structure for the usage of the regressor. 
  
@@ -82,7 +82,7 @@ The parameters \(C\), \(L_a\) and \(-k\) are constants representing the referenc
 \begin{equation}\label{BQ}
 	N = {C}*{L_a}^{-k}
 \end{equation}
-Inputting the result from \ref{BQ} in equation \ref{acc} (from chapter \ref{LAD}) will return the accumulated damage sum D. Figure \ref{fig:SBC} shows the required steps on how the unlabeled load sequences are analyzed and sorted into categories based on the resulting damage sum D. The class labels and according range of damage sum D are shown in table \ref{DamageClass}.
+Inputting the result from equation \ref{BQ} in equation \ref{acc} (from chapter \ref{LAD}) will return the accumulated damage sum D. Figure \ref{fig:SBC} shows the required steps on how the unlabeled load sequences are analyzed and sorted into categories based on the resulting damage sum D. The class labels and the appropriate range of damage sum D are shown in table \ref{DamageClass}.
 
 \begin{figure}[H]
 	\centering
@@ -110,7 +110,7 @@ Inputting the result from \ref{BQ} in equation \ref{acc} (from chapter \ref{LAD}
 \end{table}
 
 \newpage
-Figure \ref{fig:SBC1} gives a more visual representation of how the different load sequences are separated into classes. Note that short sequences can have a higher damage sum D as it is not dependent on just the number of cycles but also on the load level. The end of a sequence is that point where the gear failed. 
+Figure \ref{fig:SBC1} gives a more visual representation of how the different load sequences are separated into classes. Note that short sequences can have a higher damage sum D as it is not dependent on just the number of cycles but also on the load level. The end of a sequence is the point where the gear failed. 
 
 \begin{figure}[H]
 	\centering
@@ -125,7 +125,7 @@ Before the classifier can be trained, further pre-processing steps need to be pe
 The goal of DA, as mentioned in chapter \ref{DAUG}, is to increase the diversity and size of a data-set. This gives the classifier more data to train on and reduces the risk of over-fitting.
 This step is especially important if the sample size is small. Due to the physical nature of the problem, multiple aspects have to be considered when performing DA.
 
-If the data-set is very limited, DA will only slightly boost the performance, as the inherent problem is the lack of data. Further, if DA is performed, the accumulated damage sum D of the total load sequence must not change significantly. If a load sequence is changed significantly and in a such way the damage sum D is also changed, the inherit properties of the load sequence can be lost. The classifier relies on characteristics that correlate to the label of a load sequence. Significantly changed characteristics will confuse the classifier in training and lead to worse performance.
+If the data-set is very limited, DA will only slightly boost the performance, as the inherent problem is the lack of data. Further, if DA is performed, the accumulated damage sum D of the total load sequence must not change significantly. If a load sequence is changed significantly and in such a way alters the damage sum D, the inherit properties of the load sequence can be lost. The classifier relies on characteristics that correlate to the label of a load sequence. Significantly changed characteristics will confuse the classifier in training and lead to poor performance.
 
 
 The same principle applies to the step of dimensionality reduction. ML models perform better with input vectors that are short and have values in a similar range. One possible option for dimensionality reduction is selecting every \(n^{th}\) point in a sequence.
@@ -144,7 +144,7 @@ It is important that the comparison is performed after each individual step. In 
 \end{figure}
 
 
-Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for dimensionality reduction. By missing significant portions of the load sequence, peaks and low spots can be missed or accentuated. Multiplying the number of cycles in the Miner rule with \(n\), is the same as expanding every cycle by \(n\) and using the Miner rule without multiplication. The two graphs in \ref{fig:UL} show that the expanded load sequence has significant differences and all characteristics have been lost. By comparing the damage sum at each step to the original, such cases can be found and not taken into the training data-set. Another way of reducing this problem, is to select a smaller step-size which in turn will increase the feature vector size that will be used as an input.  
+Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for dimensionality reduction. By missing significant portions of the load sequence, peaks and low spots can be missed or accentuated. Multiplying the number of cycles in the Miner rule with \(n\), is the same as expanding every cycle by \(n\) and using the Miner rule without multiplication. The two graphs in \ref{fig:UL} show that the expanded load sequence has significant differences and that all characteristics have been lost. By comparing the damage sum at each step to the original, such cases can be found and not taken into the training data-set. Another way of reducing this problem is to select a smaller step-size which in turn will increase the feature vector size that will be used as an input. 
 
 \begin{figure}[H]
 	\centering
@@ -154,12 +154,12 @@ Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for
 \end{figure}
  
 \subsection{Usage of the Classifier}
-The classifier is used as a method to classify an unfinished load sequence, whether it is part of the more damaging or less damaging ones. After the performed steps of separation into classes, DA and dimensionality reduction, the load sequences require a last pre-processing step. At the moment, the load sequences are in their full length and have a different damage sum D.
-If an unfinished sequence, of a gear that has not yet suffered fatigue damage, needs to be classified, the comparison has to be made with sequences that have the same damage sum D as the unclassified sequence. In other words, if a current sequence is at damage sum D = 0.6 and it is of interest if this is a correct estimate, it needs to be compared to other load sequences at D = 0.6.
+The classifier is used as a method to classify an unfinished load sequence, whether it is part of the more damaging, less damaging ones or correctly assessed ones. After the performed steps of separation into classes, DA and dimensionality reduction, the load sequences require a last pre-processing step. At the moment, the load sequences are in their full length and have a different damage sum D.
+If an unfinished sequence, of a gear that has not yet suffered fatigue damage needs to be classified, the comparison has to be made with sequences that have the same damage sum~D as the unclassified sequence. In other words, if a current sequence is at damage sum D = 0.6 and it is of interest if this is a correct estimate, it needs to be compared to other load sequences at D = 0.6.
  
 To do so, all sequences are cut (shortened) so that they all end at the same damage sum D. 
 With those sequences and their labels, the classifier is trained.
-After training, the classifier can take the unfinished sequence, that underwent the same dimensionality reduction as the rest, and predict a class-label. 
+After training, the classifier can take the unfinished sequence that underwent the same dimensionality reduction as the rest and predict a class-label. 
 Based on the predicted class label, a conclusion can be drawn if the calculated damage sum D based on the Miner rule is more on the conservative or lenient side. Figure \ref{fig:Class} shows the steps of the last pre-processing steps and the classification of a sequence.
 
 
@@ -174,10 +174,10 @@ Based on the predicted class label, a conclusion can be drawn if the calculated 
 Figure \ref{fig:Shortened} gives a visual representation of how load sequences of class 1 (D>1.1) are adapted when the unfinished sequence has the damage sum D of 0.6 according to the Miner rule.
 All recorded points after D=0.6 are deleted in every load sequence. By doing so, the sequences are shortened. These sequences are then used as training data to predict the label of the unlabeled sequence. The same is done to the sequences of classes 0 and 1.
 
-Note that if an unlabeled sequence it past a certain damage sum D, the classification will become more uncertain. For example if a sequence has a damage sum D = 0.85 but most of the sequences in class -1 end at 0.8, there are significantly fewer data samples that can be used for training in that class. 
+Note that if an unlabeled sequence is past a certain damage sum D, the classification will become more uncertain. For example, if a sequence has a damage sum D = 0.85 but most of the sequences in class -1 end at 0.8, there are significantly fewer data samples that can be used for training in that class. 
 
 For a classification of a load sequence that has a very low damage sum D (for example 0.3) the classification also becomes very uncertain, as it is possible that not enough characteristics are present in a load sequence that could place it in one category with high certainty.
-So there exists a sweet-spot that is determined by the number of training-elements in class -1 and the damage sum D of the unknown label.
+So there exists a sweet spot that is determined by the number of training-elements in each class and the damage sum D of the unknown label.
 
 \begin{figure}[H]
 	\centering
@@ -187,10 +187,10 @@ So there exists a sweet-spot that is determined by the number of training-elemen
 \end{figure}
 
 \subsection{Problems in Classification of Sequences}
-One of the problems in classifying sequences, is the difference in length of those sequences. The original recordings can have a different number of cycles which makes it difficult to use them as input-vectors. Most algorithms require a constant input-vector size for training and validation. This problem can be circumvented by pre-filling each augmented and reduced sequence with zeros to a uniform length or using a approach that can work with sequences of different sizes. 
+One of the problems in classifying sequences is the difference in length of those sequences. The original recordings can have a different number of cycles, which makes it difficult to use them as input-vectors. Most algorithms require a constant input-vector size for training and validation. This problem can be circumvented by pre-filling each augmented and reduced sequence with zeros to a uniform length, or using an approach that can work with sequences of different sizes. 
 
 
-The only problem remaining is the prediction of a unseen sequence that might be longer than any other sequence seen in training.
+The only problem remaining is the prediction of an unseen sequence that might be longer than any other sequence seen in training.
 This problem can be solved by pre-pending more zeros to create a buffer for the ability to classify longer sequences than those present in the training data.
 
 
@@ -199,8 +199,8 @@ This problem can be solved by pre-pending more zeros to create a buffer for the 
 The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity but will be limited in the number of cycles it can withstand. 
 
 \subsection{Data-set for Regressor}\label{PrRe}
-If an unfinished load sequence is classified into a class, for example class 1, the regressor will only be trained on the load sequences belonging to that class. Each augmented load sequence is iteratively selected and n different, randomly determined, points are chosen. These points are transferred to the label function of that sequence to determine the label (SOH) of that sequence-snipped from the beginning up to that point. The selected snippets are then saved and used as training data for the regressor.   
-Figure \ref{fig:dataregressor} shows the process of creating data samples form one load sequence.
+If an unfinished load sequence is classified into a class, for example, class 1, the regressor will only be trained on the load sequences belonging to that class. Each augmented load sequence is iteratively selected, and n different, randomly determined points are chosen. These points are transferred to the label function of that sequence to determine the label (SOH) of that sequence snipped from the beginning up to that point. The selected snippets are then saved and used as training data for the regressor. 
+Figure \ref{fig:dataregressor} shows the process of creating data samples from one load sequence.
 
 \begin{figure}[H]
 	\centering
@@ -209,19 +209,19 @@ Figure \ref{fig:dataregressor} shows the process of creating data samples form o
 	\label{fig:dataregressor}
 \end{figure}
 
-Figure \ref{fig:4elems} gives a visual example on how three elements and the according labels are created form one load sequence. The number of created elements can be freely defined.
+Figure \ref{fig:4elems} gives a visual example on how three elements and the according labels are created from one load sequence. The number of created elements can be freely defined.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\linewidth]{IMGs/4elems.png}
-	\caption{Creation of 3 elements with the help of the label function}
+	\caption{Creation of three elements with the help of the label function}
 	\label{fig:4elems}
 \end{figure}
 \subsection{Training the Regressor}
-The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles, but because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled with zeros (zero-padding) to bring all elements to the same length.
+The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles, but also because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled with zeros (zero-padding) to bring all elements to the same length.
 \section{Summary of the Proposed Method}
-The goal of the proposed method is to get a confidence value regarding the calculated damage sum D according to the Miner rule. It achieves that by first classifying a sequence into a category that represents the influence of the order of the loads. By doing so, it can be determined  if the Miner rule is giving a conservative or lenient estimate. The classification is based on a supervised learning algorithm that uses load sequences that failed before and after reaching a accumulated damage sum D equal to unity. The second step is a regressor that predicts a state-of-health, which is a value calculated by extrapolating the expected failure point in time based on the load sequences that have the same effect based on the order of loads. With these two values, the confidence in the calculated damage sum D can be evaluated.
-Table \ref{cases} gives a overview on how to interpret the different combination of the two values. 
+The goal of the proposed method is to get a confidence value regarding the calculated damage sum D according to the Miner rule. It achieves that by first classifying a sequence into a category that represents the influence of the order of the loads. By doing so, it can be determined if the Miner rule is giving a conservative or lenient estimate. The classification is based on a supervised learning algorithm that uses load sequences that failed before and after reaching an accumulated damage sum D equal to unity. The second step is a regressor that predicts a state-of-health, which is a value calculated by extrapolating the expected failure point in time based on the load sequences that have the same effect based on the order of loads. With these two values, the confidence in the calculated damage sum D can be evaluated.
+Table \ref{cases} gives an overview on how to interpret the different combinations of the two values. 
 
 \begin{table}
 	\begin{center}
