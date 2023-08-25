@@ -56,10 +56,10 @@
 \contentsline {subsection}{\numberline {4.1.1}General Information regarding the Implementation}{42}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Data Cleanup}{42}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {4.1.3}Data Augmentation}{43}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Training and Validation}{50}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Training of the Classifier}{50}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Training of the Regressor}{51}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Analysis and Discussion of the Results}{51}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{54}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Summary of Results}{54}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Outlook}{54}{section.5.2}%
+\contentsline {section}{\numberline {4.2}Training and Validation}{49}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Training of the Classifier}{49}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Training of the Regressor}{50}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Analysis and Discussion of the Results}{50}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{53}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Results}{53}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Outlook}{53}{section.5.2}%

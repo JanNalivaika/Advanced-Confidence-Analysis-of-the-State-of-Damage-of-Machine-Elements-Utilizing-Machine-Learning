@@ -143,6 +143,8 @@ It is important that the comparison is performed after each individual step. In 
 	\label{fig:DAUG}
 \end{figure}
 
+Note that the equality of th damage sum D after DA is the optimal case. Finding DA techniques that vary the load sequences but keep the damage sum D the same is very difficult. To work around this problem, a load sequence is regarded as acceptable if the damage sum D differs by 10 \% in any direction.
+
 
 Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for dimensionality reduction. By missing significant portions of the load sequence, peaks and low spots can be missed or accentuated. Multiplying the number of cycles in the Miner rule with \(n\), is the same as expanding every cycle by \(n\) and using the Miner rule without multiplication. The two graphs in \ref{fig:UL} show that the expanded load sequence has significant differences and that all characteristics have been lost. By comparing the damage sum at each step to the original, such cases can be found and not taken into the training data-set. Another way of reducing this problem is to select a smaller step-size which in turn will increase the feature vector size that will be used as an input. 
 
@@ -196,7 +198,7 @@ This problem can be solved by pre-pending more zeros to create a buffer for the 
 
 \newpage
 \section{Regressor for SOH-Prediction}
-The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity but will be limited in the number of cycles it can withstand. 
+The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity, but will be limited in the number of cycles it can withstand. 
 
 \subsection{Data-set for Regressor}\label{PrRe}
 If an unfinished load sequence is classified into a class, for example, class 1, the regressor will only be trained on the load sequences belonging to that class. Each augmented load sequence is iteratively selected, and n different, randomly determined points are chosen. These points are transferred to the label function of that sequence to determine the label (SOH) of that sequence snipped from the beginning up to that point. The selected snippets are then saved and used as training data for the regressor. 
@@ -209,7 +211,7 @@ Figure \ref{fig:dataregressor} shows the process of creating data samples from o
 	\label{fig:dataregressor}
 \end{figure}
 
-Figure \ref{fig:4elems} gives a visual example on how three elements and the according labels are created from one load sequence. The number of created elements can be freely defined.
+Figure \ref{fig:4elems} gives a visual example of how three elements and the appropriate labels are created from one load sequence. The number of created elements can be freely defined.
 
 \begin{figure}[H]
 	\centering
@@ -218,7 +220,7 @@ Figure \ref{fig:4elems} gives a visual example on how three elements and the acc
 	\label{fig:4elems}
 \end{figure}
 \subsection{Training the Regressor}
-The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles, but also because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled with zeros (zero-padding) to bring all elements to the same length.
+The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles but also because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled with zeros (zero-padding) to bring all elements to the same length.
 \section{Summary of the Proposed Method}
 The goal of the proposed method is to get a confidence value regarding the calculated damage sum D according to the Miner rule. It achieves that by first classifying a sequence into a category that represents the influence of the order of the loads. By doing so, it can be determined if the Miner rule is giving a conservative or lenient estimate. The classification is based on a supervised learning algorithm that uses load sequences that failed before and after reaching an accumulated damage sum D equal to unity. The second step is a regressor that predicts a state-of-health, which is a value calculated by extrapolating the expected failure point in time based on the load sequences that have the same effect based on the order of loads. With these two values, the confidence in the calculated damage sum D can be evaluated.
 Table \ref{cases} gives an overview on how to interpret the different combinations of the two values. 
