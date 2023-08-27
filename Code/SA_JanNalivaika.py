@@ -27,7 +27,7 @@ from sklearn.metrics import max_error
 from sklearn.metrics import mean_absolute_error
 
 
-def delete_plot(Y, name, step):
+def latex_plot(Y, name, step):
     plt.rcParams["figure.figsize"] = [21 / 2, 7.5 / 2]  # set figure size
     plt.ylabel("Force in [kN]")
     plt.xlabel(f'Cycle')
@@ -40,7 +40,7 @@ def delete_plot(Y, name, step):
     if pos_100 > 0: plt.axvline(x=pos_100, color='red', label='D = 1')
     plt.plot(Y)
     plt.legend(loc='upper center', bbox_to_anchor=(1.08, 1), fancybox=False, shadow=True)  # love legend right
-    plt.savefig(f"../Latex/IMGs/Verlauf_5_{name}.jpg", bbox_inches='tight', dpi=800)
+    #plt.savefig(f"../Latex/IMGs/Verlauf_5_{name}.jpg", bbox_inches='tight', dpi=800)
     plt.close()
 
 
@@ -70,7 +70,7 @@ def txt_to_numpy(files):
 
         f = open(file, "r")  # opening file
         file_content = f.readlines()  # Reading line by line
-        file_content.pop(0)  # First 2 lines are removed - they contain olny text
+        file_content.pop(0)  # First 2 lines are removed - they contain only text
         file_content.pop(0)
 
         for element in file_content:  # for every line
@@ -86,7 +86,9 @@ def txt_to_numpy(files):
 def plot_load_sequence():
     if os.path.exists("./Load_sequences_Images"): shutil.rmtree("./Load_sequences_Images")  # if folder exists- delete
     os.mkdir("Load_sequences_Images")  # create new folder
-    files = glob.glob("Load_sequences_NP/*")  # path of numpy arrays
+
+    files = glob.glob("Load_sequences_NP/*")  # path of numpy arrays  - was created by "txt_to_numpy()"
+
     for idx, element in enumerate(files):  # for every array
         print(f"Plotting Image {idx}")  # Make sure its forking
         arr = np.load(element)  # load array
@@ -112,6 +114,7 @@ def plot_load_sequence():
 
 def data_augmentation(stepper):
     draw = False  # drawing all files
+
     augmented_counter = 0
     class1_counter = 0
     class2_counter = 0
@@ -120,17 +123,21 @@ def data_augmentation(stepper):
     min_l = math.inf
     max_l = 0
 
+    # Making Folders for np-files
     if os.path.exists("./Load_sequences_Augmented"): shutil.rmtree("./Load_sequences_Augmented")
     os.mkdir("Load_sequences_Augmented")
 
+    # Making folder for Images
     if os.path.exists("./Load_sequences_Augmented_Images"): shutil.rmtree("./Load_sequences_Augmented_Images")
     if draw: os.mkdir("Load_sequences_Augmented_Images")
 
+    # Making folder for np-files where instance of a file wer not seen in training - validation set
     if os.path.exists("./Load_sequences_Unseen"): shutil.rmtree("./Load_sequences_Unseen")
     os.mkdir("Load_sequences_Unseen")
 
     files = glob.glob("Load_sequences_NP/*")
 
+    # ignoring the validation set for now
     random_file_nr = random.randint(0, len(files))
     random_file_nr = -1
 
@@ -143,43 +150,46 @@ def data_augmentation(stepper):
 
             noise = np.random.normal(0, 1, len(Y))  # Add random noise
             Y += noise
-            # if idx == 5: delete_plot(Y,"noise",1)
+            # if idx == 5: latex_plot(Y,"noise",1)
 
             shift = np.random.rand(1) * 0.5
             Y += shift
-            # if idx == 5: delete_plot(Y, "shift",1)
+            # if idx == 5: latex_plot(Y, "shift",1)
 
             for x in range(3):
                 start = random.randint(0, len(Y))
                 length = int(len(Y) / 100)
                 Y[start:length + start] *= random.uniform(0.5, 1.5)
-            # if idx == 5: delete_plot(Y, "shift_partial",1)
+            # if idx == 5: latex_plot(Y, "shift_partial",1)
 
             for x in range(3):
                 start = random.randint(0, len(Y))
                 length = int(len(Y) / 100)
                 end = min(start + length, len(Y))
                 Y = np.delete(Y, list(range(start, end)))
-            # if idx == 5: delete_plot(Y, "coutout",1)
+            # if idx == 5: latex_plot(Y, "coutout",1)
 
             gerade = np.linspace(random.uniform(-0.2, 0), random.uniform(0, 0.2), len(Y))
             if np.random.randint(2) == 0: gerade = -gerade
             Y += gerade
-            # if idx == 5: delete_plot(Y, "tilt",1)
+            # if idx == 5: latex_plot(Y, "tilt",1)
 
             augmented_dmg, _ = get_damage(Y, 1, 1)
             ratio = augmented_dmg / original_dmg
+
+
             if 0.9 < ratio < 1.1:
 
-                Y = Y[0::stepper]
+                Y = Y[0::stepper]  # slecting every nth step
 
                 reduced_dmg, _ = get_damage(Y, 1, stepper)
                 ratio = reduced_dmg / original_dmg
 
                 if 0.9 < ratio < 1.1:
                     # if idx == 5:
-                    # delete_plot(Y, "reduced",stepper)
+                    # latex_plot(Y, "reduced",stepper)
 
+                    # assigning a class
                     if reduced_dmg < 0.90:
                         label = -1
                         class1_counter += 1
@@ -191,28 +201,31 @@ def data_augmentation(stepper):
                         class2_counter += 1
 
                     if idx == random_file_nr:
+                        # creating validation set
                         np.save(f"Load_sequences_Unseen/{label}_{augmented_counter}.npy", Y)
                     else:
                         np.save(f"Load_sequences_Augmented/{label}_{augmented_counter}.npy", Y)
+
                     augmented_counter += 1
                     total_l += len(Y)
                     if len(Y) > max_l: max_l = len(Y)
                     if len(Y) < min_l: min_l = len(Y)
 
+                    # Plotting all DA-sequences in one plot
                     if draw:
                         _, pos_50 = get_damage(Y, 0.5, stepper)
                         _, pos_80 = get_damage(Y, 0.8, stepper)
                         _, pos_100 = get_damage(Y, 1, stepper)
 
-                        if pos_50 > 0: plt.axvline(x=pos_50, color='green', label='D = 0.5', lw=1)
-                        if pos_80 > 0: plt.axvline(x=pos_80, color='orange', label='D = 0.8', lw=1)
-                        if pos_100 > 0: plt.axvline(x=pos_100, color='red', label='D = 1', lw=1)
+                        if pos_50 > 0: plt.axvline(x=pos_50, color='green', label='D = 0.5', lw=0.5, linestyle='dashed')
+                        if pos_80 > 0: plt.axvline(x=pos_80, color='orange', label='D = 0.8', lw=0.5, linestyle='dashed')
+                        if pos_100 > 0: plt.axvline(x=pos_100, color='red', label='D = 1', lw=0.5, linestyle='dashed')
 
                         plt.plot(Y)
         if draw:
             plt.ylabel("Force in [kN]")
             plt.xlabel(f'Cycle * {stepper}')
-            plt.title(f"Augmented Data, D_original = {round(original_dmg, 2)}")
+            plt.title(f"load sequnece {idx}, Augmented Data, D_original = {round(original_dmg, 2)}")
             handles, labels = plt.gca().get_legend_handles_labels()
             by_label = dict(zip(labels, handles))
             plt.legend(by_label.values(), by_label.keys(), loc='upper center', bbox_to_anchor=(1.08, 1), fancybox=False,
@@ -220,9 +233,9 @@ def data_augmentation(stepper):
             plt.savefig(f"Load_sequences_Augmented_Images/Augmented_{idx}.png", bbox_inches='tight', dpi=800)
         plt.close()
 
-    # print(class1_counter, class2_counter, class3_counter)
-    # print(f"Average lenght = {total_l/augmented_counter}")
-    # print(f"Max and Min lenght = {max_l}, {min_l}")
+    print(class1_counter, class2_counter, class3_counter)
+    print(f"Average lenght = {total_l/augmented_counter}")
+    print(f"Max and Min lenght = {max_l}, {min_l}")
 
 
 def load_data_classifier(D, stepper):
@@ -233,8 +246,9 @@ def load_data_classifier(D, stepper):
     for file in files:
         arr = np.load(file)
         _, pos = get_damage(arr, D, stepper)
-        if pos > 0:
-            arr = arr[:pos]
+        # only include array in trainig set if damage sum D is higher that total damage of the load sequence
+        if pos >  0:
+            arr = arr[:pos] # Cut array at damage sum D of load sequences in testing set
             big_arr.append(arr)
             label = int((file.split("_")[2]).split("\\")[-1])
             labels.append(label)
@@ -345,11 +359,6 @@ def train_test_regressor(X, x, Y, y, model):
     out = reg.predict(x)
 
     error1 = mean_squared_error(y, out, squared=False)
-    error2 = explained_variance_score(y, out)
-    error3 = mean_absolute_error(y, out)
-    print(error1)
-    #print(error2)
-    #print(error3)
 
     return error1
 
@@ -373,8 +382,8 @@ def barplot(s):
     plt.title("Average performance of Classifiers")
     plt.savefig(f"Average_performance_CLASS.png", bbox_inches='tight', dpi=800)
 
-def barplot_regression(M):
 
+def barplot_regression(M):
     plt.rcParams["figure.figsize"] = [21 / 2, 9 / 2]
     barWidth = 0.3
 
@@ -382,7 +391,6 @@ def barplot_regression(M):
 
     # Choose the height of the cyan bars
     bars2 = M[1]
-
 
     # The x position of bars
     r1 = np.arange(len(bars1))
@@ -398,10 +406,11 @@ def barplot_regression(M):
     plt.xticks([r + barWidth for r in range(len(bars1))], ['Class -1', 'Class 0', 'Class 1'])
     plt.ylabel('Error')
     plt.legend()
+    plt.title("Average performance of Regressors")
     plt.savefig(f"Average_performance_REG.png", bbox_inches='tight', dpi=800)
     # Show graphic
     plt.close()
-    #plt.show()
+    # plt.show()
 
 
 if __name__ == "__main__":
@@ -425,40 +434,42 @@ if __name__ == "__main__":
     stepper = 300  # step size for Dim Reduction
     score = np.zeros(10)  # value to keep track of score if model is tested over multiple files
 
+    txt_to_numpy(files)  # Converting txt files to numpy arrays and storing in a new folder
+    plot_load_sequence()  # Plotting all load sequences
+    data_augmentation(stepper)  # Performing DA on all sequences
 
-
-    # txt_to_numpy(files)  # Converting txt files to numpy arrays and storing in a new folder
-    # plot_load_sequence()  # Plotting all load sequences
 
     loops = 25
-    #for model in range(10):
-    #    selected_model_classification = model + 1
-    #    for loop in range(loops):
-    #        data_augmentation(stepper)
-    #        X_train_c, X_test_c, y_train_c, y_test_c = load_data_classifier(D_cutoff, stepper)
-    #        classifier, length, correct = train_test_classifier(X_train_c, X_test_c, y_train_c, y_test_c,
-    #                                                            selected_model_classification)
-    #        score[model] += correct / loops
-    #        print(score)
-    #        barplot(score)
-    # score = unseen_data_validation(classifier, selected_model, length)/loops
-    # predicted_class = 1
+    for model in range(10):
+        selected_model_classification = model + 1
+        for loop in range(loops):
+            data_augmentation(stepper)
+            X_train_c, X_test_c, y_train_c, y_test_c = load_data_classifier(D_cutoff, stepper)
+            classifier, length, correct = train_test_classifier(X_train_c, X_test_c, y_train_c, y_test_c,
+                                                                selected_model_classification)
+            score[model] += correct / loops
+            print(score)
+            barplot(score)
+
+    """Use this only if validation set is present"""
+    # score_unseen = unseen_data_validation(classifier, selected_model, length)/loops
+
 
     """
     SELECT A MODEL FOR REGRESSION
     1) AdaBoostRegressor
     2) RandomForestRegressor
     """
-    score_matrix = np.zeros((2,3))
+    score_matrix = np.zeros((2, 3))
 
     for loop in range(loops):
         for model in range(2):
+            data_augmentation(stepper)
             for cat in range(3):
-                data_augmentation(stepper)
-                predicted_class = cat-1
-                X_train_r, X_test_r, y_train_r, y_test_r = load_data_regressor(D_cutoff,stepper,predicted_class)
-                selected_model_regression = model+1
+                predicted_class = cat - 1
+                X_train_r, X_test_r, y_train_r, y_test_r = load_data_regressor(D_cutoff, stepper, predicted_class)
+                selected_model_regression = model + 1
                 score = train_test_regressor(X_train_r, X_test_r, y_train_r, y_test_r, selected_model_regression)
-                score_matrix[model,cat]+=score/loops
+                score_matrix[model, cat] += score / loops
     print(score_matrix)
     barplot_regression(score_matrix)

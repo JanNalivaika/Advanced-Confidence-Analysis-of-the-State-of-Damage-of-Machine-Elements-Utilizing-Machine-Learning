@@ -1,4 +1,8 @@
 % !TeX spellcheck = en_US 
 \chapter{Conclusion}\label{conc}
 \section{Summary of Results}
+The goal of this thesis is to develop a method that is able to provide a confidence value in the calculated state-of-damage by specifically considering the history (order) of the loads that a machine element is subjected to. This thesis proposes a method that can classify a load sequence into one of three possible classes, depending on the effect of the load history. Further, a second indicator called state-of-health is added to analyze how much a machine element is worn down. With the combination of these two values, the state-of-damage is now supplied with more information and can be viewed from a different perspective. The analyzed classification methods return very promising results and are capable of correctly classifying a load sequence in 80~\% of cases. 
+The selected regression models are also capable of predicting the state-of-health with very low error margins.
+In conclusion, this method provides a very capable and robust alternative to nonlinear damage accumulation models that provides accurate results and is easily applicable to every machine element.  
 \section{Outlook}
+One of the most important aspects when it comes to ML approaches is the amount and quality of the data. To get an even more accurate result of the predicted classes and state-of-health the supply of more data is the most important step. Further, it is possible to add more DA methods to increase the model's ability to generalize. Another possible area for further research is the prediction of the SOH not with a simple linear interpolation but with different functions depending on the output of the previous classification.

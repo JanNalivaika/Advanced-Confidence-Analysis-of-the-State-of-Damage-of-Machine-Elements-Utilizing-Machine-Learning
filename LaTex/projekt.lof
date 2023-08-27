@@ -67,5 +67,6 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Load sequence after dimensionality reduction\relax }}{47}{figure.caption.53}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Differences in augmented load sequences\relax }}{48}{figure.caption.54}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Augmentation procedure\relax }}{48}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Average performance of prediction the correct class for each classifier\relax }}{51}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Average performance of predicting the correct class for each classifier\relax }}{51}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Average performance of each regressor for predicting the SOH in each class\relax }}{52}{figure.caption.59}%
 \addvspace {10\p@ }
