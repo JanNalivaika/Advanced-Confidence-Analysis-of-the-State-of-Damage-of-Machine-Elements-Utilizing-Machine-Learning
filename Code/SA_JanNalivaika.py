@@ -113,7 +113,7 @@ def plot_load_sequence():
 
 
 def data_augmentation(stepper):
-    draw = False  # drawing all files
+    draw = True  # drawing all files
 
     augmented_counter = 0
     class1_counter = 0
@@ -257,7 +257,20 @@ def load_data_classifier(D, stepper):
                                                         stratify=labels)  #
     # print(np.sum(np.asarray(y_train) == -1), np.sum(np.asarray(y_train) == 0), np.sum(np.asarray(y_train) == 1))
 
-    return X_train, X_test, y_train, y_test
+    X_Never_seen = []
+    Y_Never_seen = []
+    files_unseen = glob.glob("Load_sequences_Unseen/*")
+    for file in files:
+        arr = np.load(file)
+        _, pos = get_damage(arr, D, stepper)
+        # only include array in trainig set if damage sum D is higher that total damage of the load sequence
+        if pos >  0:
+            arr = arr[:pos] # Cut array at damage sum D of load sequences in testing set
+            X_Never_seen.append(arr)
+            label = int((file.split("_")[2]).split("\\")[-1])
+            Y_Never_seen.append(label)
+
+    return X_train, X_test, y_train, y_test ,X_Never_seen, Y_Never_seen
 
 
 def train_test_classifier(X, x, Y, y, model):
@@ -415,7 +428,7 @@ def barplot_regression(M):
 
 if __name__ == "__main__":
     """
-    SELECT A MODEL FOR CLASSIFICATION
+    IMPLEMENTED MODEL FOR CLASSIFICATION
     
     1) KNeighborsTimeSeriesClassifier
     2) TimeSeriesSVC
@@ -434,25 +447,24 @@ if __name__ == "__main__":
     stepper = 300  # step size for Dim Reduction
     score = np.zeros(10)  # value to keep track of score if model is tested over multiple files
 
+
     txt_to_numpy(files)  # Converting txt files to numpy arrays and storing in a new folder
     plot_load_sequence()  # Plotting all load sequences
     data_augmentation(stepper)  # Performing DA on all sequences
 
 
-    loops = 25
+    loops = 1
     for model in range(10):
         selected_model_classification = model + 1
         for loop in range(loops):
             data_augmentation(stepper)
-            X_train_c, X_test_c, y_train_c, y_test_c = load_data_classifier(D_cutoff, stepper)
+            X_train_c, X_test_c, y_train_c, y_test_c, _ , _  = load_data_classifier(D_cutoff, stepper)
             classifier, length, correct = train_test_classifier(X_train_c, X_test_c, y_train_c, y_test_c,
                                                                 selected_model_classification)
             score[model] += correct / loops
             print(score)
             barplot(score)
 
-    """Use this only if validation set is present"""
-    # score_unseen = unseen_data_validation(classifier, selected_model, length)/loops
 
 
     """

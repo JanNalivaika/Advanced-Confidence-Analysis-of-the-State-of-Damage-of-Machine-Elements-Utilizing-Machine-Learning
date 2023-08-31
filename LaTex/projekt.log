@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  30 AUG 2023 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  31 AUG 2023 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1632,259 +1632,255 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line
 [1
 
 
-] [2]) (kap2.tex [3]
+] [2]) (kap2.tex [3] [4
+
+]
 Chapter 2.
-<IMGs/loading.png, id=369, 639.261pt x 252.507pt>
+<IMGs/loading.png, id=373, 639.261pt x 252.507pt>
 File: IMGs/loading.png Graphic file (type png)
 <use IMGs/loading.png>
 Package pdftex.def Info: IMGs/loading.png  used on input line 15.
 (pdftex.def)             Requested size: 366.47287pt x 144.755pt.
-[4
-
- <./IMGs/loading.png>]
-<IMGs/Spectrum.png, id=383, 793.437pt x 268.932pt>
+[5 <./IMGs/loading.png>]
+<IMGs/Spectrum.png, id=387, 793.437pt x 268.932pt>
 File: IMGs/Spectrum.png Graphic file (type png)
 <use IMGs/Spectrum.png>
 Package pdftex.def Info: IMGs/Spectrum.png  used on input line 29.
-(pdftex.def)             Requested size: 435.18349pt x 147.50679pt.
-<IMGs/WO.png, id=390, 1116.42094pt x 646.66594pt>
+(pdftex.def)             Requested size: 458.08936pt x 155.27074pt.
+<IMGs/WO.png, id=394, 1116.42094pt x 646.66594pt>
 File: IMGs/WO.png Graphic file (type png)
 <use IMGs/WO.png>
-Package pdftex.def Info: IMGs/WO.png  used on input line 45.
-(pdftex.def)             Requested size: 320.66115pt x 185.73247pt.
- [5 <./IMGs/Spectrum.png> <./IMGs/WO.png>]
-<IMGs/WO2.png, id=409, 687.56876pt x 569.12625pt>
+Package pdftex.def Info: IMGs/WO.png  used on input line 43.
+(pdftex.def)             Requested size: 343.56702pt x 199.004pt.
+ [6 <./IMGs/Spectrum.png> <./IMGs/WO.png>]
+<IMGs/WO2.png, id=414, 687.56876pt x 569.12625pt>
 File: IMGs/WO2.png Graphic file (type png)
 <use IMGs/WO2.png>
-Package pdftex.def Info: IMGs/WO2.png  used on input line 59.
+Package pdftex.def Info: IMGs/WO2.png  used on input line 57.
 (pdftex.def)             Requested size: 320.66115pt x 265.42255pt.
- [6 <./IMGs/WO2.png (PNG copy)>] [7] [8]
+ [7 <./IMGs/WO2.png (PNG copy)>] [8]
 <IMGs/AIMLDL.png, id=470, 625.58719pt x 612.03656pt>
 File: IMGs/AIMLDL.png Graphic file (type png)
 <use IMGs/AIMLDL.png>
-Package pdftex.def Info: IMGs/AIMLDL.png  used on input line 112.
+Package pdftex.def Info: IMGs/AIMLDL.png  used on input line 110.
 (pdftex.def)             Requested size: 320.66115pt x 313.72212pt.
- [9 <./IMGs/AIMLDL.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-
- []
-
-[10] [11]
-<IMGs/poly.png, id=534, 858.95906pt x 633.11531pt>
+ [9 <./IMGs/AIMLDL.png>] [10] [11]
+<IMGs/poly.png, id=535, 858.95906pt x 633.11531pt>
 File: IMGs/poly.png Graphic file (type png)
 <use IMGs/poly.png>
-Package pdftex.def Info: IMGs/poly.png  used on input line 178.
+Package pdftex.def Info: IMGs/poly.png  used on input line 180.
 (pdftex.def)             Requested size: 366.47287pt x 270.1186pt.
- [12] [13 <./IMGs/poly.png>]
-<IMGs/pixel.png, id=556, 3225.80156pt x 1406.25375pt>
+ [12 <./IMGs/poly.png>]
+<IMGs/pixel.png, id=550, 3225.80156pt x 1406.25375pt>
 File: IMGs/pixel.png Graphic file (type png)
 <use IMGs/pixel.png>
-Package pdftex.def Info: IMGs/pixel.png  used on input line 195.
-(pdftex.def)             Requested size: 435.18349pt x 189.70732pt.
-<IMGs/encoding.png, id=563, 386.754pt x 344.487pt>
+Package pdftex.def Info: IMGs/pixel.png  used on input line 197.
+(pdftex.def)             Requested size: 458.08936pt x 199.68513pt.
+ [13 <./IMGs/pixel.png>]
+<IMGs/encoding.png, id=565, 386.754pt x 344.487pt>
 File: IMGs/encoding.png Graphic file (type png)
 <use IMGs/encoding.png>
-Package pdftex.def Info: IMGs/encoding.png  used on input line 210.
+Package pdftex.def Info: IMGs/encoding.png  used on input line 209.
 (pdftex.def)             Requested size: 208.43149pt x 185.65225pt.
- [14 <./IMGs/pixel.png>]
-Overfull \hbox (3.14302pt too wide) in paragraph at lines 219--220
+
+Overfull \hbox (3.14302pt too wide) in paragraph at lines 218--219
 []\T1/phv/m/n/10.95 Further ap-proaches are pos-si-ble when work-ing with data 
 in a time-series for-mat [[][]Ban21[][], [][]Wen22[][]].
  []
 
-<IMGs/DA.png, id=585, 1238.37656pt x 575.90157pt>
+[14 <./IMGs/encoding.png>]
+<IMGs/DA.png, id=589, 1238.37656pt x 575.90157pt>
 File: IMGs/DA.png Graphic file (type png)
 <use IMGs/DA.png>
-Package pdftex.def Info: IMGs/DA.png  used on input line 227.
+Package pdftex.def Info: IMGs/DA.png  used on input line 226.
 (pdftex.def)             Requested size: 412.27762pt x 191.72652pt.
-[15 <./IMGs/encoding.png>]
-<IMGs/DA2.png, id=601, 672.549pt x 303.096pt>
+<IMGs/DA2.png, id=592, 672.549pt x 303.096pt>
 File: IMGs/DA2.png Graphic file (type png)
 <use IMGs/DA2.png>
-Package pdftex.def Info: IMGs/DA2.png  used on input line 236.
+Package pdftex.def Info: IMGs/DA2.png  used on input line 235.
 (pdftex.def)             Requested size: 366.47287pt x 165.1586pt.
- [16 <./IMGs/DA.png> <./IMGs/DA2.png>]
-<IMGs/MM.png, id=619, 688.536pt x 302.22pt>
+ [15 <./IMGs/DA.png> <./IMGs/DA2.png>]
+<IMGs/MM.png, id=613, 688.536pt x 302.22pt>
 File: IMGs/MM.png Graphic file (type png)
 <use IMGs/MM.png>
-Package pdftex.def Info: IMGs/MM.png  used on input line 256.
-(pdftex.def)             Requested size: 229.04468pt x 100.5353pt.
- [17 <./IMGs/MM.png>] [18]
-<IMGs/CATDOG.png, id=660, 743.943pt x 321.711pt>
+Package pdftex.def Info: IMGs/MM.png  used on input line 255.
+(pdftex.def)             Requested size: 274.8564pt x 120.64143pt.
+ [16] [17 <./IMGs/MM.png>]
+<IMGs/CATDOG.png, id=655, 743.943pt x 321.711pt>
 File: IMGs/CATDOG.png Graphic file (type png)
 <use IMGs/CATDOG.png>
-Package pdftex.def Info: IMGs/CATDOG.png  used on input line 299.
+Package pdftex.def Info: IMGs/CATDOG.png  used on input line 298.
 (pdftex.def)             Requested size: 412.27762pt x 178.28172pt.
-<IMGs/SimpleRegression.png, id=665, 701.62125pt x 611.28375pt>
+ [18 <./IMGs/CATDOG.png>]
+<IMGs/SimpleRegression.png, id=668, 701.62125pt x 611.28375pt>
 File: IMGs/SimpleRegression.png Graphic file (type png)
 <use IMGs/SimpleRegression.png>
-Package pdftex.def Info: IMGs/SimpleRegression.png  used on input line 316.
+Package pdftex.def Info: IMGs/SimpleRegression.png  used on input line 315.
 (pdftex.def)             Requested size: 229.04468pt x 199.55096pt.
- [19 <./IMGs/CATDOG.png>]
-<IMGs/USL.png, id=680, 879.723pt x 436.905pt>
+<IMGs/USL.png, id=676, 879.723pt x 436.905pt>
 File: IMGs/USL.png Graphic file (type png)
 <use IMGs/USL.png>
-Package pdftex.def Info: IMGs/USL.png  used on input line 335.
+Package pdftex.def Info: IMGs/USL.png  used on input line 334.
 (pdftex.def)             Requested size: 412.27762pt x 204.75204pt.
- [20 <./IMGs/SimpleRegression.png>]
-<IMGs/SimpleRL.png, id=695, 739.76375pt x 381.425pt>
+ [19 <./IMGs/SimpleRegression.png>]
+<IMGs/SimpleRL.png, id=691, 739.76375pt x 381.425pt>
 File: IMGs/SimpleRL.png Graphic file (type png)
 <use IMGs/SimpleRL.png>
-Package pdftex.def Info: IMGs/SimpleRL.png  used on input line 353.
+Package pdftex.def Info: IMGs/SimpleRL.png  used on input line 352.
 (pdftex.def)             Requested size: 229.04468pt x 118.09502pt.
 
-[21 <./IMGs/USL.png>]
-<IMGs/2NN.png, id=711, 228.855pt x 101.37875pt>
+[20 <./IMGs/USL.png>]
+<IMGs/2NN.png, id=707, 228.855pt x 101.37875pt>
 File: IMGs/2NN.png Graphic file (type png)
 <use IMGs/2NN.png>
-Package pdftex.def Info: IMGs/2NN.png  used on input line 369.
+Package pdftex.def Info: IMGs/2NN.png  used on input line 368.
 (pdftex.def)             Requested size: 366.47287pt x 162.34851pt.
- [22 <./IMGs/SimpleRL.png> <./IMGs/2NN.png>]
-<IMGs/NN1.png, id=725, 861.108pt x 434.496pt>
+ [21 <./IMGs/SimpleRL.png> <./IMGs/2NN.png>]
+<IMGs/NN1.png, id=721, 861.108pt x 434.496pt>
 File: IMGs/NN1.png Graphic file (type png)
 <use IMGs/NN1.png>
 Package pdftex.def Info: IMGs/NN1.png  used on input line 380.
 (pdftex.def)             Requested size: 366.47287pt x 184.9136pt.
-<IMGs/Active.png, id=730, 1403.2425pt x 618.05907pt>
+<IMGs/Active.png, id=726, 1403.2425pt x 618.05907pt>
 File: IMGs/Active.png Graphic file (type png)
 <use IMGs/Active.png>
 Package pdftex.def Info: IMGs/Active.png  used on input line 389.
 (pdftex.def)             Requested size: 366.47287pt x 161.40831pt.
- [23 <./IMGs/NN1.png> <./IMGs/Active.png>]
-<IMGs/PEC.png, id=750, 635.538pt x 185.274pt>
+ [22 <./IMGs/NN1.png> <./IMGs/Active.png>]
+<IMGs/PEC.png, id=746, 635.538pt x 185.274pt>
 File: IMGs/PEC.png Graphic file (type png)
 <use IMGs/PEC.png>
 Package pdftex.def Info: IMGs/PEC.png  used on input line 399.
 (pdftex.def)             Requested size: 366.47287pt x 106.8342pt.
-<IMGs/rnn.png, id=760, 615.80063pt x 507.39563pt>
+<IMGs/rnn.png, id=756, 615.80063pt x 507.39563pt>
 File: IMGs/rnn.png Graphic file (type png)
 <use IMGs/rnn.png>
 Package pdftex.def Info: IMGs/rnn.png  used on input line 418.
 (pdftex.def)             Requested size: 183.23294pt x 150.97336pt.
- [24 <./IMGs/PEC.png>]
-<IMGs/RNN2.png, id=781, 853.1875pt x 402.50375pt>
+ [23 <./IMGs/PEC.png>]
+<IMGs/RNN2.png, id=776, 853.1875pt x 402.50375pt>
 File: IMGs/RNN2.png Graphic file (type png)
 <use IMGs/RNN2.png>
 Package pdftex.def Info: IMGs/RNN2.png  used on input line 429.
 (pdftex.def)             Requested size: 366.47287pt x 172.88898pt.
- [25 <./IMGs/rnn.png> <./IMGs/RNN2.png>]
-<IMGs/piml.png, id=804, 853.1875pt x 591.20876pt>
+ [24 <./IMGs/rnn.png> <./IMGs/RNN2.png>]
+<IMGs/piml.png, id=800, 853.1875pt x 591.20876pt>
 File: IMGs/piml.png Graphic file (type png)
 <use IMGs/piml.png>
 Package pdftex.def Info: IMGs/piml.png  used on input line 445.
-(pdftex.def)             Requested size: 320.66115pt x 222.1989pt.
- [26 <./IMGs/piml.png>] [27]) (kap3.tex [28]
+(pdftex.def)             Requested size: 366.47287pt x 253.94417pt.
+ [25 <./IMGs/piml.png>] [26]) (kap3.tex [27] [28
+
+]
 Chapter 3.
 <IMGs/tooth.jpg, id=865, 2881.76625pt x 2891.80376pt>
 File: IMGs/tooth.jpg Graphic file (type jpg)
 <use IMGs/tooth.jpg>
 Package pdftex.def Info: IMGs/tooth.jpg  used on input line 10.
 (pdftex.def)             Requested size: 229.04468pt x 229.80464pt.
-[29
-
- <./IMGs/tooth.jpg>]
+[29 <./IMGs/tooth.jpg>]
 <IMGs/Load/L0.jpg, id=878, 728.75261pt x 268.66373pt>
 File: IMGs/Load/L0.jpg Graphic file (type jpg)
 <use IMGs/Load/L0.jpg>
-Package pdftex.def Info: IMGs/Load/L0.jpg  used on input line 22.
+Package pdftex.def Info: IMGs/Load/L0.jpg  used on input line 21.
 (pdftex.def)             Requested size: 458.08936pt x 168.87778pt.
 <IMGs/Load/L1.jpg, id=879, 728.75261pt x 268.66373pt>
 File: IMGs/Load/L1.jpg Graphic file (type jpg)
 <use IMGs/Load/L1.jpg>
-Package pdftex.def Info: IMGs/Load/L1.jpg  used on input line 29.
+Package pdftex.def Info: IMGs/Load/L1.jpg  used on input line 28.
 (pdftex.def)             Requested size: 458.08936pt x 168.87778pt.
 <IMGs/Load/L2.jpg, id=880, 728.75261pt x 268.66373pt>
 File: IMGs/Load/L2.jpg Graphic file (type jpg)
 <use IMGs/Load/L2.jpg>
-Package pdftex.def Info: IMGs/Load/L2.jpg  used on input line 36.
+Package pdftex.def Info: IMGs/Load/L2.jpg  used on input line 35.
 (pdftex.def)             Requested size: 458.08936pt x 168.87778pt.
- [30 <./IMGs/Load/L0.jpg> <./IMGs/Load/L1.jpg>] [31 <./IMGs/Load/L2.jpg>]
-<IMGs/Method1.png, id=894, 803.30383pt x 426.84875pt>
+ [30 <./IMGs/Load/L0.jpg> <./IMGs/Load/L1.jpg>]
+<IMGs/Method1.png, id=890, 803.30383pt x 426.84875pt>
 File: IMGs/Method1.png Graphic file (type png)
 <use IMGs/Method1.png>
-Package pdftex.def Info: IMGs/Method1.png  used on input line 51.
+Package pdftex.def Info: IMGs/Method1.png  used on input line 50.
 (pdftex.def)             Requested size: 435.18349pt x 231.24391pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
+ [31 <./IMGs/Load/L2.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
 
  []
 
-[32 <./IMGs/Method1.png>]
-<IMGs/Method2.png, id=904, 829.64006pt x 374.20885pt>
+<IMGs/Method2.png, id=899, 829.64006pt x 374.20885pt>
 File: IMGs/Method2.png Graphic file (type png)
 <use IMGs/Method2.png>
-Package pdftex.def Info: IMGs/Method2.png  used on input line 68.
+Package pdftex.def Info: IMGs/Method2.png  used on input line 67.
 (pdftex.def)             Requested size: 458.08936pt x 206.62059pt.
- [33 <./IMGs/Method2.png>]
-Overfull \hbox (0.50056pt too wide) in paragraph at lines 81--82
+[32 <./IMGs/Method1.png>]
+Overfull \hbox (0.50056pt too wide) in paragraph at lines 80--81
 []\T1/phv/m/n/10.95 The pa-ram-e-ters $\OML/cmm/m/it/10.95 C$\T1/phv/m/n/10.95 
 , $\OML/cmm/m/it/10.95 L[]$ \T1/phv/m/n/10.95 and $\OMS/cmsy/m/n/10.95 ^^@\OML/
 cmm/m/it/10.95 k$ \T1/phv/m/n/10.95 are con-stants rep-re-sent-ing the ref-er-e
 nce value of fa-tigue strength,
  []
 
-<IMGs/SBC.png, id=918, 651.24385pt x 438.82864pt>
+<IMGs/SBC.png, id=914, 651.24385pt x 438.82864pt>
 File: IMGs/SBC.png Graphic file (type png)
 <use IMGs/SBC.png>
-Package pdftex.def Info: IMGs/SBC.png  used on input line 89.
+Package pdftex.def Info: IMGs/SBC.png  used on input line 88.
 (pdftex.def)             Requested size: 366.47287pt x 246.94763pt.
-[34 <./IMGs/SBC.png>]
-<IMGs/SBC1.png, id=930, 819.717pt x 478.515pt>
+[33 <./IMGs/Method2.png>]
+<IMGs/SBC1.png, id=926, 819.717pt x 478.515pt>
 File: IMGs/SBC1.png Graphic file (type png)
 <use IMGs/SBC1.png>
-Package pdftex.def Info: IMGs/SBC1.png  used on input line 117.
+Package pdftex.def Info: IMGs/SBC1.png  used on input line 116.
 (pdftex.def)             Requested size: 412.27762pt x 240.6734pt.
- [35 <./IMGs/SBC1.png>]
-<IMGs/DAUG.png, id=940, 656.4525pt x 468.29007pt>
+ [34 <./IMGs/SBC.png>] [35 <./IMGs/SBC1.png>]
+<IMGs/DAUG.png, id=941, 656.4525pt x 468.29007pt>
 File: IMGs/DAUG.png Graphic file (type png)
 <use IMGs/DAUG.png>
-Package pdftex.def Info: IMGs/DAUG.png  used on input line 141.
+Package pdftex.def Info: IMGs/DAUG.png  used on input line 140.
 (pdftex.def)             Requested size: 366.47287pt x 261.4332pt.
-<IMGs/Unlucky.png, id=943, 948.489pt x 572.466pt>
+<IMGs/Unlucky.png, id=944, 948.489pt x 572.466pt>
 File: IMGs/Unlucky.png Graphic file (type png)
 <use IMGs/Unlucky.png>
-Package pdftex.def Info: IMGs/Unlucky.png  used on input line 153.
+Package pdftex.def Info: IMGs/Unlucky.png  used on input line 152.
 (pdftex.def)             Requested size: 366.47287pt x 221.19061pt.
  [36 <./IMGs/DAUG.png>]
 <IMGs/Class.png, id=952, 899.63129pt x 543.48993pt>
 File: IMGs/Class.png Graphic file (type png)
 <use IMGs/Class.png>
-Package pdftex.def Info: IMGs/Class.png  used on input line 170.
+Package pdftex.def Info: IMGs/Class.png  used on input line 169.
 (pdftex.def)             Requested size: 412.27762pt x 249.06299pt.
  [37 <./IMGs/Unlucky.png>]
 <IMGs/Shortened.png, id=960, 641.451pt x 479.391pt>
 File: IMGs/Shortened.png Graphic file (type png)
 <use IMGs/Shortened.png>
-Package pdftex.def Info: IMGs/Shortened.png  used on input line 186.
+Package pdftex.def Info: IMGs/Shortened.png  used on input line 185.
 (pdftex.def)             Requested size: 366.47287pt x 273.8848pt.
  [38 <./IMGs/Class.png>] [39 <./IMGs/Shortened.png>]
 <IMGs/dataregressor.png, id=972, 760.29993pt x 93.43013pt>
 File: IMGs/dataregressor.png Graphic file (type png)
 <use IMGs/dataregressor.png>
-Package pdftex.def Info: IMGs/dataregressor.png  used on input line 209.
+Package pdftex.def Info: IMGs/dataregressor.png  used on input line 208.
 (pdftex.def)             Requested size: 389.37874pt x 47.84973pt.
 <IMGs/4elems.png, id=974, 957.468pt x 471.069pt>
 File: IMGs/4elems.png Graphic file (type png)
 <use IMGs/4elems.png>
-Package pdftex.def Info: IMGs/4elems.png  used on input line 218.
+Package pdftex.def Info: IMGs/4elems.png  used on input line 217.
 (pdftex.def)             Requested size: 435.18349pt x 214.1139pt.
- [40 <./IMGs/dataregressor.png> <./IMGs/4elems.png>]) (kap4.tex [41]
+ [40 <./IMGs/dataregressor.png> <./IMGs/4elems.png>]) (kap4.tex
+[41] [42
+
+]
 Chapter 4.
-<IMGs/recordinglabel.png, id=993, 684.28621pt x 513.37743pt>
+<IMGs/recordinglabel.png, id=998, 684.28621pt x 513.37743pt>
 File: IMGs/recordinglabel.png Graphic file (type png)
 <use IMGs/recordinglabel.png>
 Package pdftex.def Info: IMGs/recordinglabel.png  used on input line 17.
 (pdftex.def)             Requested size: 343.56702pt x 257.75343pt.
-[42
-
- <./IMGs/recordinglabel.png>]
-<IMGs/Verlauf_5.jpg, id=1009, 720.35123pt x 268.66373pt>
+[43 <./IMGs/recordinglabel.png>]
+<IMGs/Verlauf_5.jpg, id=1013, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5.jpg  used on input line 87.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [43]
-<IMGs/Verlauf_5_noise.jpg, id=1018, 720.35123pt x 268.66373pt>
+ [44]
+<IMGs/Verlauf_5_noise.jpg, id=1022, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_noise.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_noise.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_noise.jpg  used on input line 94.
@@ -1893,61 +1889,61 @@ File: IMGs/Verlauf_5_noise.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_noise.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_noise.jpg  used on input line 103.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [44 <./IMGs/Verlauf_5.jpg> <./IMGs/Verlauf_5_noise.jpg>]
-<IMGs/Verlauf_5_shift_partial.jpg, id=1027, 720.35123pt x 268.66373pt>
+ [45 <./IMGs/Verlauf_5.jpg> <./IMGs/Verlauf_5_noise.jpg>]
+<IMGs/Verlauf_5_shift_partial.jpg, id=1031, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_shift_partial.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_shift_partial.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_shift_partial.jpg  used on input line 1
 17.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [45 <./IMGs/Verlauf_5_shift_partial.jpg>]
-<IMGs/Verlauf_5_coutout.jpg, id=1034, 720.35123pt x 268.66373pt>
+<IMGs/Verlauf_5_coutout.jpg, id=1033, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_coutout.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_coutout.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_coutout.jpg  used on input line 126.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
-<IMGs/Verlauf_5_tilt.jpg, id=1036, 720.35123pt x 268.66373pt>
+ [46 <./IMGs/Verlauf_5_shift_partial.jpg>]
+<IMGs/Verlauf_5_tilt.jpg, id=1041, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_tilt.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_tilt.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_tilt.jpg  used on input line 141.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [46 <./IMGs/Verlauf_5_coutout.jpg> <./IMGs/Verlauf_5_tilt.jpg>]
-<IMGs/Verlauf_5_reduced.png, id=1045, 720.35123pt x 268.66373pt>
+ [47 <./IMGs/Verlauf_5_coutout.jpg> <./IMGs/Verlauf_5_tilt.jpg>]
+<IMGs/Verlauf_5_reduced.png, id=1049, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_reduced.png Graphic file (type png)
 <use IMGs/Verlauf_5_reduced.png>
 Package pdftex.def Info: IMGs/Verlauf_5_reduced.png  used on input line 157.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
-<IMGs/Augmented_5.png, id=1048, 720.35123pt x 268.66373pt>
+<IMGs/Augmented_5.png, id=1052, 720.35123pt x 268.66373pt>
 File: IMGs/Augmented_5.png Graphic file (type png)
 <use IMGs/Augmented_5.png>
 Package pdftex.def Info: IMGs/Augmented_5.png  used on input line 170.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [47 <./IMGs/Verlauf_5_reduced.png (PNG copy)>]
-<IMGs/Augmentation.png, id=1056, 598.50629pt x 413.27371pt>
+ [48 <./IMGs/Verlauf_5_reduced.png (PNG copy)>]
+<IMGs/Augmentation.png, id=1061, 598.50629pt x 413.27371pt>
 File: IMGs/Augmentation.png Graphic file (type png)
 <use IMGs/Augmentation.png>
 Package pdftex.def Info: IMGs/Augmentation.png  used on input line 179.
 (pdftex.def)             Requested size: 320.66115pt x 221.4177pt.
- [48 <./IMGs/Augmented_5.png> <./IMGs/Augmentation.png>] [49]
-<IMGs/Average_performance_CLASS.png, id=1091, 673.19505pt x 406.33807pt>
+ [49 <./IMGs/Augmented_5.png> <./IMGs/Augmentation.png>] [50]
+<IMGs/Average_performance_CLASS.png, id=1095, 673.19505pt x 406.33807pt>
 File: IMGs/Average_performance_CLASS.png Graphic file (type png)
 <use IMGs/Average_performance_CLASS.png>
 Package pdftex.def Info: IMGs/Average_performance_CLASS.png  used on input line
  270.
 (pdftex.def)             Requested size: 458.08936pt x 276.49844pt.
 
-[50] [51 <./IMGs/Average_performance_CLASS.png>]
-<IMGs/Average_performance_REG.png, id=1106, 651.96574pt x 281.49165pt>
+[51] [52 <./IMGs/Average_performance_CLASS.png>]
+<IMGs/Average_performance_REG.png, id=1110, 651.96574pt x 281.49165pt>
 File: IMGs/Average_performance_REG.png Graphic file (type png)
 <use IMGs/Average_performance_REG.png>
 Package pdftex.def Info: IMGs/Average_performance_REG.png  used on input line 3
 13.
 (pdftex.def)             Requested size: 458.08936pt x 197.79016pt.
-) (kap5.tex [52 <./IMGs/Average_performance_REG.png>]
-Chapter 5.
-) [53
+) (kap5.tex [53 <./IMGs/Average_performance_REG.png>] [54
 
 ]
+Chapter 5.
+) [55]
 
 Package biblatex Warning: Keyword '\titleNormen ' not found on input line 68.
 
@@ -1960,7 +1956,7 @@ Overfull \hbox (4.9997pt too wide) in paragraph at lines 68--68
 n-ing Ap-proach for Power
  []
 
-[54
+[56
 
 
 ]
@@ -1969,13 +1965,13 @@ Overfull \hbox (4.92227pt too wide) in paragraph at lines 68--68
 huld, M.[]; Tishby, N.[]; Vogt-Maranto,
  []
 
-[55]
+
 Overfull \hbox (13.30623pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 tions. De-vel-op-ments in con-nec-tion-ist the-ory Back prop-
 a-ga-tion. Hills-dale, N.J.: Lawrence
  []
 
-
+[57]
 Overfull \hbox (2.22122pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 count-ing for prob-a-bilis-tic lin-ear and non-lin-ear dam-ag
 e ac-cu-mu-la-tion con-sid-er-ing load-
@@ -1987,13 +1983,13 @@ Overfull \hbox (15.8917pt too wide) in paragraph at lines 68--68
 n-ter-na-tional Jour-nal of Fa-tigue \T1/phv/m/n/10.95 140 (2020), p. 105842.
  []
 
-[56] [57]
+[58]
 Overfull \hbox (50.93892pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 flage. VDI-Buch. Berlin, Hei-del-berg: Springer Berlin Hei-de
 l-berg, (2006). ISBN: 9783540293644.
  []
 
-[58]
+[59] [60]
 Overfull \hbox (3.93211pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 . n e t  / p r o f i l e  / g a u r a v  -[] j a i s w a l  -
 [] 5  / p u b l i c a t i o n  / 3 2 8 9 6 0 0 3 4  _ e f f e c t s  _ o f  _ v
@@ -2006,46 +2002,46 @@ Overfull \hbox (3.1153pt too wide) in paragraph at lines 68--68
 n. In: \T1/phv/m/sl/10.95 Leichtbau-Konstruktion\T1/phv/m/n/10.95 .
  []
 
-[59]
+
 Overfull \hbox (1.88135pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 o l u m e  -[] 2 0  / i s s u e  -[] 1 2  / 1 2 1 3 0 5  / o 
 u t l i e r  -[] d e t e c t i o n  -[] a n d  -[] r e m o v a l  -[] i m p r o
  v e s  -[] a c c u r a c y  -[] o f  -[] m a 
  []
 
-[60]
+[61]
 Overfull \hbox (7.81392pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 for Power Sys-tems. In: \T1/phv/m/sl/10.95 2020 IEEE Power & 
 En-ergy So-ci-ety Gen-eral Meet-ing (PESGM)\T1/phv/m/n/10.95 .
  []
 
-
+[62]
 Overfull \hbox (5.35248pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 / / t h e r m a l p r o c e s s i n g  . c o m  / m e d i a  
 / u p l o a d s  / a s s e t s  / p d f  / a r t i c l e s  / 2 0 1 3  _ s p r 
 i n g  / 2 0 1 3  _ b o d y c 
  []
 
-[61] [62]
+[63] [64]
 Overfull \hbox (5.96638pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 De-vel-op-ers Se-ries. Burling-ton: El-se-vier Sci-ence, (201
 5). ISBN: 9780128015223. URL:
  []
 
-[63]
+
 Overfull \hbox (6.00943pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 o n  / 3 5 7 4 1 8 1 9 6  _ a p p l i c a t i o n  _ o f  _ s
  u p p o r t  _ v e c t o r  _ m a c h i n e  _ t e c h n i q u e s  _ f o r  _
  h e a l t h  _ m o n 
  []
 
-
+[65]
 Overfull \hbox (40.95717pt too wide) in paragraph at lines 68--68
 []\T1/phv/m/n/10.95 Werner, S.[]; Bacher-Höchst, M.[]; Son-sino, C. M.: Sta-bil
 -ität der tat-säch-lichen Schadenssumme
  []
 
-[64] [65]
+[66] [67]
 Overfull \hbox (0.33418pt too wide) in paragraph at lines 68--68
 \T1/phv/m/n/10.95 2 0 2 0  / e n g l i s h  / S o l i d W o r k s  / c w o r k 
 s  / r  _ C a l c u l a t i o n  _ B a s q u i n  _ C o n s t a n t s  _ S  -[]
@@ -2058,24 +2054,23 @@ Overfull \hbox (34.46645pt too wide) in paragraph at lines 68--68
 c-u-men-ta-tion, Ac-cess date: 25/06/2023.
  []
 
-[66]
 
 Package biblatex Warning: Keyword 'web' not found on input line 68.
 
 
 LaTeX Warning: Empty bibliography on input line 68.
 
-[67] (projekt.lof [68
+[68] (projekt.lof [69
 
 ])
 \tf@lof=\write8
 \openout8 = `projekt.lof'.
 
- [69] (projekt.lot)
+ [70] (projekt.lot)
 \tf@lot=\write9
 \openout9 = `projekt.lot'.
 
- [70
+ [71
 
 ]
 
@@ -2088,9 +2083,9 @@ Package logreq Info: Writing requests to 'projekt.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40204 strings out of 476331
- 809526 string characters out of 5787766
- 1908660 words of memory out of 5000000
+ 40205 strings out of 476331
+ 809533 string characters out of 5787766
+ 1909660 words of memory out of 5000000
  59471 multiletter control sequences out of 15000+600000
  550395 words of font info for 86 fonts, out of 8000000 for 9000
  1220 hyphenation exceptions out of 8191
@@ -2107,9 +2102,9 @@ Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/n
 aliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/User
 s/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/U
 sers/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on projekt.pdf (77 pages, 17900984 bytes).
+Output written on projekt.pdf (78 pages, 17900147 bytes).
 PDF statistics:
- 1622 PDF objects out of 1728 (max. 8388607)
- 322 named destinations out of 1000 (max. 500000)
+ 1621 PDF objects out of 1728 (max. 8388607)
+ 323 named destinations out of 1000 (max. 500000)
  650 words of extra memory for PDF output out of 10000 (max. 10000000)
 

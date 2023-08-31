@@ -12,7 +12,6 @@ Figure \ref{fig:STBFT} shows an exemplary test rig for STBF tests.
 	\label{fig:STBFT}
 \end{figure}
 \newpage
-
 \section{Data Visualization}\label{DV}
 Figures \ref{fig:L1}, \ref{fig:L2} and \ref{fig:L3} show three different load sequences. The \(x\)-axis denotes the number of the cycle in that sequence, and the \(y\)-axis the applied force. As the force is acting in the negative direction with regard to the defined coordinate system, it is recorded with a negative sign. The clamping force is set to 3 kN. The sudden reduction of force in the load history appears when the test rig switches from one load-level to another. 
 Additionally, the vertical lines represent the damage sum D according to Miner at 0.5, 0.8 and 1. Note that failure is expected at a damage sum equal to 1. The tested gear with the load sequence presented in figure \ref{fig:L2} was able to accumulate a damage sum D greater than unity, and thus exceeding its expected failure point. The applied load sequence shown \ref{fig:L3} resulted in early failure.
@@ -39,7 +38,7 @@ Additionally, the vertical lines represent the damage sum D according to Miner a
 \end{figure}
 
 Note that for a ML approach, the absolute values are irrelevant and can be changed as long as all load sequences are transformed in the same way. Flipping the sign or dividing by a constant to get the stress per unit area will result in equal performance of the selected method.
-\newpage
+
 \section{General Overview of the Proposed Structure}\label{GO}
 The first goal is to use a classifier to determine if a load sequence will result in early (D<1), late~(D>1) or on-time failure (D$\approx$1). In other words, if a load sequence is more or less damaging than assumed by the Miner-Rule, based on the order of the loads. Based on that knowledge, it is possible to deduce the confidence in the damage sum D that was calculated with the Miner rule. For example, if the load sequence is classified as part of the less damaging ones, it is fair to assume that the Miner rule gives a conservative estimate of the actual physical damage. 
 
@@ -72,7 +71,7 @@ Figure \ref{fig:GeneralMethod2} shows a diagram of the proposed structure for th
 
 
 In the following, load sequences that have been acquired by STBF are referred to as "finished" load sequences due to the fact that they ended in failure. On the other hand, load sequences that have not yet ended in failure and need to be classified are referred to as "unfinished" load sequences. Only the finished load sequences are used for training the classifier and regressor.
-\newpage
+
 
 \section{Preparation of the Classifier}
 \subsection{Separation based on Class Label}\label{SBOC}
@@ -109,7 +108,7 @@ Inputting the result from equation \ref{BQ} in equation \ref{acc} (from chapter 
 	\vspace{-4mm}
 \end{table}
 
-\newpage
+
 Figure \ref{fig:SBC1} gives a more visual representation of how the different load sequences are separated into classes. Note that short sequences can have a higher damage sum D as it is not dependent on just the number of cycles but also on the load level. The end of a sequence is the point where the gear failed. 
 
 \begin{figure}[H]
@@ -196,7 +195,7 @@ The only problem remaining is the prediction of an unseen sequence that might be
 This problem can be solved by pre-pending more zeros to create a buffer for the ability to classify longer sequences than those present in the training data.
 
 
-\newpage
+
 \section{Regressor for SOH-Prediction}
 The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity, but will be limited in the number of cycles it can withstand. 
 
@@ -245,3 +244,4 @@ Table \ref{cases} gives an overview on how to interpret the different combinatio
 \end{table}
 
 
+\afterpage{\null\newpage}

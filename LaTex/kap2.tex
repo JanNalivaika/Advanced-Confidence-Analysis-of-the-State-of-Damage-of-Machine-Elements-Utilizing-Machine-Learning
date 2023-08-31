@@ -19,14 +19,14 @@ The resulting stresses are reaching a constant or varying level, depending on th
  
 The Load Spectrum deals with the occurrence of load cycles with different amplitudes within a load sequence \cite{Facchinetti}. To get a load spectrum from a load sequence, the time and order component are omitted. A load spectrum shows the number of occurrences of a certain load amplitude in a load sequence.
 By eliminating the order and time component of a sequence, the same load spectrum may arise from multiple different sequences. Depending on the desired detail in the load spectrum, the load levels of a sequence can also be rounded. Depending on the area of application, the rounding can be done to the next integer or the next 10,000.
-
+\newpage
 The rounding will increase the occurrences at a certain load level as more occurrences are projected in each category. 
 Figure \ref{fig:LS} shows a schematic load spectrum calculated from an exemplary load sequence.
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth]{IMGs/Spectrum.png}
+	\includegraphics[width=1\linewidth]{IMGs/Spectrum.png}
 	\caption{Load Spectrum from Load Sequence}
 	\label{fig:LS}
 \end{figure}
@@ -36,17 +36,15 @@ The S-N curve (also referred to as the Wöhler-curve) plays a very important rol
 The graphical representation gives clear insights into the maximum number of load cycles a material is capable of withstanding before a fatigue break is expected.
 The applied load (S) is placed on the \(y\)-axes and the number of cycles (N) on the \(x\)-axes. The curve shows the number of cycles to fatigue failure and is individual for every material and for every different component.
 The S-N curve can also be determined for elements like welded joints or whole structures \cite{Baptista, Dong}.
-Both axes are on a logarithmic scale to achieve a straight line passing from the upper left to the lower right of the graph \cite{Little}.
-
-Figure \ref{fig:WO} shows a schematic representation of the S-N curve: 
+Both axes are on a logarithmic scale to achieve a straight line passing from the upper left to the lower right of the graph \cite{Little}. Figure \ref{fig:WO} shows a schematic representation of the S-N curve: 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{IMGs/WO.png}
+	\includegraphics[width=0.75\linewidth]{IMGs/WO.png}
 	\caption{Schematic representation of a S-N curve}
 	\label{fig:WO}
 \end{figure}
-\newpage
+
 As can be seen in figure \ref{fig:WO}, the curve is made up of two straight lines. The first part, which has a negative slope, is referred to as a fatigue strength range. In that range of loads, the material shows a limited number of cycles before failure occurs \cite{Adasooriya}.
 
 The horizontal line marks the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure \cite{Bellows}. It is often denoted as the S-N curve plateau.
@@ -60,7 +58,8 @@ Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a pr
 	\caption{S-N as a distribution \cite{Klein}}
 	\label{fig:WO2}
 \end{figure}
-\newpage
+
+
 \subsection{Linear Damage Accumulation Method}\label{LAD}
 The S-N curve is a crucial component in the application of the Miner rule \cite{MinerOG, Subramanyan}. The Miner rule is a popular linear damage accumulation technique most commonly used in engineering. It is based on three assumptions. First, that the rate of damage accumulation is constant over each loading cycle of one load level. Second, damage only occurs if the applied stress is higher than the fatigue limit (S-N curve plateau). This assumption is only true for the Miner-original and not for Miner-elementar or Miner-Haibach \cite{Werner}. And third, the component is expected to fail when cumulative damage reaches the unity \cite{Zuo}.
 The Miner rule also assumes that the first load cycle at a certain stress-level is just as damaging as any other at that stress-level. The order of loads is not relevant when calculating the accumulated damage.
@@ -95,7 +94,6 @@ Many more approaches can be found in \cite{Zhu1,Gao,Lv,Chen}.
 The common disadvantage of non-linear models is that they are dependent on very individual and specific parameters, limited to certain materials or loading histories, with a fixed trend regarding the loading amplitudes. Due to those limitations and cumbersome usage, they are not widely adopted in the engineering field \cite{Vietze}. 
 
 
-\newpage
 \section{Overview of Machine Learning}
 In contrast to rigid algorithms, ML is a method that can solve a given problem without being explicitly told how to solve it \cite{Sutton,Janiesch}. The following chapter discusses the advantages, general functionality, and core principles of ML.
 
@@ -113,19 +111,22 @@ Figure \ref{fig:AIMLDL} shows how DL and ML are subsets of AI.
 	\caption{Venn-Diagram of the different subsets of AI \cite{Alzubaidi}}
 	\label{fig:AIMLDL}
 \end{figure}
-\newpage
+
+
 \subsection{Advantages and Problems of Machine Learning}\label{Advantages and Problems of Machine Learning}
-The most important \textbf{advantage} of ML is the ability to learn from data and discover the underlying, non-obvious patterns \cite{Wuest}. With that knowledge, it is also possible to predict the output for a specific input. A ML model deployed to a self-driving car could, for example, predict how a pedestrian is going to cross a street and calculate if the car should perform an emergency brake to avoid a collision. One further advantage of ML is its wide applicability \cite{Thommandru}. Not only computer science or the automotive industry, but also banking, healthcare, and many more fields, can all find applications where ML can help improve a process.
+\subsubsection*{Advantages of Machine Learning}
+The most important advantage of ML is the ability to learn from data and discover the underlying, non-obvious patterns \cite{Wuest}. With that knowledge, it is also possible to predict the output for a specific input. A ML model deployed to a self-driving car could, for example, predict how a pedestrian is going to cross a street and calculate if the car should perform an emergency brake to avoid a collision. One further advantage of ML is its wide applicability \cite{Thommandru}. Not only computer science or the automotive industry, but also banking, healthcare, and many more fields, can all find applications where ML can help improve a process.
 
 These algorithms are also very efficient and profit greatly from more available data \cite{Janiesch}. Not only is it possible to learn from a lot of data, but also to process a lot of data \cite{Wuest}. One example is the analysis of sensor data, for example, from LiDAR sensors. Those sensors produce a lot of data that might need to be analyzed as quickly as possible, in some cases even in real-time. For self-driving cars, fast analysis of this data is crucial for avoiding accidents. ML is capable of solving this problem reliably \cite{Lyu}. 
 
 The era of "Big Data" plays right into the hands of ML. More data results in better performance of the ML approaches \cite{Wuest}. Also, the methods can be specially adapted to be robust. Outliers, noise, and missing values in the data do not skew the results in a significant way \cite{Theodoridis}. When comparing ML to DL, ML can tend to produce better results in cases where the training data is limited and also allows for a better interpretation of the outputs of the model \cite{Janiesch}.
 
-The \textbf{disadvantages} of ML are closely related to the advantages. For example, the data-set that is used for training needs to be a certain minimum size so the model is able to learn the underlying patterns. But not only the size is important, but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
+\subsubsection*{Disadvantages of Machine Learning}
+The disadvantages of ML are closely related to the advantages. For example, the data-set that is used for training needs to be a certain minimum size so the model is able to learn the underlying patterns. But not only the size is important, but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
 
 One of the biggest problems of ML is generalization \cite{Bishop}. Finding and learning patterns is just the first step, but making a correct prediction is the most valuable part. Depending on the free parameters of ML models, they have the capability to memorize the whole presented training-set and perform very poorly on data that is not part of the training-set \cite{Zhangpiml}. This case is called "over-fitting" \cite{Jabbar}. In such cases, the model does not learn the underlying structure of that data, but just the correct associations from one input to one output. 
 
-The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern, and perform very poorly when applied in real-world applications.\newline
+The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern, and perform very poorly when applied in real-world applications.
 
 Especially for high-dimensional data and complex problems, a very large dateset is a must. This can be difficult to obtain, especially in the area of natural sciences or industry \cite{Wuest}. Sensors can provide very corrupt data, and some experiments can take a lot of time and money to perform. And if that data is acquired, it still requires a significant amount of manual work to bring it into a form where ML methods can work with it. To train a model, for example, to classify multiple bacteria cells, it first takes time to grow the bacteria, but then also to label all the pictures. For example, the MNIST data-set for number recognition contains 70,000 elements, that were all manually labeled \cite{Pavlo}. So depending on the area or application, it is impossible to obtain a data-set that has the necessary size and quality. 
 
@@ -154,7 +155,8 @@ Table \ref{AdDis} summarizes the advantages and disadvantages of ML. Despite its
 \end{center}
 \vspace{-4mm}
 \end{table}
-\newpage
+
+
 \subsection{General Terms in Machine Learning}
 In the following, some of the general terms in ML are explained. As the field of ML is very large and continuously growing, this section focuses only on the core elements. Understanding these terms and principles helps to get a better understanding of the ML methods and how they can be applied in industry. For a more in-depth look, more information can be found in extensive literature \cite{Theodoridis, Bishop, google}.
 
@@ -187,21 +189,18 @@ But not all data is accepted by a ML model right away, even if it is in digital 
 When the goal is to apply a ML model for image classification, the image needs to be transformed into a format that is accepted by the implemented model. Images can have different height-to-width ratios (e.g.,~16:9 or 4:3) and different resolutions (e.g.,~1920x1080 pixel or 64x64 pixel). All the images need to be transformed into a uniform shape with the same resolution \cite{Park}.
 
 For example, if an image data-set contains mostly images with a 1:1 ratio, wider images need to be contracted or cut off to fit the pattern so that all images are the same. The resolution must also be adjusted so that all images have the same number of pixels.
-\newpage
+
 Figure \ref{fig:pixel} shows how images of different sizes and resolutions are adapted to a fixed resolution and ratio. In the upper image, the overhanging parts on the sides are removed, and no resolution scaling is necessary. In the lower image, parts on the top and bottom are removed. Additionally, the resolution was downscaled from 125x125 pixel to 100x100 pixel. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth]{IMGs/pixel.png}
+	\includegraphics[width=1\linewidth]{IMGs/pixel.png}
 	\caption{Changing resolution and ratio of images for a homogeneous data-set}
 	\label{fig:pixel}
 \end{figure}
-
+\newpage
 The ratio and resolution depend on the implemented method and can be chosen freely. 
-The current standard for images (MNIST) that are used in bench-marking of various algorithms is a squared format with a 28x28 pixel resolution \cite{Baldominos}.\newline
-For optimal classification, a higher resolution proves advantageous but can require longer training times and more complex~models~\cite{Kannojia,Huang}.
-
-After the input elements are standardized, they can be transformed into a vector or matrix format. The process of constructing such designed input from raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but this process is running the risk of omitting valuable data in the process \cite{Janiesch}.
+The current standard for images (MNIST) that are used in bench-marking of various algorithms is a squared format with a 28x28 pixel resolution \cite{Baldominos}. For optimal classification, a higher resolution proves advantageous but can require longer training times and more complex~models~\cite{Kannojia,Huang}. After the input elements are standardized, they can be transformed into a vector or matrix format. The process of constructing such designed input from raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but this process is running the risk of omitting valuable data in the process \cite{Janiesch}.
 
 Figure \ref{fig:encoding} shows how a matrix, representing an image, for example, can be encoded as a vector. As long as the encoding method is constant for all input elements, the order is irrelevant. In that case, the elements can also be stacked not only row-by-row but also column-by-column.
 
@@ -253,7 +252,7 @@ Further possible pre-processing options include MaxAbs-scaling, Robust Scaler-sc
 Figure \ref{fig:MM} shows how elements of a feature vector are projected in the range [-1;1] with the help of a MinMax-scaler. After the projection, numbers four and five are no longer distinguishable. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{IMGs/MM.png}
+	\includegraphics[width=0.6\linewidth]{IMGs/MM.png}
 	\caption{Applying a MinMax-Scaler to a feature vector}
 	\label{fig:MM}
 \end{figure}
@@ -282,13 +281,13 @@ The core functionalities of ML are Supervised Learning, Unsupervised Learning an
 Semisupervised Learning is a mix of Supervised and Unsupervised Learning~\cite{Zhu}. Due to its rarity and specialized approach, it is not covered by the scope of this thesis.
 
 \subsubsection*{Supervised Learning}\label{SUPER}
-Supervised Learning is split up into two parts: \textbf{Classification} and \textbf{Regression} \cite{Janiesch,Theodoridis}.
+Supervised Learning is split up into two parts: Classification and Regression \cite{Janiesch,Theodoridis}.
 
-In the case of \textbf{Classification}, the data element that a model is trained on has a label (class label)~\cite{Carleo}. For example, images that contain either cats or dogs. The image is the data. The label is a corresponding value of either 1 or 0, which represents the presence of either animal in one specific image (for example, 0 for cats and 1 for dogs). The goal is to predict if a new image contains cats or dogs. The model that is used in the case of Classification is called a classifier~\cite{Theodoridis}.
+In the case of Classification, the data element that a model is trained on has a label (class label)~\cite{Carleo}. For example, images that contain either cats or dogs. The image is the data. The label is a corresponding value of either 1 or 0, which represents the presence of either animal in one specific image (for example, 0 for cats and 1 for dogs). The goal is to predict if a new image contains cats or dogs. The model that is used in the case of Classification is called a classifier~\cite{Theodoridis}.
 
 To return the correct label, the classifier has to train on the available trainig-set, and find correlations between the data and labels~\cite{Carleo}.
 After each training cycle, the prediction of the classifier can be compared to the true label (ground truth) and thus supervised on its performance.
-\newpage
+
 The classifier must learn the underlying structure (the pattern) of images and has to generalize, as the pictures in the test-set are not used in training and thus are unseen \cite{Bishop}. 
 The found patterns allow the classification of the input (image) into discrete and limited variables (type of animal, 0 or 1) \cite{Theodoridis}.
 
@@ -306,7 +305,7 @@ Figure \ref{fig:CATDOG} shows a schematic representation of how a classifier is 
 Further examples of classifications are: the prediction of whether a tumor is benign or malignant or the authorship of a given text \cite{Theodoridis}.
 
 
-The same basic principle is applied to \textbf{regression}. The main difference is that in the case of regression, the output is not a binary class but a continuous variable. In other words, the labels are lying in an interval. In broader terms, it is possible to call it a "curve fitting" method (see chapter \ref{TT}) \cite{Theodoridis}.
+The same basic principle is applied to regression. The main difference is that in the case of regression, the output is not a binary class but a continuous variable. In other words, the labels are lying in an interval. In broader terms, it is possible to call it a "curve fitting" method (see chapter \ref{TT}) \cite{Theodoridis}.
 
 One application, for example, is to predict the position of the sun based on a picture containing shadows. The data in this case is, just as in the classification, the image. The label, on the other hand, is now a number that is the solar azimuth angle. The model can fit a function to the available data points and predict the sun's position on a new (unseen) picture.
 An even more simple example is shown in figure \ref{fig:SimpleRegression}. A given data-set contains values of points in the \(x\)-\(y\) plane. With a regression model, the mapping function is estimated. Now the estimated function can be used to predict the \(y\)-value for a new \(x\)-value. 
@@ -370,10 +369,11 @@ Figure \ref{fig:2nn} shows how two neurons are connected to each other. This pri
 	\caption{Connection of two neurons via synapses \cite{Das}}
 	\label{fig:2nn}
 \end{figure}
+
 \newpage
 NN are also referred to as Artificial Neural Networks (ANNs). These models are based on the same principle as the perceptron. In this case, the perceptrons are arranged in layers and referred to as nodes or neurons. The first layer is called an input layer and the last one is the output layer. The layers in between are called hidden layers \cite{JOOST}. 
 
-Figure \ref{fig:NN1} shows an exemplary NN with three hidden layers. Each element of the input vector is given to one node at the input layer. This type of NN is also called a Feed-Forward Neural Network. Because the neurons are fully connected, it is also referred to as a fully connected NN \cite{Sainath}. Note that the output does not need to be a single value. It can also be a vector. In that case, the output layer would consist of multiple nodes.
+Figure \ref{fig:NN1} shows an exemplary NN with three hidden layers. Each element of the input vector is given to one node at the input layer. This type of NN is also called a Feed-Forward Neural Network. Because the neurons are fully connected, it is also referred to as a fully connected~NN~\cite{Sainath}. Note that the output does not need to be a single value. It can also be a vector. In that case, the output layer would consist of multiple nodes.
 
 \begin{figure}[H]
 	\centering
@@ -442,7 +442,7 @@ Physics-informed Neural Networks (PINNs) are special types of NNs that are capab
 Figure \ref{fig:piml} shows the basic functionality of a PINN. The overall goal is to minimize the error function, just as in function fitting (see chapter \ref{TT}). In this case, the error function is made up of the initial- and boundary-conditions as well as the constraints of the PDE \cite{Guo}. The training process is analogous to the standard NN approach. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{IMGs/piml.png}
+	\includegraphics[width=0.8\linewidth]{IMGs/piml.png}
 	\caption{Schematic diagram of a PINN \cite{Guo}}
 	\label{fig:piml}
 \end{figure}
@@ -450,7 +450,7 @@ Figure \ref{fig:piml} shows the basic functionality of a PINN. The overall goal 
 
 
 
-\newpage
+
 \section{Overview of Machine Learning in Industry Applications}
 In the following, the application of ML in engineering and industrial applications is discussed.
 \subsection{General Application of Machine Learning in Industry}
@@ -504,3 +504,4 @@ The biggest problem with those models and approaches is the assumed constant loa
 
 In summary, no methods were published that use a-priori knowledge of the Miner rule and the known load sequence to determine a more confident state-of-damage in machine elements.
 
+\afterpage{\null\newpage}

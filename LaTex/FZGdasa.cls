@@ -588,7 +588,9 @@ Die Nutzungsrechte an dieser Arbeit gehen an den Lehrstuhl für Maschinenelement
 \Aufgabenstellung
 \DiplomErklaerung
 \Danksagung
-\tableofcontents
+\renewcommand{\baselinestretch}{1.35}\normalsize 
+\tableofcontents 
+\renewcommand{\baselinestretch}{1.241}\normalsize
 %
 % Abbildungsverzeichnis % Todo: Eventuell Option hinzufügen
 %\cleardoublepage
