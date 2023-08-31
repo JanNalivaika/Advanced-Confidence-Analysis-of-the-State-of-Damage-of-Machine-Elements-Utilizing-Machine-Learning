@@ -1,6 +1,6 @@
 % !TeX spellcheck = en_US 
 \chapter{State of Research and Development}\label{chap2}
-The following chapter gives a brief introduction to the topic of fatigue analysis in mechanical engineering. Further, the topic of ML with its core functionalities is presented. Finally, it is analyzed how ML is applied in industry, especially in fatigue analysis of machine elements.
+The following chapter gives a brief introduction to the topic of fatigue analysis in mechanical engineering. Further, the topic of ML and its core functionalities is presented. Finally, it is analyzed how ML is applied in industry, especially in fatigue analysis of machine elements.
 
 \section{Introduction to Fatigue Life Analysis}
 The goal of fatigue analysis is the dimensioning of machine elements in such a way that they are able to withstand the expected loads over an expected time period \cite{Haibach}. The strength of a machine element depends on the used material as well as the geometry \cite{Wittel}.
@@ -12,15 +12,15 @@ The resulting stresses are reaching a constant or varying level, depending on th
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{IMGs/loading.png}
+	\includegraphics[width=0.85\linewidth]{IMGs/loading.png}
 	\caption{Constant and variable amplitude loading}
 	\label{fig:VAL}
 \end{figure}
  
 The Load Spectrum deals with the occurrence of load cycles with different amplitudes within a load sequence \cite{Facchinetti}. To get a load spectrum from a load sequence, the time and order component are omitted. A load spectrum shows the number of occurrences of a certain load amplitude in a load sequence.
-By eliminating the order and time component of a sequence, the same load spectrum may arise from multiple different sequences. Depending on the desired detail in the load spectrum, the load levels of a sequence can also be rounded. Depending on the area of application, the rounding can be done to the next integer or the next 10,000.
+By eliminating the order and time components of a sequence, the same load spectrum may arise from multiple different sequences. Depending on the desired detail in the load spectrum, the load levels of a sequence can also be rounded. Depending on the area of application, the rounding can be done to the next integer or the next 10,000.
 \newpage
-The rounding will increase the occurrences at a certain load level as more occurrences are projected in each category. 
+The rounding will increase the occurrences at certain load levels as more occurrences are projected in each category. 
 Figure \ref{fig:LS} shows a schematic load spectrum calculated from an exemplary load sequence.
 
 
@@ -36,7 +36,7 @@ The S-N curve (also referred to as the Wöhler-curve) plays a very important rol
 The graphical representation gives clear insights into the maximum number of load cycles a material is capable of withstanding before a fatigue break is expected.
 The applied load (S) is placed on the \(y\)-axes and the number of cycles (N) on the \(x\)-axes. The curve shows the number of cycles to fatigue failure and is individual for every material and for every different component.
 The S-N curve can also be determined for elements like welded joints or whole structures \cite{Baptista, Dong}.
-Both axes are on a logarithmic scale to achieve a straight line passing from the upper left to the lower right of the graph \cite{Little}. Figure \ref{fig:WO} shows a schematic representation of the S-N curve: 
+Both axes are on a logarithmic scale to achieve two straight lines passing from the upper left to the lower right of the graph \cite{Little}. Figure \ref{fig:WO} shows a schematic representation of the S-N curve. 
 
 \begin{figure}[H]
 	\centering
@@ -47,10 +47,10 @@ Both axes are on a logarithmic scale to achieve a straight line passing from the
 
 As can be seen in figure \ref{fig:WO}, the curve is made up of two straight lines. The first part, which has a negative slope, is referred to as a fatigue strength range. In that range of loads, the material shows a limited number of cycles before failure occurs \cite{Adasooriya}.
 
-The horizontal line marks the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure \cite{Bellows}. It is often denoted as the S-N curve plateau.
-It is important to note that the S-N curve is determined by experiments conducted in controlled environments and not on real-life machinery in industrial applications. Real-world applications may involve additional factors, such as varying load levels, environmental conditions, and surface finishes, which can influence fatigue performance \cite{JanOveHolmen}. 
+The horizontal line marks the endurance limit, also known as the fatigue limit. Below that load level, it is assumed that a material can withstand an infinite number of cycles without failure~\cite{Bellows}. It is often denoted as the S-N curve plateau.
+It is important to note that the S-N curve is determined by experiments that are conducted in controlled environments. Thus, they are not always representative of real-life machinery in industrial applications. Real-world applications may involve additional factors, such as varying load levels, environmental conditions, and surface finishes, which can influence fatigue performance \cite{JanOveHolmen}. 
 
-Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a probability distribution and not a fixed deterministic line. This distribution arises from the different number of cycles achieved in experiments at the same stress level before failure occurred. Depending on the component and material, is not necessarily a Gaussian distribution. 
+Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a probability distribution and not a fixed deterministic line. This distribution arises from the different number of cycles achieved in experiments at the same stress level before failure occurred. Depending on the component and material, the resulting distribution is not necessarily a Gaussian distribution. 
 
 \begin{figure}[H]
 	\centering
@@ -61,15 +61,15 @@ Figure \ref{fig:WO2} gives a clear insight on how the S-N curve is actually a pr
 
 
 \subsection{Linear Damage Accumulation Method}\label{LAD}
-The S-N curve is a crucial component in the application of the Miner rule \cite{MinerOG, Subramanyan}. The Miner rule is a popular linear damage accumulation technique most commonly used in engineering. It is based on three assumptions. First, that the rate of damage accumulation is constant over each loading cycle of one load level. Second, damage only occurs if the applied stress is higher than the fatigue limit (S-N curve plateau). This assumption is only true for the Miner-original and not for Miner-elementar or Miner-Haibach \cite{Werner}. And third, the component is expected to fail when cumulative damage reaches the unity \cite{Zuo}.
-The Miner rule also assumes that the first load cycle at a certain stress-level is just as damaging as any other at that stress-level. The order of loads is not relevant when calculating the accumulated damage.
+The S-N curve is a crucial component in the application of the Miner rule \cite{MinerOG, Subramanyan}. The Miner rule is a popular linear damage accumulation technique most commonly used in engineering. It is based on three assumptions. First, that the rate of damage accumulation is constant for each loading cycle of one load level. Second, damage only occurs if the applied stress is higher than the fatigue limit (S-N curve plateau). This assumption is only true for the Miner-original and not for Miner-elementar or Miner-Haibach \cite{Werner}. And third, the component is expected to fail when cumulative damage reaches the unity \cite{Zuo}.
+The Miner rule also assumes that the first load cycle at a certain stress level is just as damaging as any other at that stress level. The order of loads is not relevant when calculating the accumulated damage.
 
-Each load-cycle damages the machine element inversely proportionate to the number of maximum loads the component could withstand at that stress-level. For example, if a component is capable of withstanding 1,000 loads at a certain stress level, one of those cycles adds 1/1000 to the accumulated damage of the machine element.
-If another component can withstand 50 cycles at a different stress-level, each of those cycles adds 1/50 to the accumulated damage.
+Each load cycle damages the machine element inversely proportionate to the number of maximum loads the component could withstand at that stress level. For example, if a component is capable of withstanding 1,000 loads at a certain stress level, one of those cycles adds 1/1000 to the accumulated damage of the machine element.
+If another component can withstand 50 cycles at a different stress level, each of those cycles adds 1/50 to the accumulated damage.
 
 For varying loads, the sum of those individual ratios forms the accumulated damage. 
 For example, 25 percent of the fatigue life is used up if a part is repeatedly loaded for 500 cycles at a stress level that would lead to failure in 4,000 cycles and then followed by 2,000 cycles at a stress level that would lead to failure in 16,000 cycles.
-Equation \ref{acc} is how the accumulated damage-sum D is calculated. At stress-level \(S_1\), \(S_2\) ... \(S_i\), the corresponding numbers of load are \(n_1\), \(n_2\) ... \(n_i\). The number of cycles to failure under each stress level are \(N_1\), \(N_2\) ... \(N_i\).
+Equation \ref{acc} is how the accumulated damage sum D is calculated. At stress level \(S_1\), \(S_2\) ... \(S_i\), the corresponding numbers of load are \(n_1\), \(n_2\) ... \(n_i\). The number of cycles to failure under each stress level are \(N_1\), \(N_2\) ... \(N_i\).
 
 \begin{equation}\label{acc}
 	D = \sum_{j=1}^{k}\frac{n_i}{N_i}
@@ -86,12 +86,10 @@ Equation \ref{n1} shows how the damage sum D is calculated. The parameter \(C_i\
 \end{equation}
 
 The disadvantage of this method is that the parameter \(C_i\) must be calculated for different loading
-conditions and thus tedious to acquire \cite{Zuo}.
+conditions and is thus tedious to acquire \cite{Zuo}.
 
 Another approach, used in \cite{Rege}, proposes to use iso-damage-curves as a basis to calculate the cumulative fatigue damage.\newline
-Many more approaches can be found in \cite{Zhu1,Gao,Lv,Chen}.
-
-The common disadvantage of non-linear models is that they are dependent on very individual and specific parameters, limited to certain materials or loading histories, with a fixed trend regarding the loading amplitudes. Due to those limitations and cumbersome usage, they are not widely adopted in the engineering field \cite{Vietze}. 
+Many more approaches can be found in \cite{Zhu1,Gao,Lv,Chen}. The common disadvantage of non-linear models is that they are dependent on very individual and specific parameters, limited to certain materials or loading histories, with a fixed trend regarding the loading amplitudes. Due to those limitations and cumbersome usage, they are not widely adopted in the engineering field \cite{Vietze}. 
 
 
 \section{Overview of Machine Learning}
@@ -101,9 +99,7 @@ In contrast to rigid algorithms, ML is a method that can solve a given problem w
 ML is a subsection of the field of general AI \cite{Helm}. The same as deep learning (DL) is a subsection of ML \cite{LeCun}.
 AI encompasses the general principles and methods that can mimic human behavior and decision-making \cite{Janiesch}. ML, on the other hand, incorporates all methods that can learn from data and discover regularity and patterns that are not obvious to a human~\cite{Theodoridis}. Based on the discovered knowledge, the trained model can be used to make predictions for new inputs in the future.
 DL is a subset of ML that refers to methods that utilize a special approach called a Neural Network (NN). The "depth" in DL in this context refers to the amount of stacked layers of neurons (see chapter \ref{NN chapter}) \cite{Carleo}. 
-DL is more capable than shallow ML and shows improved learning capabilities, but it also comes with its own specific challenges \cite{Janiesch, LeCun}.
-
-Figure \ref{fig:AIMLDL} shows how DL and ML are subsets of AI. 
+DL is more capable than shallow ML and shows improved learning capabilities, but it also comes with its own specific challenges \cite{Janiesch, LeCun}. Figure \ref{fig:AIMLDL} shows how DL and ML are subsets of AI. 
 
 \begin{figure}[H]
 	\centering
@@ -122,11 +118,11 @@ These algorithms are also very efficient and profit greatly from more available 
 The era of "Big Data" plays right into the hands of ML. More data results in better performance of the ML approaches \cite{Wuest}. Also, the methods can be specially adapted to be robust. Outliers, noise, and missing values in the data do not skew the results in a significant way \cite{Theodoridis}. When comparing ML to DL, ML can tend to produce better results in cases where the training data is limited and also allows for a better interpretation of the outputs of the model \cite{Janiesch}.
 
 \subsubsection*{Disadvantages of Machine Learning}
-The disadvantages of ML are closely related to the advantages. For example, the data-set that is used for training needs to be a certain minimum size so the model is able to learn the underlying patterns. But not only the size is important, but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
+The disadvantages of ML are closely related to the advantages. For example, the data-set that is used for training needs to be a certain minimum size, so the model is able to learn the underlying patterns. But not only the size is important, but also the contained elements, as some models can return different results based on the elements that make up the data-set. The effectiveness of ML rises and falls with the amount and quality of the data \cite{Janiesch, Bishop}.
 
-One of the biggest problems of ML is generalization \cite{Bishop}. Finding and learning patterns is just the first step, but making a correct prediction is the most valuable part. Depending on the free parameters of ML models, they have the capability to memorize the whole presented training-set and perform very poorly on data that is not part of the training-set \cite{Zhangpiml}. This case is called "over-fitting" \cite{Jabbar}. In such cases, the model does not learn the underlying structure of that data, but just the correct associations from one input to one output. 
+One of the biggest problems of ML is generalization \cite{Bishop}. Finding and learning patterns is just the first step, but making a correct prediction is the most valuable part. Depending on the free parameters of ML models, they have the capability to memorize the whole presented training-set and perform very poorly on data that is not part of the training-set \cite{Zhangpiml}. This case is called "over-fitting" \cite{Jabbar}. In such cases, the model does not learn the underlying structure of that data but just the correct associations from one input to one output. 
 
-The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern, and perform very poorly when applied in real-world applications.
+The opposite of "over-fitting" is called "under-fitting" \cite{Jabbar}. The model is not capable of learning any patterns, and thus performs very badly on the training set and on newly presented test samples. This happens mostly when the data-set is not large enough for the chosen model or the model is not flexible enough to adapt to the pattern of the data \cite{Will}. In a worst-case scenario, a ML method could interpret the noise of the data as a pattern and perform very poorly when applied in real-world applications.
 
 Especially for high-dimensional data and complex problems, a very large dateset is a must. This can be difficult to obtain, especially in the area of natural sciences or industry \cite{Wuest}. Sensors can provide very corrupt data, and some experiments can take a lot of time and money to perform. And if that data is acquired, it still requires a significant amount of manual work to bring it into a form where ML methods can work with it. To train a model, for example, to classify multiple bacteria cells, it first takes time to grow the bacteria, but then also to label all the pictures. For example, the MNIST data-set for number recognition contains 70,000 elements, that were all manually labeled \cite{Pavlo}. So depending on the area or application, it is impossible to obtain a data-set that has the necessary size and quality. 
 
@@ -173,8 +169,8 @@ The error function, defined in equation \ref{err1}, also called loss function, m
 	E(w) = \frac{1}{2}\sum_{n=0}^{N}\{y(x_n,w)-t_n\}^2
 \end{equation}
 
-Figure \ref{fig:poly} shows how the polynomial changes based on the number of free parameters. When the polynomial, displayed in red, reaches degree nine, the error is zero. In this case, however, it is not following the true data generation function shown in green and performs very poorly on new unseen data points (see "over-fitting" in chapter \ref{Advantages and Problems of Machine Learning}).
-%from \cite{Bishop}
+Figure \ref{fig:poly} shows how the polynomial changes based on the number of free parameters, where~\(M\) is the degree of the polynomial. When the polynomial, displayed in red, reaches degree nine, the error is zero. In this case, however, it is not following the true data generation function shown in green and performs very poorly on new unseen data points (see "over-fitting" in chapter \ref{Advantages and Problems of Machine Learning}).
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{IMGs/poly.png}
@@ -190,7 +186,7 @@ When the goal is to apply a ML model for image classification, the image needs t
 
 For example, if an image data-set contains mostly images with a 1:1 ratio, wider images need to be contracted or cut off to fit the pattern so that all images are the same. The resolution must also be adjusted so that all images have the same number of pixels.
 
-Figure \ref{fig:pixel} shows how images of different sizes and resolutions are adapted to a fixed resolution and ratio. In the upper image, the overhanging parts on the sides are removed, and no resolution scaling is necessary. In the lower image, parts on the top and bottom are removed. Additionally, the resolution was downscaled from 125x125 pixel to 100x100 pixel. 
+Figure \ref{fig:pixel} shows how images of different sizes and resolutions are adapted to a fixed resolution and ratio. In the upper image, the overhanging parts on the sides are removed, and no resolution scaling is necessary. In the lower image, parts on the top and bottom are removed. Additionally, the resolution is downscaled from 125x125 pixel to 100x100 pixel. 
 
 \begin{figure}[H]
 	\centering
@@ -200,14 +196,14 @@ Figure \ref{fig:pixel} shows how images of different sizes and resolutions are a
 \end{figure}
 \newpage
 The ratio and resolution depend on the implemented method and can be chosen freely. 
-The current standard for images (MNIST) that are used in bench-marking of various algorithms is a squared format with a 28x28 pixel resolution \cite{Baldominos}. For optimal classification, a higher resolution proves advantageous but can require longer training times and more complex~models~\cite{Kannojia,Huang}. After the input elements are standardized, they can be transformed into a vector or matrix format. The process of constructing such designed input from raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but this process is running the risk of omitting valuable data in the process \cite{Janiesch}.
+The current standard for images (MNIST) that are used in bench-marking of various algorithms is a squared format with a 28x28 pixel resolution \cite{Baldominos}. For optimal classification, a higher resolution proves advantageous but can require longer training time and more complex models (e.g. a larger NN) \cite{Kannojia,Huang}. After the input elements are standardized, they can be transformed into a vector or matrix format. The process of constructing such designed input from raw input is called "encoding". The result after the encoding is called a "feature vector". The elements of such a vector are referred to as features. One set of features uniquely represents the uncompressed input \cite{Theodoridis}. It is possible to reduce the feature vector through a process called "feature selection", where the feature vector is reduced even further to a smaller size that contains the gist of the raw input. By reducing the dimension, the models are capable of learning faster, but this process is running the risk of omitting valuable data in the process \cite{Janiesch}.
 
 Figure \ref{fig:encoding} shows how a matrix, representing an image, for example, can be encoded as a vector. As long as the encoding method is constant for all input elements, the order is irrelevant. In that case, the elements can also be stacked not only row-by-row but also column-by-column.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.455\linewidth]{IMGs/encoding.png}
-	\caption{Encoding of an image-matrix as a vector}
+	\caption{Encoding of an matrix as a vector}
 	\label{fig:encoding}
 \end{figure}
 

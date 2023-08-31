@@ -19,7 +19,7 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Problem And Goal Formulation}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Problem and Goal Formulation}{1}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Problem Statement}{1}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Aim of this Thesis}{3}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}Structure of the Thesis}{3}{section.1.3}%

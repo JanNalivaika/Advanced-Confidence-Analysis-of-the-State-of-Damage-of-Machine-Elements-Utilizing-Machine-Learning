@@ -26,7 +26,7 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Venn-Diagram of the different subsets of AI \blx@tocontentsinit {0}\cite {Alzubaidi}\relax }}{9}{figure.caption.8}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Influence of the number of free parameters in curve-fitting \blx@tocontentsinit {0}\cite {Bishop}\relax }}{12}{figure.caption.10}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Changing resolution and ratio of images for a homogeneous data-set\relax }}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Encoding of an image-matrix as a vector\relax }}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Encoding of an matrix as a vector\relax }}{14}{figure.caption.12}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Possible DA techniques for time-series data \blx@tocontentsinit {0}\cite {Wen}\relax }}{15}{figure.caption.13}%
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Application of DA to polynomial functions\relax }}{15}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Applying a MinMax-Scaler to a feature vector\relax }}{17}{figure.caption.15}%

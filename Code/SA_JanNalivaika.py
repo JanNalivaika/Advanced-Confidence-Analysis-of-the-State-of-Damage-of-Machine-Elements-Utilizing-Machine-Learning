@@ -113,7 +113,7 @@ def plot_load_sequence():
 
 
 def data_augmentation(stepper):
-    draw = True  # drawing all files
+    draw = False  # drawing all files
 
     augmented_counter = 0
     class1_counter = 0
@@ -302,7 +302,8 @@ def train_test_classifier(X, x, Y, y, model):
         if model == 10: clf = KNeighborsClassifier(n_neighbors=3)
 
         longest_list = max(max(len(elem) for elem in X), max(len(elem) for elem in x))
-        X = [np.insert(elem, 0, np.zeros(longest_list - len(elem)), axis=0) for elem in X]
+        print("cheged here")
+        X = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in X]
 
         clf.fit(np.asarray(X), Y)
         print("Starting Testing")
@@ -453,7 +454,7 @@ if __name__ == "__main__":
     data_augmentation(stepper)  # Performing DA on all sequences
 
 
-    loops = 1
+    loops = 10
     for model in range(10):
         selected_model_classification = model + 1
         for loop in range(loops):
