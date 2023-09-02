@@ -307,7 +307,7 @@ def train_test_classifier(X, x, Y, y, model):
 
         clf.fit(np.asarray(X), Y)
         print("Starting Testing")
-        IN = [np.insert(elem, 0, np.zeros(longest_list - len(elem)), axis=0) for elem in x]
+        IN = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in x]
         out = clf.predict(IN)
 
     correct = np.sum(out == y) / len(y)
@@ -454,7 +454,7 @@ if __name__ == "__main__":
     data_augmentation(stepper)  # Performing DA on all sequences
 
 
-    loops = 10
+    loops = 3
     for model in range(10):
         selected_model_classification = model + 1
         for loop in range(loops):

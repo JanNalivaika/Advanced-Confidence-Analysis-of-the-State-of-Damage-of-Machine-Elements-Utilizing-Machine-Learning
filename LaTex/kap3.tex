@@ -8,13 +8,13 @@ Figure \ref{fig:STBFT} shows an exemplary test rig for STBF tests.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{IMGs/tooth.jpg}
-	\caption{Test rig for Single Tooth Bending Fatigue Test (STBF) \cite{STBT}}
+	\caption{Test rig for Single Tooth Bending Fatigue Test \cite{STBT}}
 	\label{fig:STBFT}
 \end{figure}
 \newpage
 \section{Data Visualization}\label{DV}
 Figures \ref{fig:L1}, \ref{fig:L2} and \ref{fig:L3} show three different load sequences. The \(x\)-axis denotes the number of the cycle in that sequence, and the \(y\)-axis the applied force. As the force is acting in the negative direction with regard to the defined coordinate system, it is recorded with a negative sign. The clamping force is set to 3 kN. The sudden reduction of force in the load history appears when the test rig switches from one load-level to another. 
-Additionally, the vertical lines represent the damage sum D according to Miner at 0.5, 0.8 and 1. Note that failure is expected at a damage sum equal to 1. The tested gear with the load sequence presented in figure \ref{fig:L2} was able to accumulate a damage sum D greater than unity, and thus exceeding its expected failure point. The applied load sequence shown \ref{fig:L3} resulted in early failure.
+Additionally, the vertical lines represent the damage sum D according to Miner at 0.5, 0.8 and 1. Note that failure is expected at a damage sum equal to 1. The tested gear with the load sequence presented in figure \ref{fig:L2} was able to accumulate a damage sum D greater than unity, and is thus exceeding its expected failure point. The applied load sequence shown \ref{fig:L3} resulted in early failure.
 
 \begin{figure}[H]
 	\centering
@@ -56,7 +56,7 @@ The SOH is not to be confused with a RUL prediction. SOH is comparable to a cars
 
 The SOH prediction is based on similarly damaging load sequences, with a linear interpolation between the starting point of the sequence at 0, and failure at 1. The damage sum is not taken into account in this step. 
 Figure \ref{fig:GeneralMethod2} shows a schematic diagram of how a SOH prediction is acquired.
-First, a subset of the original datasets is taken where all load sequences have the same damaging effect. That means that they are either more damaging and thus resulting in early failures, or less damaging, allowing them to run past an accumulated damage sum greater than unity.\newline
+First, a subset of the original datasets is taken where all load sequences have the same damaging effect. %That means that they are either more damaging and thus resulting in early failures, or less damaging, allowing them to run past an accumulated damage sum greater than unity.
 
 The end points of those known sequences are mapped to a linear function starting at 0 at the beginning of the sequence and ending at 1 at the end. This function is referred to as the label-function. Now, the load sequences are cut at different endpoints. The label of the shortened sequences is calculated with the label-function. The label of those snippets is the value of the label-function at the end of a sequence. The shortened sequences and their corresponding labels are combined into a data-set. That data-set is used to train a regressor to predict the SOH of a new sequence. The detailed explanation of the involved steps for predicting the SOH follows in chapter \ref{PrRe}.
 
@@ -102,7 +102,7 @@ Inputting the result from equation \ref{BQ} in equation \ref{acc} (from chapter 
 			D > 1.1 & Class:  1\\\hline
 			\hline
 		\end{tabular}
-		\caption{Label assignment based on damage sum D}
+		\caption{Label assignment based damage sum D at failure}
 		\label{DamageClass}
 	\end{center}
 	\vspace{-4mm}

@@ -33,7 +33,7 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces A schematic of the training and use of a classifier\relax }}{18}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces A mapping function based on a data-set containing \(x\) and \(y\) values \blx@tocontentsinit {0}\cite {Theodoridis}\relax }}{19}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Finding similarities in shapes and grouping them into classes\relax }}{20}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces The interaction of an agent with its environment in RL \blx@tocontentsinit {0}\cite {LEX}.\relax }}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces The interaction of an agent with its environment in RL \blx@tocontentsinit {0}\cite {LEX}\relax }}{21}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Connection of two neurons via synapses \blx@tocontentsinit {0}\cite {Das}\relax }}{21}{figure.caption.20}%
 \contentsline {figure}{\numberline {2.17}{\ignorespaces NN with three hidden layers\relax }}{22}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Various activation functions for NNs \blx@tocontentsinit {0}\cite {Activation}\relax }}{22}{figure.caption.22}%
@@ -42,7 +42,7 @@
 \contentsline {figure}{\numberline {2.21}{\ignorespaces Unfolded structure of a RNN \blx@tocontentsinit {0}\cite {Guo}.\relax }}{24}{figure.caption.25}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Schematic diagram of a PINN \blx@tocontentsinit {0}\cite {Guo}\relax }}{25}{figure.caption.26}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Test rig for Single Tooth Bending Fatigue Test (STBF) \blx@tocontentsinit {0}\cite {STBT}\relax }}{29}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Test rig for Single Tooth Bending Fatigue Test \blx@tocontentsinit {0}\cite {STBT}\relax }}{29}{figure.caption.28}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Load sequence with failure close to D=1\relax }}{30}{figure.caption.29}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Load sequence with failure at D>>1\relax }}{30}{figure.caption.30}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Load sequence with failure at D<<1\relax }}{31}{figure.caption.31}%
