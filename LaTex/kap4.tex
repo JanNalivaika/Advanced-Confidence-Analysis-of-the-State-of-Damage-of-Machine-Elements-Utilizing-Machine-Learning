@@ -76,7 +76,7 @@ Only forces higher than the endurance limit are selected when calculating the ac
 The first step in DA is the addition of random noise. A np-file is loaded and the damage~sum~D is calculated. That value serves as a reference to compare if the augmentation significantly changes the damage sum D.
 The random noise is in the form of a vector that has the same length as the loaded load sequence.
 The individual noise values follow a Gaussian distribution with a mean of 0 and a standard deviation of 0.2. 
-The values of that noise vector are also in kN and thus can be simply added.
+The values of the noise vector are also in kN and thus can be simply added.
 Figure \ref{fig:V5} shows a load sequence in its unedited form without the addition of noise. Figure \ref{fig:V5_noise} shows the same load sequence with the additional noise vector. As can be seen, the damage sum D is not changed enough to be noticeable when rounding to two decimal places, even though there is a clearly visible difference in the load sequences.
 
 \begin{figure}[H]
@@ -104,7 +104,7 @@ The second performed step is a global shift of the whole loading sequence up or 
 
 The third step is a section-wise random shift. A random section of the array with a length of 1 \% of the total length is selected. This section is multiplied by a random factor taken from a uniform distribution between 0.5 and 1.5. So the force in that section is either increased or decreased by up to 50 \%. This step is performed three times on one load sequence. This step effectively changes the values of 3 \% of the sequence. 
 
-In this step, the damage sum D can change significantly. The most significant changes occur when the selected area is overlapping and scaled in the same direction. In a worst-case scenario, the selected section includes a proportionally high load and amplifies it by a factor of up to~3.375~(1.5\(^3\)). This scenario is highly unlikely and in the case of a significant alteration of the damage sum D the augmented load sequence is discarded as explained previously in figure~\ref{fig:DAUG}.
+In this step, the damage sum D can change significantly. The most significant changes occur when the selected areas are overlapping and scaled in the same direction. In a worst-case scenario, the selected section includes a proportionally high load and is amplified it by a factor of up to~3.375~(1.5\(^3\)). This scenario is highly unlikely and in the case of a significant alteration of the damage sum D the augmented load sequence is discarded as explained previously in figure~\ref{fig:DAUG}.
  
 Figure \ref{fig:Verlauf_5_shift_partial} shows how the load sequence is changed by applying that DA step. Notice the down-shifted area around the 92,000\(^{th}\) cycle.
 
@@ -115,7 +115,7 @@ Figure \ref{fig:Verlauf_5_shift_partial} shows how the load sequence is changed 
 	\caption{Load sequence with partial shift}
 	\label{fig:Verlauf_5_shift_partial}
 \end{figure}
-
+\newpage
 The fourth step is a partial cutout, where a random section of length of 1 \% of the total length is cut out of the sequence. In this step, the damage sum D is always decreased. Figure \ref{fig:Verlauf_5_cutout} shows how the loading sequence is transformed with partial cutouts.
 
 \begin{figure}[H]
@@ -125,11 +125,10 @@ The fourth step is a partial cutout, where a random section of length of 1 \% of
 	\label{fig:Verlauf_5_cutout}
 \end{figure}
 
-The next step is the addition of a vector whose values are either going from positive to negative or from negative to positive over its length. It is essentially weighing the values of the load sequence over its length. By adding that vector to the load sequence, some values are increased while other are decreased. 
+The next step is the addition of a vector whose values are either going from positive to negative or from negative to positive over its length. It is essentially weighing the values of the load sequence over its length. By adding that vector to the load sequence, some values are increased while others are decreased. 
 
 At first, a random variable decides if the sequence is tilted up (from negative to positive) or down (going from positive to negative). In the case of an upward shift, the start values of that vector are random variables selected from a uniform distribution in the range [-0.2, 0]. The last value is selected from a uniform distribution in the range [0, 0.2]. In the case of a downward shift, the ranges are switched.
 The values between are interpolated accordingly with a constant step size.
-
 
 Figure \ref{fig:Verlauf_5_tilt} shows all the previously mentioned DA-steps combined.
 
@@ -140,12 +139,12 @@ Figure \ref{fig:Verlauf_5_tilt} shows all the previously mentioned DA-steps comb
 	\label{fig:Verlauf_5_tilt}
 \end{figure}
 
-When comparing the original and the augmented load sequence, the visual difference is low. This is due to the fact that damage sum D must not change more that 10 \% of its original value. Only load sequences that fulfill this criteria are accepted into the training datasets.
+When comparing the original and the augmented load sequence, the visual difference is low. This is due to the fact that damage sum D must not change more than 10 \% of its original value. Only load sequences that fulfill this criteria are accepted into the training datasets.
 To filter out all sequences that are off by 10 \% the original damage sum D and damage sum D after augmentation are compared.
-If the ratio falls within [0.9, 1.1] the final step is applied.
+If the ratio falls within [0.9, 1.1] the sequence is accepted and the final step is applied.
 
 
-The last step is dimensionality reduction, as described in chapter \ref{prep_class}. In this case, every 300\(^{th}\) point in that sequence is kept. This step is effectively reducing the length of the sequence by 300. For the last comparison of the damage sum D, the denominator in the Miner rule must be multiplied by the step size. Again only if the ration falls within [0.9, 1.1], it is accepted into the data-set. 
+The last step is dimensionality reduction, as described in chapter \ref{prep_class}. In this case, every 300\(^{th}\) point in that sequence is kept. This step is effectively reducing the length of the sequence by a factor of 300. For the last comparison of the damage sum D, the denominator in the Miner rule must be multiplied by the step size. Again only if the ration falls within [0.9, 1.1], the sequence is accepted into the data-set. 
 
 Figure \ref{fig:Verlauf_5_reduced} shows the load sequence in its reduced form. Notice that the characteristics of the original load sequence are still present.
  
@@ -157,7 +156,7 @@ Figure \ref{fig:Verlauf_5_reduced} shows the load sequence in its reduced form. 
 \end{figure}
 
 Each load sequence is augmented with the described procedure 25 times. In the end, 25 individual instances can be present in the datasets if none of the augmented ones are filtered out. 
-The accepted load sequences are saved as a np-array in a new separate folder. The name of the np-file follows the following pattern: [class\_idx.np]. "class" is the class to which the loading sequence belongs to according to table \ref{DamageClass} and "idx" is a counting index that is increasing from 0 to n to keep track of the number of data samples.
+The accepted load sequences are saved as a np-array in a new separate folder. The name of the np-file follows the following pattern: [class\_idx.np]. "class" is the class to which the loading sequence belongs to, according to table \ref{DamageClass} and "idx" is a counting index that is increasing from 0 to n to keep track of the number of data samples.
 
 Figure \ref{fig:3in1} shows only three out of those 25 augmented sequences in one plot to highlight the differences in each sequence.
 Notice how the points of damage sum D of 0.5, 0.8 and 1 vary in their positions, but the characteristics of the original load sequence are kept.
@@ -179,12 +178,12 @@ Figure \ref{fig:allDA} shows all performed DA-steps in a schematic diagram.
 \end{figure}
 
 From the original 14 load sequences, on average, 200 augmented sequences are created. This means that 150 out of 350 load sequences do not meet the requirement that the damage~sum~D is not significantly different from the original load sequence. 
-The goal is to augment the load sequence as much as possible, while at the same time retaining the damage sum D and the characteristics of every load sequence. 
+The goal is to augment the load sequence as much as possible while at the same time retaining the damage sum D and the characteristics of every load sequence. 
 
 
-The average length on the load sequences after dimensionality reduction is 320 data points. The shortest load sequence has 66 data points and the longest one has 1000 data-points. This large difference comes from the fact that load sequence number 4 (see table \ref{DamageSUMS}) failed at a very high damage sum D while load sequence number 12 failed at a very low damage sum D.
-
-One challenge when applying the selected DA-techniques is that a small alteration in damage sum~D in load sequences can have a very large relative change compared to the original damage~sum~D. For example, sequence number 12 has a damage sum D of 0.73 and after DA a damage sum of 0.82. The absolute change in damage sum D is 0.09. But when looking at the ratio, (0.82/0.73 = 1.12) the augmented load sequence is accepted into the training set. Thus, almost no augmented elements of sequence 12 are present in the training data set. The same problem is present, but less pronounced, with other sequences with low damage sum D.
+The average length of the load sequences after dimensionality reduction is 320 data points. The shortest load sequence has 66 data points, and the longest one has 1000 data points. This large difference comes from the fact that load sequence number 4 (see table \ref{DamageSUMS}) failed at a very high damage sum D while load sequence number 12 failed at a very low damage sum D.
+\newpage
+One challenge when applying the selected DA-techniques is that a small alteration in damage sum~D in load sequences can have a very large relative change compared to the original damage~sum~D. For example, sequence number 12 has a damage sum D of 0.73 and after DA a damage sum of 0.82. The absolute change in damage sum D is 0.09. But when looking at the ratio, (0.82/0.73 = 1.12) the augmented load sequence is not accepted into the training set. Thus, almost no augmented elements of sequence 12 are present in the training data set. The same problem is present, but less pronounced, with other sequences with low damage sum D.
 
 
 
@@ -193,7 +192,7 @@ When having an unfinished load sequence that needs to be analyzed, chapters \ref
 
 For testing purposes, the damage sum D (which would have come from the unfinished load sequence) is manually set to 0.6
 The success of the classifier and regressor is analyzed by splitting the data into a test-set and training-set. 
-20~\% of the data is given to the test-set and 80~\% to the training-set.
+20~\% of the data is given to the test-set and~80~\% to the training-set.
 
 The training-set contains on average: 50 elements of class -1, 30 elements of class 0 and 90 elements of class 0. This ratio comes directly from the distribution of the original data-set where most load sequences failed at a damage sum D higher than 1.1.
 
@@ -223,17 +222,18 @@ The dataset is divided into a training- and test-set with the help of a prebuilt
 \begin{table}
 	\begin{center}
 		\begin{tabular}{|| l | l ||}\hline
-			\rule{0pt}{2ex}KNeighborsTimeSeriesClassifier \cite{tslearn} & TimeSeriesSVC \cite{tslearn}\\	\hline
-			AdaBoostClassifier \cite{SKlearn} & GradientBoostingClassifier \cite{SKlearn} \\ \hline
-			RandomForestClassifier \cite{SKlearn} & XGBoost\cite{XG}\\ \hline
-			Neural Net \cite{SKlearn} & GaussianNB \cite{SKlearn} \\ \hline
-			QuadraticDiscriminantAnalysis \cite{SKlearn} & KNeighborsClassifier \cite{SKlearn} \\ \hline
+			\rule{0pt}{2ex}1) KNeighborsTimeSeriesClassifier \cite{tslearn} & 2) TimeSeriesSVC \cite{tslearn}\\	\hline
+			3) AdaBoostClassifier \cite{SKlearn} & 4) GradientBoostingClassifier \cite{SKlearn} \\ \hline
+		5) RandomForestClassifier \cite{SKlearn} & 6) XGBoost\cite{XG}\\ \hline
+			7) Neural Net \cite{SKlearn} & 8) GaussianNB \cite{SKlearn} \\ \hline
+			9) QuadraticDiscriminantAnalysis \cite{SKlearn} & 10) KNeighborsClassifier \cite{SKlearn} \\ \hline
 		\end{tabular}
 		\caption{Implemented Methods for Classification}
 		\label{methods}
 	\end{center}
 	\vspace{-4mm}
 \end{table}
+\newpage
 
 Only the "KNeighborsTimeSeriesClassifier" and "TimeSeriesSVC" are capable of accepting input vectors that have a varying length. To use the remaining classifiers, the load sequences are brought to the same length by pre-pending zeros, so that the overall length is equal to the longest sequence. Note that the length is defined by the longest load sequence in both of the datasets (train- and test-set).
 
@@ -260,7 +260,7 @@ To get an accurate evaluation of the performance of the selected classifiers, ea
 By doing that, the train- and test-set are varied. Another way to get the average performance is k-fold cross-validation as described in chapter \ref{KCV}. Due to the ability to generate variations in data, the k-fold cross-validation approach is disregarded. By averaging the performance over 25 iterations on the test-set, an accurate average performance is calculated. 
 
 The average individual performance of all tested classifiers is shown in figure \ref{fig:avgperf}. 
-A score of 1 means a correct classification of all sequences. Value in the pot is a ratio of correctly predicted classes to all predictions.
+A score of 1 means a correct classification of all sequences. The value in the plot is a ratio of correctly predicted classes to all predictions.
 
 \begin{figure}[H]
 	\centering
@@ -303,7 +303,7 @@ Table \ref{score} shows the analyzed classifiers sorted by performance.
 
 The regressors are trained for each possible class and evaluated on their performance. The performance is averaged over 25 trainings to get an accurate average score for the regressors. The score is obtained by averaging the mean-square error of the prediction for each class.
 
-Figure \ref{fig:avgperf_reg} shows the result of the averaged training. The predictions of the correct SOH in classes -1 and 1 are more accurate than in class 0. One possible explanation for this performance is the previously mentioned disparity in elements in each class. Class 1 and class~-1 have more data points and thus allow for a better prediction. Both regressors show similar performance in each class.
+Figure \ref{fig:avgperf_reg} shows the result of the averaged training. The predictions of the correct SOH in classes -1 and 1 are more accurate than in class 0. One possible explanation for this performance is the previously mentioned disparity in number of elements in each class. Class 1 and class~-1 have more data points and thus allow for a better prediction. Both regressors show similar performance in each class.
 
 \begin{figure}[H]
 	\centering
@@ -315,6 +315,6 @@ Figure \ref{fig:avgperf_reg} shows the result of the averaged training. The pred
 
 The tested methods prove to return accurate results in classification and regression. One possible reason for that is that the implemented DA steps do not alter the structure of the loading sequence enough to be seen as a completely different load sequence. Thus, if an augmented element of a load sequence is in the training-set and testing-set, the ML models do not need to have the ability to generalize to predict the correct class for that sequence. 
 
-When predicting the SOH the inputs from test- and training-set have significant differences in length. Thus the same problem of over-fitting is not present. For a more accurate result and better performance of the ML models more data is necessary. As mentioned before only 14~load sequences were available which makes the training of the ML models to generalize well, a difficult task.   
+When predicting the SOH the inputs from test- and training-set have significant differences in length. Thus the same problem of over-fitting is not present. For a more accurate result and better performance of the ML models more data is necessary. As mentioned before, only~14~load sequences were available which makes the training of the ML models to generalize well, a challenging task.   
 
 \afterpage{\null\newpage}

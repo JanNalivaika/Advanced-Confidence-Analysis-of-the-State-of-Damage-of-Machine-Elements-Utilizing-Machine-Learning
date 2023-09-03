@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  3 SEP 2023 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  3 SEP 2023 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1901,33 +1901,33 @@ File: IMGs/Verlauf_5_shift_partial.jpg Graphic file (type jpg)
 Package pdftex.def Info: IMGs/Verlauf_5_shift_partial.jpg  used on input line 1
 14.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
-<IMGs/Verlauf_5_coutout.jpg, id=1033, 720.35123pt x 268.66373pt>
+ [46 <./IMGs/Verlauf_5_shift_partial.jpg>]
+<IMGs/Verlauf_5_coutout.jpg, id=1038, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_coutout.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_coutout.jpg>
 Package pdftex.def Info: IMGs/Verlauf_5_coutout.jpg  used on input line 123.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
- [46 <./IMGs/Verlauf_5_shift_partial.jpg>]
-<IMGs/Verlauf_5_tilt.jpg, id=1041, 720.35123pt x 268.66373pt>
+<IMGs/Verlauf_5_tilt.jpg, id=1040, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_tilt.jpg Graphic file (type jpg)
 <use IMGs/Verlauf_5_tilt.jpg>
-Package pdftex.def Info: IMGs/Verlauf_5_tilt.jpg  used on input line 138.
+Package pdftex.def Info: IMGs/Verlauf_5_tilt.jpg  used on input line 137.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
  [47 <./IMGs/Verlauf_5_coutout.jpg> <./IMGs/Verlauf_5_tilt.jpg>]
 <IMGs/Verlauf_5_reduced.png, id=1049, 720.35123pt x 268.66373pt>
 File: IMGs/Verlauf_5_reduced.png Graphic file (type png)
 <use IMGs/Verlauf_5_reduced.png>
-Package pdftex.def Info: IMGs/Verlauf_5_reduced.png  used on input line 154.
+Package pdftex.def Info: IMGs/Verlauf_5_reduced.png  used on input line 153.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
 <IMGs/Augmented_5.png, id=1052, 720.35123pt x 268.66373pt>
 File: IMGs/Augmented_5.png Graphic file (type png)
 <use IMGs/Augmented_5.png>
-Package pdftex.def Info: IMGs/Augmented_5.png  used on input line 167.
+Package pdftex.def Info: IMGs/Augmented_5.png  used on input line 166.
 (pdftex.def)             Requested size: 458.08936pt x 170.84962pt.
  [48 <./IMGs/Verlauf_5_reduced.png (PNG copy)>]
 <IMGs/Augmentation.png, id=1061, 598.50629pt x 413.27371pt>
 File: IMGs/Augmentation.png Graphic file (type png)
 <use IMGs/Augmentation.png>
-Package pdftex.def Info: IMGs/Augmentation.png  used on input line 176.
+Package pdftex.def Info: IMGs/Augmentation.png  used on input line 175.
 (pdftex.def)             Requested size: 320.66115pt x 221.4177pt.
  [49 <./IMGs/Augmented_5.png> <./IMGs/Augmentation.png>] [50]
 <IMGs/Average_performance_CLASS.png, id=1095, 673.19505pt x 406.33807pt>
@@ -2107,7 +2107,7 @@ Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/n
 aliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/User
 s/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/U
 sers/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on projekt.pdf (78 pages, 17900167 bytes).
+Output written on projekt.pdf (78 pages, 17900238 bytes).
 PDF statistics:
  1621 PDF objects out of 1728 (max. 8388607)
  323 named destinations out of 1000 (max. 500000)
