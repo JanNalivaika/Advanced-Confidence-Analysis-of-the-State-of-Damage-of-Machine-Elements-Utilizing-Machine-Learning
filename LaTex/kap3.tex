@@ -99,8 +99,7 @@ Inputting the result from equation \ref{BQ} in equation \ref{acc} (from chapter 
 			\hline
 			\rule{0pt}{2ex}D < 0.9 & Class: -1\\\hline
 			0.9 <= D <= 1.1 & Class:  0\\	\hline
-			D > 1.1 & Class:  1\\\hline
-			\hline
+
 		\end{tabular}
 		\caption{Label assignment based damage sum D at failure}
 		\label{DamageClass}
@@ -142,7 +141,7 @@ It is important that the comparison is performed after each individual step. In 
 	\label{fig:DAUG}
 \end{figure}
 
-Note that the equality of th damage sum D after DA is the optimal case. Finding DA techniques that vary the load sequences but keep the damage sum D the same is very difficult. To work around this problem, a load sequence is regarded as acceptable if the damage sum D differs by 10 \% in any direction.
+Note that the equality of th damage sum D after DA is the optimal case. Finding DA techniques that vary the load sequences but keep the damage sum D the same is very difficult. To work around this problem, a load sequence is regarded as acceptable if the damage sum D differs by~10~\% in any direction.
 
 
 Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for dimensionality reduction. By missing significant portions of the load sequence, peaks and low spots can be missed or accentuated. Multiplying the number of cycles in the Miner rule with \(n\), is the same as expanding every cycle by \(n\) and using the Miner rule without multiplication. The two graphs in \ref{fig:UL} show that the expanded load sequence has significant differences and that all characteristics have been lost. By comparing the damage sum at each step to the original, such cases can be found and not taken into the training data-set. Another way of reducing this problem is to select a smaller step-size which in turn will increase the feature vector size that will be used as an input. 
@@ -156,12 +155,12 @@ Figure \ref{fig:UL} shows the issue of just selecting every \(n^{th}\) point for
  
 \subsection{Usage of the Classifier}
 The classifier is used as a method to classify an unfinished load sequence, whether it is part of the more damaging, less damaging ones or correctly assessed ones. After the performed steps of separation into classes, DA and dimensionality reduction, the load sequences require a last pre-processing step. At the moment, the load sequences are in their full length and have a different damage sum D.
-If an unfinished sequence, of a gear that has not yet suffered fatigue damage needs to be classified, the comparison has to be made with sequences that have the same damage sum~D as the unclassified sequence. In other words, if a current sequence is at damage sum D = 0.6 and it is of interest if this is a correct estimate, it needs to be compared to other load sequences at D = 0.6.
+If an unfinished sequence, of a gear that has not yet suffered fatigue damage needs to be classified, the comparison has to be made with sequences that have the same damage sum~D as the unfinished sequence. In other words, if a current sequence is at damage sum D = 0.6 and it is of interest if this is a correct estimate, it needs to be compared to other load sequences at D = 0.6.
  
 To do so, all sequences are cut (shortened) so that they all end at the same damage sum D. 
 With those sequences and their labels, the classifier is trained.
 After training, the classifier can take the unfinished sequence that underwent the same dimensionality reduction as the rest and predict a class-label. 
-Based on the predicted class label, a conclusion can be drawn if the calculated damage sum D based on the Miner rule is more on the conservative or lenient side. Figure \ref{fig:Class} shows the steps of the last pre-processing steps and the classification of a sequence.
+Based on the predicted class label, a conclusion can be drawn about whether the calculated damage sum D based on the Miner rule is more on the conservative or lenient side. Figure \ref{fig:Class} shows the steps of the last pre-processing steps and the classification of a sequence.
 
 
 \begin{figure}[H]
@@ -188,7 +187,7 @@ So there exists a sweet spot that is determined by the number of training-elemen
 \end{figure}
 
 \subsection{Problems in Classification of Sequences}
-One of the problems in classifying sequences is the difference in length of those sequences. The original recordings can have a different number of cycles, which makes it difficult to use them as input-vectors. Most algorithms require a constant input-vector size for training and validation. This problem can be circumvented by pre-filling each augmented and reduced sequence with zeros to a uniform length, or using an approach that can work with sequences of different sizes. 
+One of the problems in classifying sequences is the difference in length of those sequences. The original recordings can have a different number of cycles, which makes it difficult to use them as input-vectors. Most algorithms require a constant input-vector size for training and validation. This problem can be circumvented by pre-filling or appending each augmented and reduced sequence with zeros to a uniform length, or using an approach that can work with sequences of different sizes. 
 
 
 The only problem remaining is the prediction of an unseen sequence that might be longer than any other sequence seen in training.
@@ -197,7 +196,7 @@ This problem can be solved by pre-pending more zeros to create a buffer for the 
 
 
 \section{Regressor for SOH-Prediction}
-The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity, but will be limited in the number of cycles it can withstand. 
+The regressor is used as a linear extrapolation model that calculates the SOH of a gear. The SOH can be interpreted as a value for how soon the gear is expected to fail. For example, if the Miner rule calculates a damage sum D equal to 0.8, the classifier assigns a class label of 1 (not damaging load history), and the regressor calculates a SOH of 0.9, the gear is expected to be able to withstand higher loads but not for a very long time. In that case, it is expected that the damage sum D will accumulate past unity, but will be limited in the number of further cycles it can withstand. 
 
 \subsection{Data-set for Regressor}\label{PrRe}
 If an unfinished load sequence is classified into a class, for example, class 1, the regressor will only be trained on the load sequences belonging to that class. Each augmented load sequence is iteratively selected, and n different, randomly determined points are chosen. These points are transferred to the label function of that sequence to determine the label (SOH) of that sequence snipped from the beginning up to that point. The selected snippets are then saved and used as training data for the regressor. 
@@ -214,12 +213,12 @@ Figure \ref{fig:4elems} gives a visual example of how three elements and the app
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth]{IMGs/4elems.png}
+	\includegraphics[width=1\linewidth]{IMGs/4elems.png}
 	\caption{Creation of three elements with the help of the label function}
 	\label{fig:4elems}
 \end{figure}
 \subsection{Training the Regressor}
-The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles but also because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled with zeros (zero-padding) to bring all elements to the same length.
+The created training data-set has the same structure as the classification trainig-set. The sections are now of different lengths, not only because of the different number of cycles but also because of the different selected points. The regressor must either be able to accept input vectors of different sizes or each sequence needs to be pre-filled or appended with zeros (zero-padding) to bring all elements to the same length.
 \section{Summary of the Proposed Method}
 The goal of the proposed method is to get a confidence value regarding the calculated damage sum D according to the Miner rule. It achieves that by first classifying a sequence into a category that represents the influence of the order of the loads. By doing so, it can be determined if the Miner rule is giving a conservative or lenient estimate. The classification is based on a supervised learning algorithm that uses load sequences that failed before and after reaching an accumulated damage sum D equal to unity. The second step is a regressor that predicts a state-of-health, which is a value calculated by extrapolating the expected failure point in time based on the load sequences that have the same effect based on the order of loads. With these two values, the confidence in the calculated damage sum D can be evaluated.
 Table \ref{cases} gives an overview on how to interpret the different combinations of the two values. 
@@ -231,10 +230,10 @@ Table \ref{cases} gives an overview on how to interpret the different combinatio
 			\rule{0pt}{2ex}Class & SOH & Effect\\
 			\hline
 			\hline
-			\rule{0pt}{2ex}-1 (Very damaging)&  0,5 & will fail at D<1, but can withstand many cycles with low load\\\hline
-			1 (less damaging)& 0,5 & will fail at D>1, and can withstand many cycles with high load\\\hline
-			-1 (Very damaging)&  0.9 & Will fail very soon\\\hline
-			1 (less damaging)& 0.9 & Will fail very soon but exceed D=1 if future load are high\\\hline
+			\rule{0pt}{2ex}-1 (Very damaging)&  0,5 & will fail at D<1, but can withstand many cycles with low loads\\\hline
+			1 (less damaging)& 0,5 & will fail at D>1, and can withstand many cycles with high loads\\\hline
+			-1 (Very damaging)& 0.9 & Will fail very soon\\\hline
+			1 (less damaging)& 0.9 & Will fail very soon but exceed D=1 if future loads are high\\\hline
 			\hline
 		\end{tabular}
 		\caption{Effect of the predicted class and SOH}

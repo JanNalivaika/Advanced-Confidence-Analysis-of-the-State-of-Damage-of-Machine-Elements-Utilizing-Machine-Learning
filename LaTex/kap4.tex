@@ -5,11 +5,11 @@ This chapter covers the implementation and results of the proposed method in cha
 \section{Implementation}
 \subsection{General Information regarding the Implementation}
 The method is implemented in Python 3.9.9 for its widespread availability of libraries for ML-algorithms.
-The libraries from which the classifier and regressors are taken are "scikit-learn" \cite{SKlearn}, "TSlearn" \cite{tslearn} and "xgboost" \cite{XG}.
-Multiple models are tested and compared regarding their performance. %Runtime comparisons are not performed.
+The libraries from which the classifiers and regressors are taken are:\newline "scikit-learn"~\cite{SKlearn}, "TSlearn"~\cite{tslearn} and "xgboost"~\cite{XG}.
+Multiple models from those libraries are tested and compared regarding their performance. %Runtime comparisons are not performed.
 \subsection{Data Cleanup}
 The first step is the cleanup of the data and its translation into a more flexible format. The recordings of the load sequences are provided in a text-file format that includes information such as displacements of the piston, cycle-time and cycle-count.
-Figure \ref{fig:recordinglabel} shows all the labels of the recorded values in the txt-file and their interpretation. All information is disregarded except the net force at each cycle-peak. The net force is the clamping force (lowest acting force) plus the recorded absolute peak (highest acting force). The order of loads is kept and the absolute values are transformed into an array that is stored as a NumPy file. 14 load sequences are available, which are transformed into 14 np-files and stored in a new folder. The np-file format allows for faster read times and takes up less space on the hard drive than the original txt-files. The names are not important and are thus also replaced by a simple index.
+Figure \ref{fig:recordinglabel} shows all the labels of the recorded values in the txt-file and their interpretation. All information is disregarded except the net force at each cycle-peak. The net force is the absolute clamping force (lowest acting force) plus the recorded absolute peak (highest acting force). The order of loads is kept, and the absolute values are transformed into an array that is stored as a NumPy file (np-file). 14 load sequences are available, which are transformed into 14 np-files and stored in a new folder. The np-file format allows for faster read times and takes up less space on the hard drive than the original txt-files. The names are not important and are thus also replaced by a simple index.
 
 
 \begin{figure}[H]
@@ -22,9 +22,7 @@ Figure \ref{fig:recordinglabel} shows all the labels of the recorded values in t
 \subsection{Data Augmentation}
 The data augmentation process starts with calculating the damage sum D with the help of the Basquin equation (see equation \ref{BQ}) and the Miner rule (see equation \ref{acc}).
 The parameters for the Basquin equation were provided and shown in table \ref{paramBQ}.
-Only forces higher than the endurance limit are selected when calculating the accumulated damage.  
-
-The calculated damage sum D according to the Miner rule of the available files are shown in table \ref{DamageSUMS}
+Only forces higher than the endurance limit are selected when calculating the accumulated damage. The calculated damage sum D according to the Miner rule for each available file are shown in table \ref{DamageSUMS}
 
 
 \begin{table}
@@ -48,7 +46,7 @@ The calculated damage sum D according to the Miner rule of the available files a
 			11 & 1.22\\ \hline
 			12 & 0.73 \\ \hline
 			13 & 1.1 \\ \hline
-			\hline
+
 		\end{tabular}
 		\caption{Damage sum D at failure of available load sequences}
 		\label{DamageSUMS}
@@ -68,7 +66,6 @@ The calculated damage sum D according to the Miner rule of the available files a
 			Reference value of fatigue strength = C & 11670367740000000\\	\hline
 			Value of the load at one cycle = L & values from array \\ \hline
 			Endurance limit & 56.618 kN \\ \hline
-			\hline
 		\end{tabular}
 		\caption{Parameters of the Basquin-equation and Endurance Limit}
 		\label{paramBQ}
@@ -80,7 +77,7 @@ The first step in DA is the addition of random noise. A np-file is loaded and th
 The random noise is in the form of a vector that has the same length as the loaded load sequence.
 The individual noise values follow a Gaussian distribution with a mean of 0 and a standard deviation of 0.2. 
 The values of that noise vector are also in kN and thus can be simply added.
-Figure \ref{fig:V5} shows a load sequence in its unedited form without the addition of noise. Figure \ref{fig:V5_noise} shows the same load sequence with the additional noise vector. As can be seen, the damage sum D is not changed enough to be noticeable when rounding to two decimal places. 
+Figure \ref{fig:V5} shows a load sequence in its unedited form without the addition of noise. Figure \ref{fig:V5_noise} shows the same load sequence with the additional noise vector. As can be seen, the damage sum D is not changed enough to be noticeable when rounding to two decimal places, even though there is a clearly visible difference in the load sequences.
 
 \begin{figure}[H]
 	\centering
@@ -294,7 +291,7 @@ Table \ref{score} shows the analyzed classifiers sorted by performance.
 			QuadraticDiscriminantAnalysis & 50.5 \% \\ \hline
 			GaussianNB & 32.9 \% \\ \hline
 			XGBoost & 8.5 \% \\ \hline
-			\hline
+
 		\end{tabular}
 		\caption{Average performance of classifiers}
 		\label{score}
