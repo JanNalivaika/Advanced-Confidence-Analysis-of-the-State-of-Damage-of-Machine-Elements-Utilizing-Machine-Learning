@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  3 SEP 2023 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.4)  4 SEP 2023 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2082,7 +2082,7 @@ LaTeX Warning: Empty bibliography on input line 68.
 enddocument/afterlastpage: lastpage setting LastPage.
 (projekt.aux)
 Package rerunfilecheck Info: File `projekt.out' has not changed.
-(rerunfilecheck)             Checksum: A5974D7303874A7778B0A1D071527E66;11209.
+(rerunfilecheck)             Checksum: C7B63234D184EC067C672D4CCC68934F;11148.
 Package logreq Info: Writing requests to 'projekt.run.xml'.
 \openout1 = `projekt.run.xml'.
 
@@ -2107,7 +2107,7 @@ Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/n
 aliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/User
 s/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/U
 sers/naliv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on projekt.pdf (78 pages, 17900238 bytes).
+Output written on projekt.pdf (78 pages, 17901293 bytes).
 PDF statistics:
  1621 PDF objects out of 1728 (max. 8388607)
  323 named destinations out of 1000 (max. 500000)

@@ -1,5 +1,5 @@
+import warnings
 import math
-
 import matplotlib.pyplot as plt
 import numpy as np
 import glob
@@ -25,9 +25,10 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import explained_variance_score
 from sklearn.metrics import max_error
 from sklearn.metrics import mean_absolute_error
-
+warnings.filterwarnings("ignore")
 
 def latex_plot(Y, name, step):
+    # Function for plotting Augmented load sequences
     plt.rcParams["figure.figsize"] = [21 / 2, 7.5 / 2]  # set figure size
     plt.ylabel("Force in [kN]")
     plt.xlabel(f'Cycle')
@@ -35,17 +36,19 @@ def latex_plot(Y, name, step):
     _, pos_80 = get_damage(Y, 0.8, step)
     end, pos_100 = get_damage(Y, 1, step)
     plt.title(f"Augmented Load History 5, D = {round(end, 2)}")
+    # Plotting horizontal lines
     if pos_50 > 0: plt.axvline(x=pos_50, color='green', label='D = 0.5')
     if pos_80 > 0: plt.axvline(x=pos_80, color='orange', label='D = 0.8')
     if pos_100 > 0: plt.axvline(x=pos_100, color='red', label='D = 1')
-    plt.plot(Y)
-    plt.legend(loc='upper center', bbox_to_anchor=(1.08, 1), fancybox=False, shadow=True)  # love legend right
-    #plt.savefig(f"../Latex/IMGs/Verlauf_5_{name}.jpg", bbox_inches='tight', dpi=800)
+    plt.plot(Y)  # Plotting Sequence
+    plt.legend(loc='upper center', bbox_to_anchor=(1.08, 1), fancybox=False, shadow=True)  # move legend right
+    # plt.savefig(f"../Latex/IMGs/Verlauf_5_{name}.jpg", bbox_inches='tight', dpi=800)
     plt.close()
 
 
 def get_damage(force, Damage_cut, step):
     force = abs(force)
+    # Parameters provided by O.G. Daiel Vietze
     k = 6.33048
     C = 11670367740000000
     D = 0
@@ -53,10 +56,10 @@ def get_damage(force, Damage_cut, step):
     end = 0
     for idx, elem in enumerate(force):
         if elem > Dauerfestigkeit:
-            possible_N = C * (elem ** -k)
-            D += step / possible_N
+            possible_N = C * (elem ** -k)  # Basquin Gleichung
+            D += step / possible_N  # Wöhler - Finding total Damage
             if D >= Damage_cut and end == 0:
-                end = idx
+                end = idx  # Finding index of selected damage sum D
     return D, end
 
 
@@ -113,7 +116,7 @@ def plot_load_sequence():
 
 
 def data_augmentation(stepper):
-    draw = False  # drawing all files
+    draw = True  # drawing all files
 
     augmented_counter = 0
     class1_counter = 0
@@ -177,7 +180,6 @@ def data_augmentation(stepper):
             augmented_dmg, _ = get_damage(Y, 1, 1)
             ratio = augmented_dmg / original_dmg
 
-
             if 0.9 < ratio < 1.1:
 
                 Y = Y[0::stepper]  # slecting every nth step
@@ -201,7 +203,7 @@ def data_augmentation(stepper):
                         class2_counter += 1
 
                     if idx == random_file_nr:
-                        # creating validation set
+                        # creating validation set NOT USED NORMALLY
                         np.save(f"Load_sequences_Unseen/{label}_{augmented_counter}.npy", Y)
                     else:
                         np.save(f"Load_sequences_Augmented/{label}_{augmented_counter}.npy", Y)
@@ -218,11 +220,13 @@ def data_augmentation(stepper):
                         _, pos_100 = get_damage(Y, 1, stepper)
 
                         if pos_50 > 0: plt.axvline(x=pos_50, color='green', label='D = 0.5', lw=0.5, linestyle='dashed')
-                        if pos_80 > 0: plt.axvline(x=pos_80, color='orange', label='D = 0.8', lw=0.5, linestyle='dashed')
+                        if pos_80 > 0: plt.axvline(x=pos_80, color='orange', label='D = 0.8', lw=0.5,
+                                                   linestyle='dashed')
                         if pos_100 > 0: plt.axvline(x=pos_100, color='red', label='D = 1', lw=0.5, linestyle='dashed')
 
                         plt.plot(Y)
         if draw:
+            # Plotting all augmented sequences in one plot
             plt.ylabel("Force in [kN]")
             plt.xlabel(f'Cycle * {stepper}')
             plt.title(f"load sequnece {idx}, Augmented Data, D_original = {round(original_dmg, 2)}")
@@ -234,7 +238,7 @@ def data_augmentation(stepper):
         plt.close()
 
     print(class1_counter, class2_counter, class3_counter)
-    print(f"Average lenght = {total_l/augmented_counter}")
+    print(f"Average lenght = {total_l / augmented_counter}")
     print(f"Max and Min lenght = {max_l}, {min_l}")
 
 
@@ -247,8 +251,8 @@ def load_data_classifier(D, stepper):
         arr = np.load(file)
         _, pos = get_damage(arr, D, stepper)
         # only include array in trainig set if damage sum D is higher that total damage of the load sequence
-        if pos >  0:
-            arr = arr[:pos] # Cut array at damage sum D of load sequences in testing set
+        if pos > 0:
+            arr = arr[:pos]  # Cut array at damage sum D of load sequences in testing set
             big_arr.append(arr)
             label = int((file.split("_")[2]).split("\\")[-1])
             labels.append(label)
@@ -257,23 +261,25 @@ def load_data_classifier(D, stepper):
                                                         stratify=labels)  #
     # print(np.sum(np.asarray(y_train) == -1), np.sum(np.asarray(y_train) == 0), np.sum(np.asarray(y_train) == 1))
 
+    # This part is not used !!!!!
     X_Never_seen = []
     Y_Never_seen = []
     files_unseen = glob.glob("Load_sequences_Unseen/*")
-    for file in files:
+
+    for file in files_unseen:
         arr = np.load(file)
         _, pos = get_damage(arr, D, stepper)
         # only include array in trainig set if damage sum D is higher that total damage of the load sequence
-        if pos >  0:
-            arr = arr[:pos] # Cut array at damage sum D of load sequences in testing set
+        if pos > 0:
+            arr = arr[:pos]  # Cut array at damage sum D of load sequences in testing set
             X_Never_seen.append(arr)
             label = int((file.split("_")[2]).split("\\")[-1])
             Y_Never_seen.append(label)
 
-    return X_train, X_test, y_train, y_test ,X_Never_seen, Y_Never_seen
+    return X_train, X_test, y_train, y_test, X_Never_seen, Y_Never_seen
 
 
-def train_test_classifier(X, x, Y, y, model):
+def train_test_classifier(X_train, x_test, Y, y, model):
     print("Stating Training")
     longest_list = 0
     Y = np.asarray(Y)
@@ -301,13 +307,13 @@ def train_test_classifier(X, x, Y, y, model):
         if model == 9: clf = QuadraticDiscriminantAnalysis()
         if model == 10: clf = KNeighborsClassifier(n_neighbors=3)
 
-        longest_list = max(max(len(elem) for elem in X), max(len(elem) for elem in x))
-        print("cheged here")
-        X = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in X]
+        # The input elements need to be brought to the same length
+        longest_list = max(max(len(elem) for elem in X_train), max(len(elem) for elem in x_test))
+        X = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in X_train]
 
         clf.fit(np.asarray(X), Y)
         print("Starting Testing")
-        IN = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in x]
+        IN = [np.insert(elem, len(elem), np.zeros(longest_list - len(elem)), axis=0) for elem in x_test]
         out = clf.predict(IN)
 
     correct = np.sum(out == y) / len(y)
@@ -317,9 +323,11 @@ def train_test_classifier(X, x, Y, y, model):
 
 
 def unseen_data_validation(clf, model, l):
+    # Was not used
     files = glob.glob("Load_sequences_Unseen/*")
     big_arr = []
     labels = []
+    # Loading as usual
     for file in files:
         arr = np.load(file)
         big_arr.append(arr)
@@ -329,6 +337,8 @@ def unseen_data_validation(clf, model, l):
     if model == 1 or model == 2:
         X = to_time_series_dataset(big_arr)
     else:
+        # adjusting length must be changed - This is not correct yet
+        # The classifier can be trained on longer or shorter elements
         X = [np.insert(elem, 0, np.zeros(l - len(elem)), axis=0) for elem in big_arr]
 
     out = clf.predict(X)
@@ -360,6 +370,7 @@ def load_data_regressor(D, s, c):
 
 def train_test_regressor(X, x, Y, y, model):
     print("Stating Training")
+    # Same principle as in regression
 
     longest_list = max(max(len(elem) for elem in X), max(len(elem) for elem in x))
     X = [np.insert(elem, 0, np.zeros(longest_list - len(elem)), axis=0) for elem in X]
@@ -373,11 +384,13 @@ def train_test_regressor(X, x, Y, y, model):
     out = reg.predict(x)
 
     error1 = mean_squared_error(y, out, squared=False)
+    #Mure metrics can be added here
 
     return error1
 
 
 def barplot(s):
+    # Very basic bar plot
     plt.rcParams["figure.figsize"] = [21 / 2, 9 / 2]
     fig = plt.figure()
 
@@ -391,6 +404,8 @@ def barplot(s):
          "GaussianNB",
          "QuadraticDiscriminantAnalysis",
          "KNeighborsClassifier"]
+
+
     plt.bar(x, s)
     plt.xticks(rotation=45, ha='right')
     plt.title("Average performance of Classifiers")
@@ -442,31 +457,27 @@ if __name__ == "__main__":
     9) QuadraticDiscriminantAnalysis
     10) KNeighborsClassifier
     """
-    selected_model_classification = 1  # Choose one model for testing
+
     D_cutoff = 0.6  # Select a cutoff point for Damage sum D
     files = glob.glob("Load_sequences_raw/*.txt")  # path to files
     stepper = 300  # step size for Dim Reduction
     score = np.zeros(10)  # value to keep track of score if model is tested over multiple files
 
-
     txt_to_numpy(files)  # Converting txt files to numpy arrays and storing in a new folder
     plot_load_sequence()  # Plotting all load sequences
     data_augmentation(stepper)  # Performing DA on all sequences
 
-
-    loops = 3
+    loops = 1
     for model in range(10):
         selected_model_classification = model + 1
         for loop in range(loops):
             data_augmentation(stepper)
-            X_train_c, X_test_c, y_train_c, y_test_c, _ , _  = load_data_classifier(D_cutoff, stepper)
+            X_train_c, X_test_c, y_train_c, y_test_c, _, _ = load_data_classifier(D_cutoff, stepper)
             classifier, length, correct = train_test_classifier(X_train_c, X_test_c, y_train_c, y_test_c,
                                                                 selected_model_classification)
             score[model] += correct / loops
             print(score)
             barplot(score)
-
-
 
     """
     SELECT A MODEL FOR REGRESSION

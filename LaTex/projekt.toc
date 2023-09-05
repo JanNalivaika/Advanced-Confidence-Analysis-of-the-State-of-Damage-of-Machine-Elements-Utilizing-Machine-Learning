@@ -64,5 +64,5 @@
 \contentsline {subsection}{\numberline {4.3.2}Results of Regression}{53}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Critical Discussion of Results}{53}{subsection.4.3.3}%
 \contentsline {chapter}{\numberline {5}Conclusion}{55}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Summary of Results}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Summary}{55}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Outlook}{55}{section.5.2}%
