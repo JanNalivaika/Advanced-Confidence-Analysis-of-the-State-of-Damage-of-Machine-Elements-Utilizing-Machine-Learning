@@ -10,7 +10,7 @@
 \ExecuteOptions{english}
 \ProcessOptions\relax%
 
-\LoadClass[11pt,a4paper,fleqn]{report}
+\LoadClass[11pt,a4paper,fleqn,twoside]{report}
 
 %Verbessertes Float-Handling mit Schalter H (gleiche Position wie im Skript)
 \RequirePackage{float}
@@ -541,6 +541,27 @@ Die Arbeit wurde bisher keiner anderen Prüfungsbehörde vorgelegt.\vspace{4ex}\
 \cleardoublepage
 }
 
+
+
+\newcommand{\Nomenclature}{\newpage
+	\begin{otherlanguage}{ngerman}%
+		\chapter*{Nomenclature}%\vspace{0,5cm}\\
+		\begin{tabular}{llp{0.7\textwidth}}
+			\textbf{Symbol} & \textbf{Unit} & \textbf{Designation}\\
+			$C$ & kN & Reference value of fatigue strength\\
+			$D$ & - & Damage sum \\
+			${L_a}$ & kN & Amplitde of load  $a$\\
+			${-k}$ & -  & slope of the S-N fatigue strength curve \\
+			${N_i}$ & - & Maximum load cycles at \(i^{th}\) level\\
+			${n_i}$ & - & Load cycles at \(i^{th}\) level\\
+
+		\end{tabular}
+	\end{otherlanguage}%
+	\cleardoublepage
+}
+
+
+
 \newcommand{\Aufgabenstellung}{\newpage
 % \chapter*{Aufgabenstellung}%\\[0,1cm]
 %\vspace*{-2.5ex}
@@ -583,13 +604,15 @@ Die Nutzungsrechte an dieser Arbeit gehen an den Lehrstuhl für Maschinenelement
 
 \renewcommand*\maketitle{%
 \pagenumbering{Roman}
+\setcounter{page}{0}
 %
 \titlepage
 \Aufgabenstellung
 \DiplomErklaerung
 \Danksagung
+\Nomenclature
 \renewcommand{\baselinestretch}{1.35}\normalsize 
-\tableofcontents 
+\tableofcontents  
 \renewcommand{\baselinestretch}{1.241}\normalsize
 %
 % Abbildungsverzeichnis % Todo: Eventuell Option hinzufügen
